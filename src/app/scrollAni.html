@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QNTSK8EJFF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QNTSK8EJFF');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation</title>
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.17/dist/lenis.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .grid div {
+            --r: 0;
+            --c: 0;
+            grid-row: var(--r);
+            grid-column: var(--c);
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 text-white overflow-hidden">
+    <div class="grid">
+        <div class="grid grid-cols-8 gap-4 p-4">
+            <!-- Generate 20 rows x 8 columns = 160 images -->
+            <div class="elem row-span-1 col-span-1" style="--r: 3; --c: 5;">
+                <img src="https://picsum.photos/200/300?random=1" alt="Random 1" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 6; --c: 4;">
+                <img src="https://picsum.photos/200/300?random=2" alt="Random 2" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 4; --c: 2;">
+                <img src="https://picsum.photos/200/300?random=3" alt="Random 3" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 6; --c: 8;">
+                <img src="https://picsum.photos/200/300?random=4" alt="Random 4" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 5; --c: 3;">
+                <img src="https://picsum.photos/200/300?random=5" alt="Random 5" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 1; --c: 4;">
+                <img src="https://picsum.photos/200/300?random=6" alt="Random 6" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 6; --c: 1;">
+                <img src="https://picsum.photos/200/300?random=7" alt="Random 7" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 4; --c: 6;">
+                <img src="https://picsum.photos/200/300?random=8" alt="Random 8" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 2; --c: 3;">
+                <img src="https://picsum.photos/200/300?random=9" alt="Random 9" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 5; --c: 7;">
+                <img src="https://picsum.photos/200/300?random=10" alt="Random 10" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 1; --c: 2;">
+                <img src="https://picsum.photos/200/300?random=11" alt="Random 11" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 4; --c: 4;">
+                <img src="https://picsum.photos/200/300?random=12" alt="Random 12" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 2; --c: 1;">
+                <img src="https://picsum.photos/200/300?random=13" alt="Random 13" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 5; --c: 5;">
+                <img src="https://picsum.photos/200/300?random=14" alt="Random 14" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 3; --c: 8;">
+                <img src="https://picsum.photos/200/300?random=15" alt="Random 15" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 1; --c: 6;">
+                <img src="https://picsum.photos/200/300?random=16" alt="Random 16" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 4; --c: 8;">
+                <img src="https://picsum.photos/200/300?random=17" alt="Random 17" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 2; --c: 7;">
+                <img src="https://picsum.photos/200/300?random=18" alt="Random 18" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 5; --c: 1;">
+                <img src="https://picsum.photos/200/300?random=19" alt="Random 19" class="w-full h-auto rounded-lg">
+            </div>
+            <div class="elem row-span-1 col-span-1" style="--r: 3; --c: 3;">
+                <img src="https://picsum.photos/200/300?random=20" alt="Random 20" class="w-full h-auto rounded-lg">
+            </div>
+         </div>
+        <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-50 pointer-events-none">
+            <h1 class="text-8xl font-bold text-white mix-blend-difference mb-4">BRAND NAME</h1>
+            <p class="text-2xl font-light text-white mix-blend-difference">ブランドのタグライン</p>
+        </div>
+    </div>
+    <div class="mx-auto my-20 p-12 bg-[#d1d1d1] text-center justify-center flex flex-col w-full h-screen mb-0 relative z-[999]">
+        <p class="text-gray-800 text-lg leading-relaxed">
+            Our brand stands for quality and innovation. We believe in creating products that not only meet but exceed expectations. With years of dedication to craftsmanship and attention to detail, we continue to push boundaries and set new standards in our industry®.
+        </p>
+    </div>
+    <script src="https://unpkg.com/lenis@1.1.17/dist/lenis.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
