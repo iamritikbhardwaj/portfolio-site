@@ -25,42 +25,42 @@ export default function page() {
     gsap.registerPlugin(ScrollTrigger);
 
     // Animate images on scroll
-    gsap.utils.toArray('.elem').forEach((elem, index) => {
-      gsap.fromTo(elem, 
-        {
-          opacity: 0,
-          scale: 0.8,
-          rotation: Math.random() * 20 - 10,
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          rotation: 0,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: elem,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
-          }
-        }
-      );
-    });
+    // gsap.utils.toArray('.elem').forEach((elem, index) => {
+    //   gsap.fromTo(elem, 
+    //     {
+    //       opacity: 0,
+    //       scale: 0.8,
+    //       rotation: Math.random() * 20 - 10,
+    //     },
+    //     {
+    //       opacity: 1,
+    //       scale: 1,
+    //       rotation: 0,
+    //       duration: 1,
+    //       ease: "power2.out",
+    //       scrollTrigger: {
+    //         trigger: elem,
+    //         start: "top 80%",
+    //         end: "bottom 20%",
+    //         toggleActions: "play none none reverse",
+    //       }
+    //     }
+    //   );
+    // });
 
     // Parallax effect for images
-    gsap.utils.toArray('.elem').forEach((elem) => {
-      gsap.to(elem, {
-        y: -50,
-        ease: "none",
-        scrollTrigger: {
-          trigger: elem,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        }
-      });
-    });
+    // gsap.utils.toArray('.elem').forEach((elem) => {
+    //   gsap.to(elem, {
+    //     y: -50,
+    //     ease: "none",
+    //     scrollTrigger: {
+    //       trigger: elem,
+    //       start: "top bottom",
+    //       end: "bottom top",
+    //       scrub: true,
+    //     }
+    //   });
+    // });
 
     // Cleanup
     return () => {
