@@ -5,8 +5,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM node:alpine as runtime
-WORKDIR /app
-COPY --from=build /app/out ./
+FROM nginx:alpine
+COPY --from=build /app/out /usr/share/nginx/html
 EXPOSE 3000
-CMD ["npm", "start"] 
+CMD ["nginx", "-g", "daemon off;"]
