@@ -108,7 +108,7 @@ const page: React.FC = () => {
       title: 'Scroll Animation Project',
       description: 'A smooth scrolling animation project with dynamic image transitions and modern UI interactions.',
       technologies: ['HTML', 'CSS', 'JavaScript'],
-      demo: './scrollAni.html',
+      demo: './scrollani',
       github: 'https://github.com/iamritikbhardwaj/scroll-animation'
     },
     {
