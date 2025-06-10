@@ -1,213 +1,456 @@
-import {
-  faReact,
-  faJs,
-  faGit,
-  faNode,
-  faJava,
-  faLinkedin,
-  faWhatsapp,
-  faGithub,
-  faAws,
-  faEthereum,
-} from "@fortawesome/free-brands-svg-icons";
-import { faCss3 } from "@fortawesome/free-brands-svg-icons/faCss3";
-import { faHtml5 } from "@fortawesome/free-brands-svg-icons/faHtml5";
-import { faLinux } from "@fortawesome/free-brands-svg-icons/faLinux";
-import { faCode, faEnvelope, faLeaf } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
+'use client';
 
-export default function Home() {
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { 
+  Code, 
+  Home, 
+  User, 
+  Briefcase, 
+  Mail, 
+  Linkedin, 
+  Github, 
+  Download,
+  ExternalLink,
+  Menu,
+  X,
+  ChevronDown
+} from 'lucide-react';
+import styles from './page.module.css';
+
+// Type definitions
+interface NavigationItem {
+  id: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+interface Skill {
+  name: string;
+  color: string;
+  level: number;
+}
+
+interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  demo: string;
+  github: string;
+  image?: string;
+}
+
+interface ContactItem {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  value: string;
+  href: string;
+  target?: '_blank';
+}
+
+const page: React.FC = () => {
+  // State with proper typing
+  const [activeSection, setActiveSection] = useState<string>('home');
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  // Effect for scroll handling
+  useEffect(() => {
+    const handleScroll = (): void => {
+      setIsScrolled(window.scrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections: string[] = ['home', 'about', 'work', 'contact'];
+      const current = sections.find((section: string) => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Smooth scroll function
+  const scrollToSection = (sectionId: string): void => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
+  // Data arrays with proper typing
+  const navigationItems: NavigationItem[] = [
+    { id: 'home', label: 'Home', icon: Home },
+    { id: 'about', label: 'About', icon: User },
+    { id: 'work', label: 'Work', icon: Briefcase },
+    { id: 'contact', label: 'Contact', icon: Mail }
+  ];
+
+  const skills: Skill[] = [
+    { name: 'JavaScript', color: 'yellow', level: 90 },
+    { name: 'TypeScript', color: 'blue', level: 85 },
+    { name: 'React', color: 'cyan', level: 85 },
+    { name: 'Next.js', color: 'white', level: 80 },
+    { name: 'Node.js', color: 'green', level: 80 },
+    { name: 'Java', color: 'red', level: 75 },
+    { name: 'Git', color: 'orange', level: 85 },
+    { name: 'Linux', color: 'gray', level: 70 },
+    { name: 'AWS', color: 'orange-light', level: 65 },
+    { name: 'Blockchain', color: 'purple', level: 60 }
+  ];
+
+  const projects: Project[] = [
+    {
+      title: 'Scroll Animation Project',
+      description: 'A smooth scrolling animation project with dynamic image transitions and modern UI interactions.',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      demo: './scrollAni.html',
+      github: 'https://github.com/iamritikbhardwaj/scroll-animation'
+    },
+    {
+      title: 'E-Commerce Platform',
+      description: 'Full-stack e-commerce solution with React frontend and Node.js backend.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'TypeScript'],
+      demo: '/jymanime',
+      github: 'https://github.com/iamritikbhardwaj/ecommerce'
+    },
+    {
+      title: 'Blockchain Voting App',
+      description: 'Decentralized voting application built on Ethereum blockchain.',
+      technologies: ['Solidity', 'Web3.js', 'React', 'Ethereum'],
+      demo: '#',
+      github: 'https://github.com/iamritikbhardwaj/blockchain-voting'
+    }
+  ];
+
+  const contactItems: ContactItem[] = [
+    { 
+      icon: Mail, 
+      label: 'Email', 
+      value: 'ritiklrt2@gmail.com', 
+      href: 'mailto:ritiklrt2@gmail.com' 
+    },
+    { 
+      icon: Linkedin, 
+      label: 'LinkedIn', 
+      value: 'Connect with me', 
+      href: 'https://www.linkedin.com/in/ritik-singh-10b333227',
+      target: '_blank'
+    },
+    { 
+      icon: Github, 
+      label: 'GitHub', 
+      value: 'View my code', 
+      href: 'https://github.com/iamritikbhardwaj',
+      target: '_blank'
+    },
+    { 
+      icon: Download, 
+      label: 'Resume', 
+      value: 'Download CV', 
+      href: './Resume.pdf',
+      target: '_blank'
+    }
+  ];
+
+  const socialLinks = [
+    {
+      href: 'https://www.linkedin.com/in/ritik-singh-10b333227',
+      icon: Linkedin,
+      label: 'LinkedIn Profile',
+      hoverColor: 'linkedin'
+    },
+    {
+      href: 'https://github.com/iamritikbhardwaj',
+      icon: Github,
+      label: 'GitHub Profile',
+      hoverColor: 'github'
+    },
+    {
+      href: 'mailto:ritiklrt2@gmail.com',
+      icon: Mail,
+      label: 'Email',
+      hoverColor: 'email'
+    }
+  ];
+
   return (
-    <div className="text-cyan-600">
-      <header className="text-gray-300">
-        <nav id="nav" aria-label="">
-          <div className="justify-center p-2 flex justify-content-around">
-            <div className="hidden md:block">
-              <FontAwesomeIcon icon={faCode} />
+    <div className={styles.container}>
+      {/* Enhanced Navigation */}
+      <nav className={`${styles.nav} ${isScrolled ? styles.navScrolled : ''}`}>
+        <div className={styles.navContainer}>
+          <div className={styles.navContent}>
+            {/* Logo */}
+            <div className={styles.logo}>
+              <div className={styles.logoIcon}>
+                <Code className={styles.logoIconSvg} />
+              </div>
+              <span className={styles.logoText}>
+                Ritik Singh
+              </span>
             </div>
-            <div className="hidden md:block align-middle">
-              <ul className="flex justify-around mx-4 sm:mx-20 sm:text-2xl border-2 rounded-full p-6">
-                <li id="li1">
-                  <Link href="#home">Home</Link>
-                </li>
-                <li id="li2">
-                  <Link href="#about">About</Link>
-                </li>
-                <li id="li3">
-                  <Link href="#work">Work</Link>
-                </li>
-                <li id="li4">
-                  <Link href="#contact">Contact</Link>
-                </li>
-              </ul>
-            </div>
-            <div
-              id="socials"
-              className=" hidden md:block text-2xl text-yellow-600"
-            >
-              <Link
-                id="nava"
-                className="m-1"
-                href="https://www.linkedin.com/in/ritik-singh-10b333227"
-                target="_blank"
-                title="LinkedIn Profile"
-              >
-                <FontAwesomeIcon
-                  icon={faLinkedin}
-                  className="text-yellow-800"
-                />
-              </Link>
-              <Link
-                href="https://wa.me/9119060487
-          "
-              >
-                <FontAwesomeIcon icon={faWhatsapp} />
-              </Link>
 
-              <Link
-                id="nava1"
-                className="m-1 text-2xl"
-                href="https://github.com/iamritikbhardwaj"
-                target="_blank"
-                title="GitHub Profile"
-              >
-                <i className="fab fa-github"></i>
-              </Link>
-              <Link href="mailto:ritiklrt2@gmail.com">
-                <FontAwesomeIcon icon={faEnvelope} />
-              </Link>
+            {/* Desktop Navigation */}
+            <div className={styles.desktopNav}>
+              {navigationItems.map(({ id, label, icon: Icon }) => (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className={`${styles.navButton} ${
+                    activeSection === id ? styles.navButtonActive : ''
+                  }`}
+                  aria-label={`Navigate to ${label} section`}
+                >
+                  <Icon className={styles.navIcon} />
+                  <span>{label}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Social Links */}
+            <div className={styles.socialLinks}>
+              {socialLinks.map(({ href, icon: Icon, label, hoverColor }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className={`${styles.socialLink} ${styles[`socialLink${hoverColor.charAt(0).toUpperCase() + hoverColor.slice(1)}`]}`}
+                  aria-label={label}
+                >
+                  <Icon className={styles.socialIcon} />
+                </Link>
+              ))}
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={styles.mobileMenuButton}
+              aria-label="Toggle mobile menu"
+            >
+              {isMenuOpen ? <X className={styles.menuIcon} /> : <Menu className={styles.menuIcon} />}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <div className={styles.mobileMenu}>
+              {navigationItems.map(({ id, label, icon: Icon }) => (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className={styles.mobileNavButton}
+                  aria-label={`Navigate to ${label} section`}
+                >
+                  <Icon className={styles.mobileNavIcon} />
+                  <span>{label}</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section id="home" className={styles.heroSection}>
+        <div className={styles.heroContent}>
+          <div className={styles.heroAvatar}>
+            <div className={styles.avatarContainer}>
+              <div className={styles.avatarInner}>
+                <Code className={styles.avatarIcon} />
+              </div>
             </div>
           </div>
-        </nav>
-      </header>
-
-      {/* <!-- Home Section --> */}
-      <section id="home">
-        {/* <img src="/https://avatars.githubusercontent.com/u/87214866?v=4" alt="ritik" className="text-gray-300" /> */}
-        <h1 className="text-4xl text-gray-300">
-          Ritik Singh | Full Stack Developer
-        </h1>
-        <p>
-          I speak in <code className="text-green-600 text-2xl">&lt;code&gt;</code> so you don't have to.
-        </p>
+          
+          <h1 className={styles.heroTitle}>
+            <span className={styles.gradientText}>
+              Ritik Singh
+            </span>
+          </h1>
+          
+          <p className={styles.heroSubtitle}>Full Stack Developer</p>
+          
+          <p className={styles.heroDescription}>
+            I speak in <code className={styles.codeTag}>&lt;code&gt;</code> so you don't have to.
+          </p>
+          
+          <div className={styles.heroButtons}>
+            <button
+              onClick={() => scrollToSection('work')}
+              className={styles.primaryButton}
+              aria-label="View my work section"
+            >
+              View My Work
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className={styles.secondaryButton}
+              aria-label="Get in touch section"
+            >
+              Get In Touch
+            </button>
+          </div>
+          
+          <div className={styles.scrollIndicator}>
+            <ChevronDown className={styles.scrollIcon} />
+          </div>
+        </div>
       </section>
 
-      {/* <!-- About Section --> */}
-      <section id="about">
-        <h2 className="text-4xl text-gray-300">About Me</h2>
-        <p>
-          I am a passionate Full-Stack Developer, based in India, creating
-          innovative solutions with technologies like JavaScript, React,
-          Node.js, and more. I enjoy using my skill-set to empower people to
-          accomplish their goals.
-        </p>
-      </section>
-
-      {/* <!-- Work Section --> */}
-      <section id="work">
-        <h2 className="text-4xl text-gray-300">Featured Projects</h2>
-        <div className="bg-slate-800 flex flex-row justify-center p-2 mx-20">
-          <div className="flex flex-col justify-center mx-20">
-            <h3>Project 1: Scroll Animation</h3>
-            <p>
-              A smooth scrolling animation project with dynamic image
-              transitions.
+      {/* About Section */}
+      <section id="about" className={styles.aboutSection}>
+        <div className={styles.sectionContainer}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>
+              About Me
+            </h2>
+            <p className={styles.sectionDescription}>
+              I am a passionate Full-Stack Developer based in India, creating innovative solutions with modern technologies. 
+              I enjoy using my skill-set to empower people to accomplish their goals.
             </p>
           </div>
-          <Link
-            href="./scrollAni.html"
-            title="Click to open scroll animation project"
-          >
-            <div className="hidden shadow-xs sm:block mx-20">
-              <iframe
-                src="scrollAni.html"
-                title="Scroll Animation Project Preview"
-              ></iframe>
+
+          <div className={styles.aboutContent}>
+            <div className={styles.skillsSection}>
+              <h3 className={styles.skillsTitle}>My Skills</h3>
+              {skills.map((skill: Skill, index: number) => (
+                <div key={skill.name} className={styles.skillItem}>
+                  <div className={styles.skillHeader}>
+                    <span className={`${styles.skillName} ${styles[`skill${skill.color.charAt(0).toUpperCase() + skill.color.slice(1)}`]}`}>
+                      {skill.name}
+                    </span>
+                    <span className={styles.skillLevel}>{skill.level}%</span>
+                  </div>
+                  <div className={styles.skillBar}>
+                    <div 
+                      className={styles.skillProgress}
+                      style={{ width: `${skill.level}%` }}
+                      role="progressbar"
+                      aria-valuenow={skill.level}
+                      aria-valuemin={0}
+                      aria-valuemax={100}
+                      aria-label={`${skill.name} skill level: ${skill.level}%`}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
-          </Link>
-        </div>
-        <div className="text-lg mt-6">
-          <div className="flex justify-center mt-2 p-2">
-            <img
-              src="https://img.icons8.com/ios-filled/50/000000/sword.png"
-              alt="Icon representing Weapons for development tools"
-            />
-
-            <h3 id="weapons" className="text-6xl text-gray-300 mx-2">
-              My Weapons
-            </h3>
-          </div>
-          <div className="flex justify-around-center text-gray-300  p-2">
-            <FontAwesomeIcon icon={faJs} className="text-yellow-300"/>
-
-            <FontAwesomeIcon icon={faReact} className="text-cyan-500"/>
-
-            <FontAwesomeIcon icon={faNode} className="text-green-500"/>
-
-            <FontAwesomeIcon icon={faJava} />
-
-            <FontAwesomeIcon icon={faGit} className="text-orange-500"/>
-
-            <FontAwesomeIcon icon={faLinux} />
-
-            <FontAwesomeIcon icon={faEthereum} className="text-purple-400" />
-
-            <FontAwesomeIcon icon={faAws} />
-
-            {/* add tailwind as well */}
+            
+            <div className={styles.servicesSection}>
+              <h3 className={styles.servicesTitle}>What I Do</h3>
+              <div className={styles.servicesList}>
+                {[
+                  'Frontend Development with React, Next.js, and modern JavaScript/TypeScript',
+                  'Backend Development with Node.js, Java, and cloud services',
+                  'Blockchain Development and Smart Contract creation',
+                  'DevOps and Cloud Infrastructure on AWS'
+                ].map((service: string, index: number) => (
+                  <div key={index} className={styles.serviceItem}>
+                    <div className={`${styles.serviceDot} ${styles[`serviceDot${index}`]}`} />
+                    <p className={styles.serviceText}>{service}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* <!-- Contact Section --> */}
-      <section id="contact">
-        <h2 className="text-4xl text-gray-300">Contact</h2>
-        <p>Get in touch if you want to work together!</p>
-        <div className="flex justify-center text-gray-300 spacing-2 p-2">
-          <Link href="mailto:ritiklrt2@gmail.com">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/ritik-singh-10b333227"
-            target="_blank"
-            title="LinkedIn Profile"
-          >
-            <FontAwesomeIcon icon={faLinkedin} />
-          </Link>
-          <Link href="https://wa.me/9119060487">
-            <FontAwesomeIcon icon={faWhatsapp} />
-          </Link>
-          <Link
-            href="https://github.com/iamritikbhardwaj"
-            target="_blank"
-            title="GitHub Profile"
-          >
-            <FontAwesomeIcon icon={faGithub} />
-          </Link>
+      {/* Work Section */}
+      <section id="work" className={styles.workSection}>
+        <div className={styles.sectionContainer}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>
+              Featured Projects
+            </h2>
+            <p className={styles.sectionDescription}>Some of my recent work</p>
+          </div>
+
+          <div className={styles.projectsGrid}>
+            {projects.map((project: Project, index: number) => (
+              <article key={index} className={styles.projectCard}>
+                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <p className={styles.projectDescription}>{project.description}</p>
+                
+                <div className={styles.techTags}>
+                  {project.technologies.map((tech: string, techIndex: number) => (
+                    <span key={techIndex} className={styles.techTag}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className={styles.projectLinks}>
+                  <Link 
+                    href={project.demo} 
+                    className={styles.demoLink}
+                    aria-label={`View demo of ${project.title}`}
+                  >
+                    <ExternalLink className={styles.linkIcon} />
+                    <span>Demo</span>
+                  </Link>
+                  <Link 
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.codeLink}
+                    aria-label={`View source code of ${project.title}`}
+                  >
+                    <Github className={styles.linkIcon} />
+                    <span>Code</span>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* <!-- Resume Section --> */}
-      <section className="hidden sm:block">
-        <h2 className="text-4xl text-gray-300">Get My Resume</h2>
-        <p>Click the download button to get a copy of my resume.</p>
-        <div className="flex flex-row justify-center">
-          <iframe
-            src="./Resume.pdf"
-            width="600"
-            height="400"
-            title="Resume PDF Viewer"
-          ></iframe>
+      {/* Contact Section */}
+      <section id="contact" className={styles.contactSection}>
+        <div className={styles.contactContainer}>
+          <h2 className={styles.sectionTitle}>
+            Get In Touch
+          </h2>
+          <p className={styles.contactDescription}>
+            Ready to work together? Let&apos;s create something amazing!
+          </p>
+          
+          <div className={styles.contactGrid}>
+            {contactItems.map((contact: ContactItem, index: number) => (
+              <Link
+                key={index}
+                href={contact.href}
+                target={contact.target}
+                rel={contact.target === '_blank' ? 'noopener noreferrer' : undefined}
+                className={styles.contactCard}
+                aria-label={`${contact.label}: ${contact.value}`}
+              >
+                <contact.icon className={styles.contactIcon} />
+                <h3 className={styles.contactLabel}>{contact.label}</h3>
+                <p className={styles.contactValue}>{contact.value}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* <!-- Footer --> */}
-      <footer>
-        <p className="text-sm text-gray-300">
-          Designed and Developed by Ritik Singh<sup>&trade;</sup>
-        </p>
+      {/* Footer */}
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          <p className={styles.footerText}>
+            Designed and Developed by <span className={styles.footerName}>Ritik Singh</span>
+            <sup className={styles.footerTrademark}>™</sup>
+          </p>
+        </div>
       </footer>
     </div>
   );
-}
+};
+
+export default page;
