@@ -125,7 +125,7 @@ export default function page() {
             <div className="elem" style={{'--r': 2, '--c': 3} as React.CSSProperties}>
               <img src="https://picsum.photos/200/300?random=9" alt="Random 9" />
             </div>
-            <div className="elem" style={{'--r': 5, '--c': 7} as React.CSSProperties}>
+            <div className="elem" style={{'--r': 5, '--c': 7} as React.CSSProperties}> 
               <img src="https://picsum.photos/200/300?random=10" alt="Random 10" />
             </div>
             <div className="elem" style={{'--r': 1, '--c': 2} as React.CSSProperties}>
