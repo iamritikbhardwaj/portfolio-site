@@ -91,16 +91,19 @@ const page: React.FC = () => {
   ];
 
   const skills: Skill[] = [
-    { name: 'JavaScript', color: 'yellow', level: 90 },
     { name: 'TypeScript', color: 'blue', level: 85 },
     { name: 'React', color: 'cyan', level: 85 },
     { name: 'Next.js', color: 'white', level: 80 },
     { name: 'Node.js', color: 'green', level: 80 },
+    { name: 'Golang', color: 'blue', level: 50 },
     { name: 'Java', color: 'red', level: 75 },
     { name: 'Git', color: 'orange', level: 85 },
     { name: 'Linux', color: 'gray', level: 70 },
     { name: 'AWS', color: 'orange-light', level: 65 },
-    { name: 'Blockchain', color: 'purple', level: 60 }
+    { name: 'Blockchain', color: 'purple', level: 60 },
+    { name: 'Docker', color: 'blue-light', level: 60 },
+    { name: 'Github Actions', color: 'gray', level: 60 },
+    { name: 'NGINX', color: 'red', level: 50 }
   ];
 
   const projects: Project[] = [
