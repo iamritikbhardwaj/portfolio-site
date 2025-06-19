@@ -155,7 +155,7 @@ const page: React.FC = () => {
       icon: Download, 
       label: 'Resume', 
       value: 'Download CV', 
-      href: './RitkResume.pdf',
+      href: 'https://myactivitycrmbucket.s3.us-east-1.amazonaws.com/airTicketdocRitik%20Resume.pdf',
       target: '_blank'
     }
   ];
