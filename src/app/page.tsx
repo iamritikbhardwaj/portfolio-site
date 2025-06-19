@@ -155,7 +155,7 @@ const page: React.FC = () => {
       icon: Download, 
       label: 'Resume', 
       value: 'Download CV', 
-      href: './Resume.pdf',
+      href: './RitkResume.pdf',
       target: '_blank'
     }
   ];
