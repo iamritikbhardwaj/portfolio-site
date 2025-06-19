@@ -112,21 +112,21 @@ const page: React.FC = () => {
       description: 'A smooth scrolling animation project with dynamic image transitions and modern UI interactions.',
       technologies: ['HTML', 'CSS', 'JavaScript'],
       demo: './scrollani',
-      github: 'https://github.com/iamritikbhardwaj/scroll-animation'
+      github: 'https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/scrollani'
     },
     {
       title: 'E-Commerce Platform',
       description: 'Full-stack e-commerce solution with React frontend and Node.js backend.',
       technologies: ['React', 'Node.js', 'MongoDB', 'TypeScript'],
       demo: '/jymanime',
-      github: 'https://github.com/iamritikbhardwaj/ecommerce'
+      github: 'https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/jymanime'
     },
     {
       title: 'Blockchain Voting App',
       description: 'Decentralized voting application built on Ethereum blockchain.',
       technologies: ['Solidity', 'Web3.js', 'React', 'Ethereum'],
       demo: '#',
-      github: 'https://github.com/iamritikbhardwaj/blockchain-voting'
+      github: 'https://github.com/iamritikbhardwaj/portfolio-site'
     }
   ];
 
