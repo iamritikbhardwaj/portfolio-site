@@ -122,7 +122,7 @@ const page: React.FC = () => {
       description:
         "A lightweight, fast, and extensible web reconnaissance tool built in Go for port probing, DNS lookups, and security recon tasks.",
       technologies: ["Go", "net/http", "net.DialTimeout", "net.LookupCNAME"],
-      demo: "https://github.com/iamritikbhardwaj/gorecon",
+      demo: "./gorecon",
       github: "https://github.com/iamritikbhardwaj/gorecon",
     },
     {
