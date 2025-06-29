@@ -113,7 +113,7 @@ const page: React.FC = () => {
       description:
         "A smooth scrolling animation project with dynamic image transitions and modern UI interactions.",
       technologies: ["HTML", "CSS", "JavaScript"],
-      demo: "https://crm.tomatotrails.com/portfolio/scrollani",
+      demo: "https://crm.tomatotrails.com/portfolio/scrollani/",
       github:
         "https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/scrollani",
     },
@@ -122,7 +122,7 @@ const page: React.FC = () => {
       description:
         "A lightweight, fast, and extensible web reconnaissance tool built in Go for port probing, DNS lookups, and security recon tasks.",
       technologies: ["Go", "net/http", "net.DialTimeout", "net.LookupCNAME"],
-      demo: "https://crm.tomatotrails.com/portfolio/gorecon",
+      demo: "https://crm.tomatotrails.com/portfolio/gorecon/",
       github: "https://github.com/iamritikbhardwaj/gorecon",
     },
     {
@@ -130,7 +130,7 @@ const page: React.FC = () => {
       description:
         "Full-stack e-commerce solution with React frontend and Node.js backend.",
       technologies: ["React", "Node.js", "MongoDB", "TypeScript"],
-      demo: "https://crm.tomatotrails.com/portfolio/jymanime",
+      demo: "https://crm.tomatotrails.com/portfolio/jymanime/",
       github:
         "https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/jymanime",
     },
