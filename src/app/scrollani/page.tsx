@@ -1,6 +1,6 @@
 "use client";
 // pages/index.js or app/page.js (depending on your Next.js version)
-import { use, useEffect } from 'react';
+import { useEffect } from 'react';
 import Head from 'next/head';
 import Lenis from '@studio-freight/lenis';
 import { gsap } from 'gsap';
@@ -24,43 +24,47 @@ export default function page() {
     // GSAP ScrollTrigger animations
     gsap.registerPlugin(ScrollTrigger);
 
-    // Animate images on scroll
-    // gsap.utils.toArray('.elem').forEach((elem, index) => {
-    //   gsap.fromTo(elem, 
-    //     {
-    //       opacity: 0,
-    //       scale: 0.8,
-    //       rotation: Math.random() * 20 - 10,
-    //     },
-    //     {
-    //       opacity: 1,
-    //       scale: 1,
-    //       rotation: 0,
-    //       duration: 1,
-    //       ease: "power2.out",
-    //       scrollTrigger: {
-    //         trigger: elem,
-    //         start: "top 80%",
-    //         end: "bottom 20%",
-    //         toggleActions: "play none none reverse",
-    //       }
-    //     }
-    //   );
-    // });
+    // Animate images on scroll - FIXED VERSION
+    gsap.utils.toArray('.elem').forEach((elem, index) => {
+      const element = elem as HTMLElement; // Type assertion to fix TypeScript error
+      
+      gsap.fromTo(element, 
+        {
+          opacity: 0,
+          scale: 0.8,
+          rotation: Math.random() * 20 - 10,
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          }
+        }
+      );
+    });
 
-    // Parallax effect for images
-    // gsap.utils.toArray('.elem').forEach((elem) => {
-    //   gsap.to(elem, {
-    //     y: -50,
-    //     ease: "none",
-    //     scrollTrigger: {
-    //       trigger: elem,
-    //       start: "top bottom",
-    //       end: "bottom top",
-    //       scrub: true,
-    //     }
-    //   });
-    // });
+    // Parallax effect for images - FIXED VERSION
+    gsap.utils.toArray('.elem').forEach((elem) => {
+      const element = elem as HTMLElement; // Type assertion to fix TypeScript error
+      
+      gsap.to(element, {
+        y: -50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: element,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        }
+      });
+    });
 
     // Cleanup
     return () => {
