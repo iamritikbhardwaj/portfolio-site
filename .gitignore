@@ -6,3 +6,6 @@ node_modules
 .env.production.local
 .env.test.local
 build
+.next/app-build-manifest.json
+.next
+.next/*
