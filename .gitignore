@@ -7,5 +7,4 @@ node_modules
 .env.test.local
 build
 .next/app-build-manifest.json
-.next
 .next/*
