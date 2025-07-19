@@ -1,7 +1,5 @@
 {
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/scrollani/page": "app/scrollani/page.js",
-  "/page": "app/page.js",
-  "/jymanime/page": "app/jymanime/page.js"
+  "/page": "app/page.js"
 }
