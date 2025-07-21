@@ -4,7 +4,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN npm run build && npm run export
+RUN mkdir -p out && cp -r ./public/* ./out
 
 # --- NGINX Static Server ---
 FROM nginx:alpine
