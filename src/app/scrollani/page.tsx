@@ -2,7 +2,7 @@
 // pages/index.js or app/page.js (depending on your Next.js version)
 import { useEffect } from 'react';
 import Head from 'next/head';
-import Lenis from '@studio-freight/lenis';
+import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
