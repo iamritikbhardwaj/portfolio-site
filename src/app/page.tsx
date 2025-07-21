@@ -682,7 +682,7 @@ const Page = () => {
 
           <div className="text-center mt-16">
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-              Always curious, always building — whether it's infrastructure on
+              Always curious, always building — whether it&apos;s infrastructure on
               AWS, RESTful services, or CLI-based tools.
             </p>
           </div>

@@ -6,7 +6,7 @@ import Lenis from '@studio-freight/lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function page() {
+export default function Page() {
   useEffect(() => {
     // Initialize Lenis smooth scrolling
     const lenis = new Lenis({
@@ -94,9 +94,6 @@ export default function page() {
         
         {/* External Scripts */}
         <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.17/dist/lenis.css" />
-        <script src="https://unpkg.com/lenis@1.1.17/dist/lenis.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
       </Head>
 
       <div className="scroll-container">
