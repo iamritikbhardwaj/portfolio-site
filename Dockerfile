@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build && npm run export
+RUN npm run build
 RUN mkdir -p out && cp -r ./public/* ./out
 
 # --- NGINX Static Server ---
