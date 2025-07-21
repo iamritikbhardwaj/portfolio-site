@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   basePath: "/portfolio",
+  output: "export",
 };
 
 export default nextConfig;
