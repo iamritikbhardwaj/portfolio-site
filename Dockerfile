@@ -8,6 +8,6 @@ RUN npm run build
 
 # --- NGINX Static Server ---
 FROM nginx:alpine
-COPY --from=server /app/out /usr/share/nginx/html
+COPY --from=build /app/out /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
