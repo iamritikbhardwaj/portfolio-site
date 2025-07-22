@@ -64,3 +64,4 @@ yarn-error.log*
 
 # Ignore .DS_Store files that Mac OSX creates
 .DS_Store
+.DS_Store
