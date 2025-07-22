@@ -179,21 +179,21 @@ const Page = () => {
   const experiences = [
     {
       title: "Backend Developer",
-      period: "2022 - Present",
+      period: "2025 - Present",
       description:
         "Building high-performance APIs and microservices using Go and Node.js. Architected scalable systems handling 10k+ concurrent users.",
       technologies: ["Go", "Node.js", "PostgreSQL", "AWS", "Docker"],
     },
     {
       title: "Cloud Engineer",
-      period: "2023 - Present",
+      period: "2023 - 2024",
       description:
         "Designed and implemented cloud infrastructure on AWS. Automated deployment pipelines reducing deployment time by 75%.",
       technologies: ["AWS", "Docker", "CI/CD", "Linux", "Monitoring"],
     },
     {
       title: "Systems Developer",
-      period: "2022 - 2024",
+      period: "2022 - 2023",
       description:
         "Developed CLI tools and automation scripts. Created security-focused applications for web reconnaissance and system monitoring.",
       technologies: ["Go", "Bash", "Linux", "Security", "Automation"],
