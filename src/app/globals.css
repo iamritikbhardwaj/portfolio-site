@@ -24,3 +24,27 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.text-stroke {
+  -webkit-text-stroke: 2px #95c11e;
+  color: transparent;
+  animation-name: scroll;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.elem {
+  grid-row-start: var(--r);
+  grid-column-start: var(--c);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}

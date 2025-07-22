@@ -156,7 +156,7 @@ const Page = () => {
         "AWS",
         "Microservices",
       ],
-      demo: "https://crm.tomatotrails.com/portfolio/jymanime/",
+      demo: "/portfolio/jymanime",
       github:
         "https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/jymanime",
       highlights: ["Microservices architecture", "Auto-scaling", "API Gateway"],
@@ -166,7 +166,7 @@ const Page = () => {
       description:
         "Complete CI/CD pipeline with automated testing, Docker builds, AWS deployment, monitoring, and rollback capabilities. Reduces deployment time by 80% with zero-downtime deployments.",
       technologies: ["GitHub Actions", "Docker", "AWS", "Linux", "Monitoring"],
-      demo: "https://crm.tomatotrails.com/portfolio/scrollani/",
+      demo: "/portfolio/scrollani",
       github: "https://github.com/iamritikbhardwaj/portfolio-site",
       highlights: [
         "Zero-downtime deployment",
@@ -588,8 +588,8 @@ const Page = () => {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
                     href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    // target="_blank"
+                    // rel="noopener noreferrer"
                     className="flex items-center justify-center space-x-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-lg transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
@@ -597,8 +597,8 @@ const Page = () => {
                   </a>
                   <a
                     href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    // target="_blank"
+                    // rel="noopener noreferrer"
                     className="flex items-center justify-center space-x-2 px-4 py-2 border border-purple-500 hover:bg-purple-500/10 rounded-lg transition-colors"
                   >
                     <Github className="w-4 h-4" />

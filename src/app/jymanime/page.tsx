@@ -92,7 +92,11 @@ function GolfAni() {
           type="video/mp4"
         />
       </video>
-      <div id="main" ref={mainRef} className="bg-black opacity-72 relative overflow-x-hidden z-0">
+      <div
+        id="main"
+        ref={mainRef}
+        className="bg-black opacity-72 relative overflow-x-hidden z-0"
+      >
         <div
           id="page1"
           className="h-screen text-center w-full flex flex-col justify-center items-center z-10"
@@ -113,40 +117,76 @@ function GolfAni() {
             playful.
           </p>
         </div>
-        <div id="page2" className="h-screen z-10 w-full">
-          <div
-            id="scroller"
-            className="whitespace-nowrap  hover:text-[#95C11E] text-8xl text-transparent"
-          >
-            <div
-              id="scroller-in"
-              className="whitespace-nowrap inline-block "
-            >
-              <h4 className="uppercase inline-block">TOPTRACER RANGE</h4>
-              <h4 className="uppercase font-extrabold inline-block">
+        <div id="page2" className="h-screen w-fit">
+          <div className="whitespace-nowrap text-9xl font-extrabold text-stroke">
+            <div className="whitespace-nowrap inline-block z-10 relative">
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E] transition-all duration-500">
+                Top Racer Range{" "}
+              </h4>
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E]">
                 Golf lessons
               </h4>
-              <h4 className="uppercase inline-block">Adventure Golf</h4>
-              <h4 className="uppercase inline-block">Coffe Shop</h4>
-              <h4 className="uppercase inline-block">leagues</h4>
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E]">
+                Adventure Golf
+              </h4>
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E]">
+                Coffe Shop
+              </h4>
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E]">
+                leagues
+              </h4>
             </div>
-            <div id="scroller-in" className="whitespace-nowrap inline-block">
-              <h4 className="uppercase inline-block hover:text-[#95C11E]">TOPTRACER RANGE</h4>
-              <h4 className="uppercase inline-block">Golf lessons</h4>
-              <h4 className="uppercase inline-block">Adventure Golf</h4>
-              <h4 className="uppercase inline-block">Coffe Shop</h4>
-              <h4 className="uppercase inline-block">leagues</h4>
+            <div className="whitespace-nowrap inline-block">
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E]">
+                TOPTRACER RANGE
+              </h4>
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E]">
+                Golf lessons
+              </h4>
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E]">
+                Adventure Golf
+              </h4>
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E]">
+                Coffe Shop
+              </h4>
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E]">
+                leagues
+              </h4>
             </div>
           </div>
-          <div id="about-us" style={{ padding: "80px 100px"}} className="h-[40vh] items-center w-full flex justify-around p-4">
-          <img src="https://images.pexels.com/photos/8153618/pexels-photo-8153618.jpeg" className="w-30 h-40 object-cover rounded-2xl" alt="sample" />
-          <div className="w-1/2 text-center items-center font-stretch-95%">
-              <h4 style={{ margin: "0px 0px 30px 0px" }} className="font-bold text-4xl text-center capitalize">Lorem ipsum dolor.</h4>
-              <p className="text-md">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam ipsa vitae velit odit nam hic, vel sint nulla dolore nihil eum voluptates blanditiis voluptatem saepe dolorem incidunt id debitis sapiente possimus nemo commodi necessitatibus.
+          <div
+            id="about-us"
+            className="h-[40vh] items-center w-screen flex justify-around p-4 z-10 relative"
+          >
+            <img
+              src="https://images.pexels.com/photos/8153618/pexels-photo-8153618.jpeg"
+              className="md:w-50 md:h-60 w-30 h-40 object-cover rounded-2xl"
+              alt="sample"
+            />
+            <div className="w-1/2 text-center items-center font-stretch-95%">
+              <h4
+                style={{ margin: "0px 0px 30px 0px" }}
+                className="font-bold text-4xl text-center capitalize"
+              >
+                Lorem ipsum dolor.
+              </h4>
+              <p className="text-md leading-7">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam
+                ipsa vitae velit odit nam hic, vel sint nulla dolore nihil eum
+                voluptates blanditiis voluptatem saepe dolorem incidunt id
+                debitis sapiente possimus nemo commodi necessitatibus.
               </p>
             </div>
-            <img src="https://images.pexels.com/photos/8153618/pexels-photo-8153618.jpeg" className="w-30 h-40 object-cover rounded-2xl" alt="sample" />
+            <img
+              src="https://images.pexels.com/photos/8153618/pexels-photo-8153618.jpeg"
+              className="md:w-50 md:h-60 w-30 h-40 object-cover rounded-2xl"
+              alt="sample"
+            />
+          </div>
+          <div className="bg-white h-60vh">
+            <div id="card" className="bg-blue w-1/3"></div>
+            <div id="card" className="bg-green w-1/3"></div>
+            <div id="card" className="bg-yellow w-1/3"></div>
           </div>
         </div>
       </div>
