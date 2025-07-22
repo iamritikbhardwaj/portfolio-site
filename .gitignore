@@ -62,3 +62,5 @@ yarn-error.log*
 # Optional npm cache
 .npm
 
+# Ignore .DS_Store files that Mac OSX creates
+.DS_Store
