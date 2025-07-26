@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Code,
   Home,
@@ -33,6 +33,12 @@ const Page = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [typedText, setTypedText] = useState("");
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [iframeLoaded, setIframeLoaded] = useState<{ [key: number]: boolean }>(
+    {}
+  );
+
+  const iref = useRef(null);
 
   const typewriterTexts = [
     "Building scalable APIs",
@@ -97,8 +103,26 @@ const Page = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleProjectHover = (index: number) => {
+    setHoveredProject(index);
+    if (!iframeLoaded[index]) {
+      setIframeLoaded((prev) => ({ ...prev, [index]: false }));
+    }
+  };
+
+  const handleProjectLeave = () => {
+    setHoveredProject(null);
+  };
+
+  const handleIframeLoad = (index: number) => {
+    setIframeLoaded((prev) => ({ ...prev, [index]: true }));
+  };
+
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
     setIsMenuOpen(false);
   };
 
@@ -166,7 +190,7 @@ const Page = () => {
       description:
         "Complete CI/CD pipeline with automated testing, Docker builds, AWS deployment, monitoring, and rollback capabilities. Reduces deployment time by 80% with zero-downtime deployments.",
       technologies: ["GitHub Actions", "Docker", "AWS", "Linux", "Monitoring"],
-      demo: "/portfolio/scrollani",
+      demo: "/scrollani",
       github: "https://github.com/iamritikbhardwaj/portfolio-site",
       highlights: [
         "Zero-downtime deployment",
@@ -223,7 +247,10 @@ const Page = () => {
             </div>
 
             {/* Desktop Navigation - Centered */}
-            <div style={{ whiteSpace: "nowrap" }} className="hidden md:flex items-center space-x-4">
+            <div
+              style={{ whiteSpace: "nowrap" }}
+              className="hidden md:flex items-center space-x-4"
+            >
               {navigationItems.map(({ id, label, icon: Icon }) => (
                 <button
                   key={id}
@@ -231,7 +258,7 @@ const Page = () => {
                   className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 ${
                     activeSection === id
                       ? "bg-purple-500/20 text-purple-300"
-                      : "text-gray-300 hover:text-white hover:bg-white/5"
+                      : "text-gray-300 hover:text-white hover:bg-slate-800/30/5"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -246,7 +273,7 @@ const Page = () => {
                 href="https://github.com/iamritikbhardwaj"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/5"
+                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800/30/5"
               >
                 <Github className="w-5 h-5" />
               </a>
@@ -254,7 +281,7 @@ const Page = () => {
                 href="https://www.linkedin.com/in/ritik-singh-10b333227"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-blue-400 transition-colors p-2 rounded-lg hover:bg-white/5"
+                className="text-gray-400 hover:text-blue-400 transition-colors p-2 rounded-lg hover:bg-slate-800/30/5"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -263,7 +290,7 @@ const Page = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-slate-800/30/10 transition-colors"
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -280,7 +307,7 @@ const Page = () => {
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
-                  className="flex items-center space-x-3 w-full px-4 py-3 text-left hover:bg-white/5 transition-colors rounded-lg mx-2"
+                  className="flex items-center space-x-3 w-full px-4 py-3 text-left hover:bg-slate-800/30/5 transition-colors rounded-lg mx-2"
                 >
                   <Icon className="w-5 h-5" />
                   <span>{label}</span>
@@ -476,7 +503,9 @@ const Page = () => {
                     <service.icon className="w-6 h-6 text-purple-400 mt-1 flex-shrink-0" />
                     <div>
                       <h4 className="font-semibold mb-2">{service.title}</h4>
-                      <p className="text-gray-400 text-sm">{service.description}</p>
+                      <p className="text-gray-400 text-sm">
+                        {service.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -507,12 +536,16 @@ const Page = () => {
                 className="bg-slate-800/30 rounded-xl p-6 sm:p-8 hover:bg-slate-800/50 transition-colors"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">{exp.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white">
+                    {exp.title}
+                  </h3>
                   <span className="text-purple-400 font-semibold mt-1 sm:mt-0">
                     {exp.period}
                   </span>
                 </div>
-                <p className="text-gray-400 mb-4 text-base sm:text-lg leading-relaxed">{exp.description}</p>
+                <p className="text-gray-400 mb-4 text-base sm:text-lg leading-relaxed">
+                  {exp.description}
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech) => (
                     <span
@@ -543,8 +576,147 @@ const Page = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
+          <div className="grid lg:grid-cols-1 xl:grid-cols-1 gap-8">
+          {projects.map((project, index) => (
+              <div
+                key={index}
+                className="relative bg-slate-800/30 hover:bg-slate-800/50 border transition-all duration-300 transform hover:-translate-y-2 border-slate-700/50 hover:border-purple-500/50 p-8 rounded-lg hover:shadow-xl hover:scale-[1.02] shadow-sm overflow-hidden"
+                onMouseEnter={() => handleProjectHover(index)}
+                onMouseLeave={handleProjectLeave}
+              >
+                {/* Project Content */}
+                <div
+                  className={`transition-all duration-500 ${
+                    hoveredProject === index ? "lg:w-1/2" : "w-full"
+                  }`}
+                >
+                  <h3 className="text-2xl font-semibold mb-4 text-white">
+                    {project.title}
+                  </h3>
+                  <p className="text- mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold mb-3 text-cyan-400">
+                      Key Highlights:
+                    </h4>
+                    <ul className="list-disc list-inside text-gray-400 space-y-1">
+                      {project.highlights.map((highlight, highlightIndex) => (
+                        <li key={highlightIndex}>{highlight}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mb-6">
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="bg-gradient-to-r from-purple-300 to-cyan-400 border border-purple-800 px-3 py-1 rounded-full text-sm text-gray-800"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 px-4 py-2 rounded-lg transition-all duration-300"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live Demo
+                    </a>
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 border border-gray-800 hover:border-gray-400 px-4 py-2 rounded-lg transition-all duration-300 text-gray-200 hover:bg-gray-500"
+                    >
+                      <Github className="w-4 h-4" />
+                      View Code
+                    </a>
+                  </div>
+                </div>
+
+                {/* Demo Preview Iframe */}
+                {hoveredProject === index && (
+                  <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
+                    <div className="h-full p-4">
+                      <div className="relative h-full bg-slate-800/30 rounded-lg shadow-2xl border-2 border-gray-300 overflow-hidden">
+                        {/* Browser Chrome */}
+                        <div className="bg-gray-100 px-4 py-2 flex items-center gap-2 border-b border-gray-300">
+                          <div className="flex gap-1">
+                            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                          </div>
+                          <div className="flex-1 mx-4">
+                            <div className="bg-slate-800/30 rounded px-3 py-1 text-xs text-gray-600 truncate">
+                              {project.demo}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Loading State */}
+                        {!iframeLoaded[index] && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
+                            <div className="text-center">
+                              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto mb-2"></div>
+                              <p className="text-sm text-gray-500">
+                                Loading preview...
+                              </p>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Iframe */}
+                        <iframe
+                          src={
+                            project.demo.startsWith("http")
+                              ? project.demo
+                              : `https://ritiksingh.dev${project.demo}`
+                          }
+                          className="w-full h-full border-0"
+                          onLoad={() => handleIframeLoad(index)}
+                          onError={() =>
+                            setIframeLoaded((prev) => ({
+                              ...prev,
+                              [index]: false,
+                            }))
+                          }
+                          title={`${project.title} Demo`}
+                          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                        />
+
+                        {/* Overlay to prevent interaction */}
+                        <div
+                          className="absolute inset-0 bg-transparent cursor-pointer"
+                          onClick={() =>
+                            window.open(
+                              project.demo.startsWith("http")
+                                ? project.demo
+                                : `https://ritiksingh.dev${project.demo}`,
+                              "_blank"
+                            )
+                          }
+                        />
+
+                        {/* Corner badge */}
+                        <div className="absolute top-2 right-2 bg-purple-600 text-white px-2 py-1 rounded text-xs font-medium">
+                          Live Preview
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+            {/* {projects.map((project, index) => (
               <div
                 key={index}
                 className="bg-slate-800/30 rounded-xl p-6 sm:p-8 hover:bg-slate-800/50 transition-all duration-300 transform hover:-translate-y-2 border border-slate-700/50 hover:border-purple-500/50 flex flex-col h-full"
@@ -585,16 +757,17 @@ const Page = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href={project.demo}
+                <div className="flex group-hover:flex flex-col sm:flex-row gap-3">
+                  <iframe
+                    ref={iref}
+                    src={project.demo}
                     // target="_blank"
                     // rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-lg transition-colors"
+                    className="items-center justify-center w-1/2 h-1/2 absolute hidden bg-purple-500 hover:bg-purple-600 rounded-lg transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>Demo</span>
-                  </a>
+                  </iframe>
                   <a
                     href={project.github}
                     // target="_blank"
@@ -606,7 +779,7 @@ const Page = () => {
                   </a>
                 </div>
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
       </section>
@@ -672,7 +845,9 @@ const Page = () => {
                 >
                   <contact.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2">{contact.label}</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2">
+                  {contact.label}
+                </h3>
                 <p className="text-gray-400 group-hover:text-white transition-colors text-sm sm:text-base">
                   {contact.value}
                 </p>
@@ -682,8 +857,8 @@ const Page = () => {
 
           <div className="text-center mt-16">
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-              Always curious, always building — whether it&apos;s infrastructure on
-              AWS, RESTful services, or CLI-based tools.
+              Always curious, always building — whether it&apos;s infrastructure
+              on AWS, RESTful services, or CLI-based tools.
             </p>
           </div>
         </div>
