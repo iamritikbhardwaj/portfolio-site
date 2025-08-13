@@ -160,7 +160,7 @@ const Page = () => {
       description:
         "High-performance CLI reconnaissance tool built in Go with concurrent processing, DNS lookups, port scanning, and modular architecture. Features real-time results and extensible plugin system.",
       technologies: ["Go", "Concurrency", "CLI", "DNS", "Network Security"],
-      demo: "https://crm.tomatotrails.com/portfolio/",
+      demo: "/",
       github: "https://github.com/iamritikbhardwaj/gorecon",
       highlights: [
         "Concurrent processing",
@@ -180,7 +180,7 @@ const Page = () => {
         "AWS",
         "Microservices",
       ],
-      demo: "/portfolio/jymanime",
+      demo: "/jymanime",
       github:
         "https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/jymanime",
       highlights: ["Microservices architecture", "Auto-scaling", "API Gateway"],
