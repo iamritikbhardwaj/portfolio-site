@@ -679,7 +679,7 @@ const Page = () => {
                           src={
                             project.demo.startsWith("http")
                               ? project.demo
-                              : `https://ritiksingh.duckdns.org/${project.demo}`
+                              : `https://ritiksingh.duckdns.org${project.demo}`
                           }
                           className="w-full h-full border-0"
                           onLoad={() => handleIframeLoad(index)}
