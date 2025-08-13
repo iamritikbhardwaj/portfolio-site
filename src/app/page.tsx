@@ -676,11 +676,7 @@ const Page = () => {
 
                         {/* Iframe */}
                         <iframe
-                          src={
-                            project.demo.startsWith("http")
-                              ? project.demo
-                              : `https://ritiksingh.duckdns.org${project.demo}`
-                          }
+                          src={project.demo}
                           className="w-full h-full border-0"
                           onLoad={() => handleIframeLoad(index)}
                           onError={() =>
@@ -708,9 +704,7 @@ const Page = () => {
                           onKeyDown={(e) => {
                             if (e.key === "Enter" || e.key === " ") {
                               window.open(
-                                project.demo.startsWith("http")
-                                  ? project.demo
-                                  : `https://ritiksingh.duckdns.org${project.demo}`,
+                                project.demo,
                                 "_blank"
                               );
                             }
