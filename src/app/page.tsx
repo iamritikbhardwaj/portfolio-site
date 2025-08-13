@@ -690,7 +690,7 @@ const Page = () => {
                         />
 
                         {/* Overlay to prevent interaction */}
-                        <button
+                        <button 
                           type="button"
                           className="absolute inset-0 bg-transparent cursor-pointer"
                           aria-label={`Open ${project.title} demo in new tab`}
