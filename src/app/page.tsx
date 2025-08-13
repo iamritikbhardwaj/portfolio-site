@@ -694,16 +694,28 @@ const Page = () => {
                         />
 
                         {/* Overlay to prevent interaction */}
-                        <div
+                        <button
+                          type="button"
                           className="absolute inset-0 bg-transparent cursor-pointer"
+                          aria-label={`Open ${project.title} demo in new tab`}
+                          tabIndex={0}
                           onClick={() =>
                             window.open(
-                              project.demo.startsWith("http")
-                                ? project.demo
-                                : `https://http://ritiksingh.duckdns.org/${project.demo}`,
+                              project.demo,
                               "_blank"
                             )
                           }
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              window.open(
+                                project.demo.startsWith("http")
+                                  ? project.demo
+                                  : `https://ritiksingh.duckdns.org${project.demo}`,
+                                "_blank"
+                              );
+                            }
+                          }}
+                          style={{ outline: "none", border: "none", background: "transparent", padding: 0 }}
                         />
 
                         {/* Corner badge */}
