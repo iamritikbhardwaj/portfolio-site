@@ -679,7 +679,7 @@ const Page = () => {
                           src={
                             project.demo.startsWith("http")
                               ? project.demo
-                              : `https://ritiksingh.dev${project.demo}`
+                              : `https://http://ritiksingh.duckdns.org/${project.demo}`
                           }
                           className="w-full h-full border-0"
                           onLoad={() => handleIframeLoad(index)}
@@ -700,7 +700,7 @@ const Page = () => {
                             window.open(
                               project.demo.startsWith("http")
                                 ? project.demo
-                                : `https://ritiksingh.dev${project.demo}`,
+                                : `https://http://ritiksingh.duckdns.org/${project.demo}`,
                               "_blank"
                             )
                           }
