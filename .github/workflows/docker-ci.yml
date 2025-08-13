@@ -22,7 +22,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ritiklrt2/portfolio:latest .
+          docker build --no-cache -t ritiklrt2/portfolio:latest .
 
       - name: Push Docker image
         run: |
