@@ -831,7 +831,7 @@ const Page = () => {
                 icon: Download,
                 label: "Resume",
                 value: "Download CV",
-                href: "https://docs.google.com/document/d/1etiWlOR9qL_CTUcUgtD6tYx0uKoI1GKXhWWVUWR3ecA/edit?usp=sharing",
+                href: "https://drive.google.com/file/d/1LVSdfOScU0OhEZHHuHrA88DNrSfC5uQL/view?usp=sharing",
                 color: "from-green-500 to-green-600",
               },
             ].map((contact, index) => (
