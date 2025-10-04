@@ -2,9 +2,9 @@ name: Docker CI
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
   build-and-push:
@@ -40,4 +40,4 @@ jobs:
             docker pull ritiklrt2/portfolio:latest
             docker stop portfolio || true
             docker rm portfolio || true
-            docker run -d -p 3001:80 --name portfolio ritiklrt2/portfolio:latest
+            docker run -d -p 3001:8080 --name portfolio ritiklrt2/portfolio:latest
