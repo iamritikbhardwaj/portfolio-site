@@ -156,6 +156,29 @@ const Page = () => {
 
   const projects = [
     {
+      title: "Hope Foundation NGO Website",
+      description:
+        "A responsive and accessible website for an Indian NGO, highlighting their mission, programmes, donation drives, and partner involvement. Designed with a user-friendly UI to encourage engagement and support.",
+      technologies: [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Lucide React",
+        "YouTube Embed",
+        "Responsive Design",
+      ],
+      demo: "/ngo-site", // adjust based on your route setup
+      github:
+        "https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/hope-foundation", // update path as needed
+      highlights: [
+        "Clean and accessible UI",
+        "Donation-focused CTAs",
+        "Integrated YouTube stories",
+        "Modular components",
+        "Mobile-friendly layout",
+      ],
+    },
+    {
       title: "gorecon - Advanced Web Reconnaissance Tool",
       description:
         "High-performance CLI reconnaissance tool built in Go with concurrent processing, DNS lookups, port scanning, and modular architecture. Features real-time results and extensible plugin system.",
@@ -577,7 +600,7 @@ const Page = () => {
           </div>
 
           <div className="grid lg:grid-cols-1 xl:grid-cols-1 gap-8">
-          {projects.map((project, index) => (
+            {projects.map((project, index) => (
               <div
                 key={index}
                 className="relative bg-slate-800/30 hover:bg-slate-800/50 border transition-all duration-300 transform hover:-translate-y-2 border-slate-700/50 hover:border-purple-500/50 p-8 rounded-lg hover:shadow-xl hover:scale-[1.02] shadow-sm overflow-hidden"
@@ -690,26 +713,23 @@ const Page = () => {
                         />
 
                         {/* Overlay to prevent interaction */}
-                        <button 
+                        <button
                           type="button"
                           className="absolute inset-0 bg-transparent cursor-pointer"
                           aria-label={`Open ${project.title} demo in new tab`}
                           tabIndex={0}
-                          onClick={() =>
-                            window.open(
-                              project.demo,
-                              "_blank"
-                            )
-                          }
+                          onClick={() => window.open(project.demo, "_blank")}
                           onKeyDown={(e) => {
                             if (e.key === "Enter" || e.key === " ") {
-                              window.open(
-                                project.demo,
-                                "_blank"
-                              );
+                              window.open(project.demo, "_blank");
                             }
                           }}
-                          style={{ outline: "none", border: "none", background: "transparent", padding: 0 }}
+                          style={{
+                            outline: "none",
+                            border: "none",
+                            background: "transparent",
+                            padding: 0,
+                          }}
                         />
 
                         {/* Corner badge */}
