@@ -167,7 +167,7 @@ const Page = () => {
         "YouTube Embed",
         "Responsive Design",
       ],
-      demo: "/ngo-site", // adjust based on your route setup
+      demo: "https://ngo-site-nine.vercel.app/", // adjust based on your route setup
       github:
         "https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/hope-foundation", // update path as needed
       highlights: [
