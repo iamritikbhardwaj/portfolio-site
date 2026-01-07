@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, JSX } from "react";
 import {
   Code,
   Home,
@@ -180,34 +180,26 @@ const Page = () => {
       ],
     },
     {
-      title: "gorecon - Advanced Web Reconnaissance Tool",
+      title: "Crochet by Simran – Handmade Crochet Store",
       description:
-        "High-performance CLI reconnaissance tool built in Go with concurrent processing, DNS lookups, port scanning, and modular architecture. Features real-time results and extensible plugin system.",
-      technologies: ["Go", "Concurrency", "CLI", "DNS", "Network Security"],
-      demo: "/",
-      github: "https://github.com/iamritikbhardwaj/gorecon",
-      highlights: [
-        "Concurrent processing",
-        "Real-time scanning",
-        "Modular design",
-      ],
-    },
-    {
-      title: "Cloud-Native E-Commerce Microservices",
-      description:
-        "Scalable e-commerce backend architecture with independent microservices for user management, product catalog, inventory, and order processing. Deployed on AWS with Docker containerization.",
+        "A modern and visually appealing website built for a small handmade crochet business to showcase available inventory. The site highlights crochet products with clear visuals, pricing, and easy contact options, helping the client attract customers and manage inquiries efficiently.",
       technologies: [
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "Docker",
-        "AWS",
-        "Microservices",
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Responsive Design",
+        "Vercel Deployment",
       ],
-      demo: "/jymanime",
+      demo: "https://crochetbysimran.vercel.app/",
       github:
-        "https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/jymanime",
-      highlights: ["Microservices architecture", "Auto-scaling", "API Gateway"],
+        "https://github.com/iamritikbhardwaj/crochetbysimran", // repo can be shared on request or kept private for client work
+      highlights: [
+        "Inventory-based product listing",
+        "Clean and aesthetic UI for handmade products",
+        "Mobile-first responsive design",
+        "Fast load times with optimized images",
+        "Easy customer inquiry flow for small businesses",
+      ],
     },
     {
       title: "DevOps Automation Pipeline",
@@ -252,11 +244,10 @@ const Page = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden">
       {/* Navigation */}
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
             ? "bg-slate-900/90 backdrop-blur-md border-b border-purple-500/20"
             : "bg-transparent"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -279,11 +270,10 @@ const Page = () => {
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 ${
-                    activeSection === id
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 ${activeSection === id
                       ? "bg-purple-500/20 text-purple-300"
                       : "text-gray-300 hover:text-white hover:bg-slate-800/30/5"
-                  }`}
+                    }`}
                 >
                   <Icon className="w-4 h-4" />
                   <span>{label}</span>
@@ -610,9 +600,8 @@ const Page = () => {
               >
                 {/* Project Content */}
                 <div
-                  className={`transition-all duration-500 ${
-                    hoveredProject === index ? "lg:w-1/2" : "w-full"
-                  }`}
+                  className={`transition-all duration-500 ${hoveredProject === index ? "lg:w-1/2" : "w-full"
+                    }`}
                 >
                   <h3 className="text-2xl font-semibold mb-4 text-white">
                     {project.title}
