@@ -1,73 +1,49 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Colors */
+  --color-primary: #5b13ec;
+  --color-primary-hover: #4a0bc2;
+  --color-accent-cyan: #06b6d4;
+  --color-background-light: #f6f6f8;
+  --color-background-dark: #161022;
+  --color-card-dark: #1e1829;
+  --color-border-dark: #2f2348;
+  --color-card-border: #2f2348;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Font Families */
+  --font-family-display: "Inter", sans-serif;
+  --font-family-mono: ui-monospace, "SFMono-Regular", "Menlo", "Monaco", "Consolas", monospace;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-display);
 }
 
-.text-stroke {
-  -webkit-text-stroke: 2px #95c11e;
-  color: transparent;
-  animation-name: scroll;
-  animation-duration: 20s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.elem {
-  grid-row-start: var(--r);
-  grid-column-start: var(--c);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+::-webkit-scrollbar-track {
+  background: #161022;
 }
 
-#card1 {
-  background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-toptracer-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
-}
-#card2 {
-  background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-1024x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1);
-}
-#card3 {
-  background-image: url(https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-lessons-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1);
+::-webkit-scrollbar-thumb {
+  background: #2f2348;
+  border-radius: 4px;
 }
 
-.card:hover .overlay {
-  opacity: 1;
-}
-
-.card:hover {
-  transform: rotate3d(1,-1,0, 20deg);
-}
-
-h1 h2 h3 h4 h5 h6 {
-  font-family: var(--font-sans-serif);
-  font-weight: bolder;
+::-webkit-scrollbar-thumb:hover {
+  background: #5b13ec;
 }

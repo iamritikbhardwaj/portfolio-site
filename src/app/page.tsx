@@ -1,928 +1,227 @@
-"use client";
-import React, { useState, useEffect, useRef, JSX } from "react";
+"use client"
+import React from "react";
 import {
-  Code,
-  Home,
-  User,
-  Briefcase,
-  Mail,
-  Linkedin,
-  Github,
-  MessageCircleCode,
-  Download,
-  ExternalLink,
-  Menu,
-  X,
-  ChevronDown,
   Server,
   Cloud,
   Database,
   Terminal,
-  Cpu,
-  Shield,
-  Zap,
-  GitBranch,
-  Container,
-  Activity,
-  Globe,
-  Monitor,
-  FileCode,
+  Verified,
+ Medal,
+  Rocket,
+  ArrowBigRight,
+  Download,
+  BookCopy,
+  ShieldBan,
+  MonitorCheck,
+  Layers,
+  Code2,
+  Star,
+  BoxIcon,
 } from "lucide-react";
 
 const Page = () => {
-  const [activeSection, setActiveSection] = useState("home");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [typedText, setTypedText] = useState("");
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-  const [iframeLoaded, setIframeLoaded] = useState<{ [key: number]: boolean }>(
-    {}
-  );
-
-  const iref = useRef(null);
-
-  const typewriterTexts = [
-    "Building scalable APIs",
-    "Architecting microservices",
-    "Optimizing cloud infrastructure",
-    "Automating DevOps pipelines",
-  ];
-
-  useEffect(() => {
-    let textIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let timeoutId: ReturnType<typeof setTimeout>;
-
-    const type = () => {
-      const currentText = typewriterTexts[textIndex];
-
-      if (isDeleting) {
-        setTypedText(currentText.substring(0, charIndex - 1));
-        charIndex--;
-      } else {
-        setTypedText(currentText.substring(0, charIndex + 1));
-        charIndex++;
-      }
-
-      let typeSpeed = isDeleting ? 50 : 100;
-
-      if (!isDeleting && charIndex === currentText.length) {
-        typeSpeed = 2000;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % typewriterTexts.length;
-        typeSpeed = 500;
-      }
-
-      timeoutId = setTimeout(type, typeSpeed);
-    };
-
-    type();
-
-    return () => clearTimeout(timeoutId);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-
-      const sections = ["home", "about", "experience", "projects", "contact"];
-      const current = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (current) setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleProjectHover = (index: number) => {
-    setHoveredProject(index);
-    if (!iframeLoaded[index]) {
-      setIframeLoaded((prev) => ({ ...prev, [index]: false }));
-    }
-  };
-
-  const handleProjectLeave = () => {
-    setHoveredProject(null);
-  };
-
-  const handleIframeLoad = (index: number) => {
-    setIframeLoaded((prev) => ({ ...prev, [index]: true }));
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMenuOpen(false);
-  };
-
-  const navigationItems = [
-    { id: "home", label: "Home", icon: Home },
-    { id: "about", label: "About", icon: User },
-    { id: "experience", label: "Experience", icon: Briefcase },
-    { id: "projects", label: "Projects", icon: Code },
-    { id: "contact", label: "Contact", icon: Mail },
-  ];
-
-  const techStack = [
-    { name: "Go", level: 90, color: "bg-blue-500", icon: Terminal },
-    { name: "Node.js", level: 90, color: "bg-green-500", icon: Server },
-    { name: "PostgreSQL", level: 85, color: "bg-blue-600", icon: Database },
-    { name: "AWS", level: 85, color: "bg-orange-500", icon: Cloud },
-    { name: "Docker", level: 85, color: "bg-blue-400", icon: Container },
-    { name: "Microservices", level: 80, color: "bg-purple-500", icon: Cpu },
-    { name: "Linux", level: 85, color: "bg-gray-600", icon: Monitor },
-    { name: "REST APIs", level: 90, color: "bg-green-600", icon: Globe },
-    { name: "MongoDB", level: 75, color: "bg-green-700", icon: Database },
-    {
-      name: "GitHub Actions",
-      level: 80,
-      color: "bg-gray-700",
-      icon: GitBranch,
-    },
-    { name: "React", level: 70, color: "bg-cyan-500", icon: FileCode },
-    { name: "Security", level: 75, color: "bg-red-500", icon: Shield },
-  ];
-
-  const projects = [
-    {
-      title: "Hope Foundation NGO Website",
-      description:
-        "A responsive and accessible website for an Indian NGO, highlighting their mission, programmes, donation drives, and partner involvement. Designed with a user-friendly UI to encourage engagement and support.",
-      technologies: [
-        "React",
-        "Next.js",
-        "Tailwind CSS",
-        "Lucide React",
-        "YouTube Embed",
-        "Responsive Design",
-      ],
-      demo: "https://ngo-site-nine.vercel.app/", // adjust based on your route setup
-      github:
-        "https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/hope-foundation", // update path as needed
-      highlights: [
-        "Clean and accessible UI",
-        "Donation-focused CTAs",
-        "Integrated YouTube stories",
-        "Modular components",
-        "Mobile-friendly layout",
-      ],
-    },
-    {
-      title: "Crochet by Simran – Handmade Crochet Store",
-      description:
-        "A modern and visually appealing website built for a small handmade crochet business to showcase available inventory. The site highlights crochet products with clear visuals, pricing, and easy contact options, helping the client attract customers and manage inquiries efficiently.",
-      technologies: [
-        "Next.js",
-        "React",
-        "Tailwind CSS",
-        "Responsive Design",
-        "Vercel Deployment",
-      ],
-      demo: "https://crochetbysimran.vercel.app/",
-      github:
-        "https://github.com/iamritikbhardwaj/crochetbysimran", // repo can be shared on request or kept private for client work
-      highlights: [
-        "Inventory-based product listing",
-        "Clean and aesthetic UI for handmade products",
-        "Mobile-first responsive design",
-        "Fast load times with optimized images",
-        "Easy customer inquiry flow for small businesses",
-      ],
-    },
-    {
-      title: "DevOps Automation Pipeline",
-      description:
-        "Complete CI/CD pipeline with automated testing, Docker builds, AWS deployment, monitoring, and rollback capabilities. Reduces deployment time by 80% with zero-downtime deployments.",
-      technologies: ["GitHub Actions", "Docker", "AWS", "Linux", "Monitoring"],
-      demo: "/scrollani",
-      github: "https://github.com/iamritikbhardwaj/portfolio-site",
-      highlights: [
-        "Zero-downtime deployment",
-        "Automated monitoring",
-        "Infrastructure as Code",
-      ],
-    },
-  ];
-
-  const experiences = [
-    {
-      title: "Backend Developer",
-      period: "2025 - Present",
-      description:
-        "Building high-performance APIs and microservices using Go and Node.js. Architected scalable systems handling 10k+ concurrent users.",
-      technologies: ["Go", "Node.js", "PostgreSQL", "AWS", "Docker"],
-    },
-    {
-      title: "Cloud Engineer",
-      period: "2023 - 2024",
-      description:
-        "Designed and implemented cloud infrastructure on AWS. Automated deployment pipelines reducing deployment time by 75%.",
-      technologies: ["AWS", "Docker", "CI/CD", "Linux", "Monitoring"],
-    },
-    {
-      title: "Systems Developer",
-      period: "2022 - 2023",
-      description:
-        "Developed CLI tools and automation scripts. Created security-focused applications for web reconnaissance and system monitoring.",
-      technologies: ["Go", "Bash", "Linux", "Security", "Automation"],
-    },
-  ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden">
-      {/* Navigation */}
-      <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
-            ? "bg-slate-900/90 backdrop-blur-md border-b border-purple-500/20"
-            : "bg-transparent"
-          }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                <Terminal className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                Ritik Singh
-              </span>
-            </div>
+    <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden transition-colors duration-300">
+      <div className="relative min-h-screen flex flex-col">
+        {/* Decorative Background Gradient */}
+        <div className="fixed top-0 left-0 right-0 h-[500px] w-full bg-primary/10 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
 
-            {/* Desktop Navigation - Centered */}
-            <div
-              style={{ whiteSpace: "nowrap" }}
-              className="hidden md:flex items-center space-x-4"
-            >
-              {navigationItems.map(({ id, label, icon: Icon }) => (
-                <button
-                  key={id}
-                  onClick={() => scrollToSection(id)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 ${activeSection === id
-                      ? "bg-purple-500/20 text-purple-300"
-                      : "text-gray-300 hover:text-white hover:bg-slate-800/30/5"
-                    }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span>{label}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Social Links */}
-            <div className="hidden md:flex items-center space-x-3">
-              <a
-                href="https://github.com/iamritikbhardwaj"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-slate-800/30/5"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ritik-singh-10b333227"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-blue-400 transition-colors p-2 rounded-lg hover:bg-slate-800/30/5"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-slate-800/30/10 transition-colors"
-            >
-              {isMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="md:hidden py-4 border-t border-purple-500/20">
-              {navigationItems.map(({ id, label, icon: Icon }) => (
-                <button
-                  key={id}
-                  onClick={() => scrollToSection(id)}
-                  className="flex items-center space-x-3 w-full px-4 py-3 text-left hover:bg-slate-800/30/5 transition-colors rounded-lg mx-2"
-                >
-                  <Icon className="w-5 h-5" />
-                  <span>{label}</span>
-                </button>
-              ))}
-              {/* Mobile Social Links */}
-              <div className="flex items-center justify-center space-x-6 mt-4 pt-4 border-t border-purple-500/20">
-                <a
-                  href="https://github.com/iamritikbhardwaj"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors p-2"
-                >
-                  <Github className="w-6 h-6" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/ritik-singh-10b333227"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-blue-400 transition-colors p-2"
-                >
-                  <Linkedin className="w-6 h-6" />
-                </a>
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section
-        id="home"
-        className="min-h-screen flex items-center justify-center pt-16"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="space-y-8">
-            {/* Animated Avatar */}
-            <div className="relative flex justify-center">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-r from-purple-500 via-cyan-500 to-purple-500 p-1 animate-spin-slow">
-                <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
-                  <Server className="w-16 h-16 text-purple-400" />
+        {/* Navigation */}
+        <nav className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-20">
+              {/* Logo */}
+              <div className="flex items-center gap-3">
+                <div className="size-10 rounded-lg bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/30">
+                  <span className="material-symbols-outlined text-2xl"><Terminal /></span>
+                </div>
+                <div className="flex flex-col">
+                  <h2 className="text-lg font-bold leading-none tracking-tight">Ritik Singh</h2>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Cloud Architect</span>
                 </div>
               </div>
-              <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                <Activity className="w-4 h-4 text-white animate-pulse" />
+
+              {/* Desktop Menu */}
+              <div className="hidden md:flex items-center gap-8">
+                <a className="text-sm font-medium hover:text-primary transition-colors" href="/about">About</a>
+                <a className="text-sm font-medium hover:text-primary transition-colors" href="/projects">Projects</a>
+                <a className="text-sm font-medium hover:text-primary transition-colors" href="/experience">Experience</a>
+                <a className="text-sm font-medium hover:text-primary transition-colors" href="/contact">Contact</a>
+                <button className="flex items-center justify-center rounded-lg bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2.5 transition-all shadow-lg shadow-primary/25">
+                  Get in Touch
+                </button>
               </div>
-            </div>
 
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                  Ritik Singh
-                </span>
-              </h1>
-              <h2 className="text-xl sm:text-2xl md:text-3xl text-gray-300">
-                Backend & Cloud Developer
-              </h2>
-              <div className="h-16 flex items-center justify-center">
-                <p className="text-lg sm:text-xl text-purple-300 font-mono">
-                  {typedText}
-                  <span className="animate-blink">|</span>
-                </p>
-              </div>
-            </div>
-
-            <p className="max-w-4xl mx-auto text-base sm:text-lg text-gray-400 leading-relaxed">
-              Building scalable, production-grade systems with{" "}
-              <span className="text-cyan-400 font-mono">Go</span>,
-              <span className="text-green-400 font-mono"> Node.js</span>, and
-              cloud-native architecture. Specializing in microservices, DevOps
-              automation, and high-performance APIs with 2+ years of hands-on
-              experience.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg hover:from-purple-600 hover:to-cyan-600 transition-all duration-200 transform hover:scale-105 font-semibold"
-              >
-                View My Work
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="w-full sm:w-auto px-8 py-4 border border-purple-500 rounded-lg hover:bg-purple-500/10 transition-all duration-200 font-semibold"
-              >
-                Get In Touch
+              {/* Mobile Menu Button */}
+              <button className="md:hidden p-2 text-slate-500 hover:text-white">
+                <span className="material-symbols-outlined">menu</span>
               </button>
             </div>
-
-            <div className="pt-12">
-              <ChevronDown className="w-6 h-6 mx-auto text-gray-400 animate-bounce" />
-            </div>
           </div>
-        </div>
-      </section>
+        </nav>
 
-      {/* About Section */}
-      <section id="about" className="py-20 bg-slate-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                About Me
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
-              Backend & Cloud Developer with 2+ years of hands-on experience
-              building scalable, production-grade systems. I specialize in
-              microservices architecture, DevOps automation, and secure API
-              development with a focus on cloud-native applications.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Tech Stack */}
-            <div>
-              <h3 className="text-2xl font-bold mb-8 flex items-center">
-                <Code className="w-6 h-6 mr-3 text-purple-400" />
-                Tech Stack
-              </h3>
-              <div className="space-y-4">
-                {techStack.map((tech) => (
-                  <div key={tech.name} className="group">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-3">
-                        <tech.icon className="w-5 h-5 text-purple-400" />
-                        <span className="font-semibold">{tech.name}</span>
-                      </div>
-                      <span className="text-sm text-gray-400">
-                        {tech.level}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-slate-800 rounded-full h-2">
-                      <div
-                        className={`h-full rounded-full ${tech.color} transition-all duration-1000 ease-out`}
-                        style={{ width: `${tech.level}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* What I Do */}
-            <div>
-              <h3 className="text-2xl font-bold mb-8 flex items-center">
-                <Zap className="w-6 h-6 mr-3 text-cyan-400" />
-                What I Do
-              </h3>
-              <div className="space-y-6">
-                {[
-                  {
-                    icon: Server,
-                    title: "Backend Development",
-                    description:
-                      "High-performance APIs and microservices using Go and Node.js with focus on scalability and maintainability.",
-                  },
-                  {
-                    icon: Cloud,
-                    title: "Cloud Infrastructure",
-                    description:
-                      "AWS-based solutions with Docker containerization, auto-scaling, and infrastructure as code.",
-                  },
-                  {
-                    icon: Database,
-                    title: "Database Architecture",
-                    description:
-                      "Design and optimization of SQL/NoSQL databases (PostgreSQL, MySQL, MongoDB) for high-throughput applications.",
-                  },
-                  {
-                    icon: GitBranch,
-                    title: "DevOps & Automation",
-                    description:
-                      "CI/CD pipelines, automated testing, monitoring, and deployment strategies for production systems.",
-                  },
-                  {
-                    icon: Terminal,
-                    title: "CLI Tools & Security",
-                    description:
-                      "Command-line applications, automation scripts, and security-focused tools for system administration.",
-                  },
-                  {
-                    icon: Shield,
-                    title: "API Security",
-                    description:
-                      "Secure API development, authentication systems, and web security best practices implementation.",
-                  },
-                ].map((service, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start space-x-4 p-4 rounded-lg bg-slate-800/30 hover:bg-slate-800/50 transition-colors"
-                  >
-                    <service.icon className="w-6 h-6 text-purple-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold mb-2">{service.title}</h4>
-                      <p className="text-gray-400 text-sm">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section id="experience" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                Experience
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400">
-              2+ years building production systems
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className="bg-slate-800/30 rounded-xl p-6 sm:p-8 hover:bg-slate-800/50 transition-colors"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white">
-                    {exp.title}
-                  </h3>
-                  <span className="text-purple-400 font-semibold mt-1 sm:mt-0">
-                    {exp.period}
-                  </span>
+        {/* Hero Section */}
+        <main className="flex-grow flex flex-col justify-center relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 w-full">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* Text Content */}
+              <div className="flex flex-col gap-8 text-center lg:text-left order-2 lg:order-1">
+                <div className="inline-flex items-center justify-center lg:justify-start gap-2 text-primary font-bold tracking-wide uppercase text-sm">
+                  <span className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.5)]"></span>
+                  Available for hire
                 </div>
-                <p className="text-gray-400 mb-4 text-base sm:text-lg leading-relaxed">
-                  {exp.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-20 bg-slate-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                Featured Projects
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400">
-              Production-ready applications and tools
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-1 xl:grid-cols-1 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="relative bg-slate-800/30 hover:bg-slate-800/50 border transition-all duration-300 transform hover:-translate-y-2 border-slate-700/50 hover:border-purple-500/50 p-8 rounded-lg hover:shadow-xl hover:scale-[1.02] shadow-sm overflow-hidden"
-                onMouseEnter={() => handleProjectHover(index)}
-                onMouseLeave={handleProjectLeave}
-              >
-                {/* Project Content */}
-                <div
-                  className={`transition-all duration-500 ${hoveredProject === index ? "lg:w-1/2" : "w-full"
-                    }`}
-                >
-                  <h3 className="text-2xl font-semibold mb-4 text-white">
-                    {project.title}
-                  </h3>
-                  <p className="text- mb-6 leading-relaxed">
-                    {project.description}
+                <div className="space-y-4">
+                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white">
+                    Building Scalable <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">Cloud Systems</span>
+                  </h1>
+                  <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    I architect robust server-side solutions and high-performance infrastructure for modern applications. Expert in optimizing backend systems for scale.
                   </p>
+                </div>
 
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold mb-3 text-cyan-400">
-                      Key Highlights:
-                    </h4>
-                    <ul className="list-disc list-inside text-gray-400 space-y-1">
-                      {project.highlights.map((highlight, highlightIndex) => (
-                        <li key={highlightIndex}>{highlight}</li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                  <button onClick={() => {
+                    window.location.assign("/projects")
+                  }} className="flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-white text-base font-bold h-12 px-8 transition-all shadow-lg shadow-primary/25 hover:translate-y-[-2px]">
+                    <span>View Projects</span>
+                    <span className="material-symbols-outlined text-xl"><ArrowBigRight /></span>
+                  </button>
+                  <button className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-border-dark hover:bg-slate-100 dark:hover:bg-card-dark text-slate-900 dark:text-white text-base font-bold h-12 px-8 transition-all hover:translate-y-[-2px]">
+                    <span className="material-symbols-outlined text-xl"><Download /></span>
+                    <span>Resume</span> 
+                  </button>
+                </div>
 
-                  <div className="mb-6">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="bg-gradient-to-r from-purple-300 to-cyan-400 border border-purple-800 px-3 py-1 rounded-full text-sm text-gray-800"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                {/* Stats Row */}
+                <div className="flex flex-wrap gap-6 justify-center lg:justify-start pt-4">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg dark:bg-card-dark dark:border dark:border-border-dark">
+                      <span className="material-symbols-outlined text-primary"><Verified /></span>
+                    </div>
+                    <div className="text-left">
+                      <p className="text-xl font-bold leading-none">3+</p>
+                      <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mt-1">Years Exp.</p>
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 px-4 py-2 rounded-lg transition-all duration-300"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Live Demo
-                    </a>
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 border border-gray-800 hover:border-gray-400 px-4 py-2 rounded-lg transition-all duration-300 text-gray-200 hover:bg-gray-500"
-                    >
-                      <Github className="w-4 h-4" />
-                      View Code
-                    </a>
+                  <div className="w-px h-10 bg-border-dark hidden sm:block"></div>
+
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg dark:bg-card-dark dark:border dark:border-border-dark">
+                      <span className="material-symbols-outlined text-primary"><Medal /></span>
+                    </div>
+                    <div className="text-left">
+                      <p className="text-xl font-bold leading-none">3</p>
+                      <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mt-1">Certifications</p>
+                    </div>
+                  </div>
+
+                  <div className="w-px h-10 bg-border-dark hidden sm:block"></div>
+
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg dark:bg-card-dark dark:border dark:border-border-dark ">
+                      <span className="material-symbols-outlined text-primary"><Rocket /></span>
+                    </div>
+                    <div className="text-left">
+                      <p className="text-xl font-bold leading-none">20+</p>
+                      <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mt-1">Projects</p>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Demo Preview Iframe */}
-                {hoveredProject === index && (
-                  <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-                    <div className="h-full p-4">
-                      <div className="relative h-full bg-slate-800/30 rounded-lg shadow-2xl border-2 border-gray-300 overflow-hidden">
-                        {/* Browser Chrome */}
-                        <div className="bg-gray-100 px-4 py-2 flex items-center gap-2 border-b border-gray-300">
-                          <div className="flex gap-1">
-                            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                          </div>
-                          <div className="flex-1 mx-4">
-                            <div className="bg-slate-800/30 rounded px-3 py-1 text-xs text-gray-600 truncate">
-                              {project.demo}
-                            </div>
-                          </div>
+              {/* Visual Content */}
+              <div className="relative order-1 lg:order-2 flex justify-center">
+                {/* Glow effect behind image */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-primary/30 to-transparent opacity-60 blur-3xl -z-10"></div>
+                
+                <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-2xl overflow-hidden border border-border-dark shadow-2xl bg-card-dark group">
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-60 z-10"></div>
+                  
+                  {/* Main Image */}
+                  <div 
+                    className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" 
+                    style={{ backgroundImage: "url('https://i.pinimg.com/736x/ad/2d/aa/ad2daaa9380ff25d24acfaeff16cd690.jpg')" }}
+                    role="img"
+                    aria-label="Professional portrait of a male developer working in a modern office environment with warm lighting"
+                  ></div>
+                  
+                  {/* Floating Tech Card */}
+                  <div className="absolute bottom-6 left-6 right-6 z-20">
+                    <div className="bg-background-dark/90 backdrop-blur-md border border-border-dark p-4 rounded-xl shadow-xl">
+                      <p className="text-xs font-semibold text-slate-400 mb-3 uppercase tracking-wider">Tech Stack</p>
+                      <div className="flex flex-wrap gap-2">
+                        {/* Tech Chip 1 */}
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-white text-xs font-medium">
+                          <span className="material-symbols-outlined text-[16px]"><Cloud /></span>
+                          AWS
                         </div>
-
-                        {/* Loading State */}
-                        {!iframeLoaded[index] && (
-                          <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
-                            <div className="text-center">
-                              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto mb-2"></div>
-                              <p className="text-sm text-gray-500">
-                                Loading preview...
-                              </p>
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Iframe */}
-                        <iframe
-                          src={project.demo}
-                          className="w-full h-full border-0"
-                          onLoad={() => handleIframeLoad(index)}
-                          onError={() =>
-                            setIframeLoaded((prev) => ({
-                              ...prev,
-                              [index]: false,
-                            }))
-                          }
-                          title={`${project.title} Demo`}
-                          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                        />
-
-                        {/* Overlay to prevent interaction */}
-                        <button
-                          type="button"
-                          className="absolute inset-0 bg-transparent cursor-pointer"
-                          aria-label={`Open ${project.title} demo in new tab`}
-                          tabIndex={0}
-                          onClick={() => window.open(project.demo, "_blank")}
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter" || e.key === " ") {
-                              window.open(project.demo, "_blank");
-                            }
-                          }}
-                          style={{
-                            outline: "none",
-                            border: "none",
-                            background: "transparent",
-                            padding: 0,
-                          }}
-                        />
-
-                        {/* Corner badge */}
-                        <div className="absolute top-2 right-2 bg-purple-600 text-white px-2 py-1 rounded text-xs font-medium">
-                          Live Preview
+                        
+                        {/* Tech Chip 2 */}
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
+                          <span className="material-symbols-outlined text-[16px]"><BoxIcon /></span>
+                          Docker
+                        </div>
+                        
+                        {/* Tech Chip 3 */}
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
+                          <span className="material-symbols-outlined text-[16px]"><Star /></span>
+                          K8s
+                        </div>
+                        
+                        {/* Tech Chip 4 */}
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
+                          <span className="material-symbols-outlined text-[16px]"><Code2 /></span>
+                          TypeScript
+                        </div>
+                        
+                        {/* Tech Chip 5 */}
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
+                          <span className="material-symbols-outlined text-[16px]"><Terminal /></span>
+                          Go
+                        </div>
+                        
+                        {/* Tech Chip 6 */}
+                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
+                          <span className="material-symbols-outlined text-[16px]"><Layers /></span>
+                          Terraform
                         </div>
                       </div>
                     </div>
                   </div>
-                )}
-              </div>
-            ))}
-            {/* {projects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-slate-800/30 rounded-xl p-6 sm:p-8 hover:bg-slate-800/50 transition-all duration-300 transform hover:-translate-y-2 border border-slate-700/50 hover:border-purple-500/50 flex flex-col h-full"
-              >
-                <div className="flex-grow">
-                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-white">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 mb-6 leading-relaxed text-sm sm:text-base">
-                    {project.description}
-                  </p>
-
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-purple-300 mb-2">
-                      Key Features:
-                    </h4>
-                    <ul className="text-sm text-gray-400 space-y-1">
-                      {project.highlights.map((highlight, idx) => (
-                        <li key={idx} className="flex items-center">
-                          <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-2 flex-shrink-0" />
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mb-6">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm font-medium"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex group-hover:flex flex-col sm:flex-row gap-3">
-                  <iframe
-                    ref={iref}
-                    src={project.demo}
-                    // target="_blank"
-                    // rel="noopener noreferrer"
-                    className="items-center justify-center w-1/2 h-1/2 absolute hidden bg-purple-500 hover:bg-purple-600 rounded-lg transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span>Demo</span>
-                  </iframe>
-                  <a
-                    href={project.github}
-                    // target="_blank"
-                    // rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-2 px-4 py-2 border border-purple-500 hover:bg-purple-500/10 rounded-lg transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                    <span>Code</span>
-                  </a>
                 </div>
               </div>
-            ))} */}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                Get In Touch
-              </span>
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-400">
-              Ready to build something amazing together?
-            </p>
+            </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: Mail,
-                label: "Email",
-                value: "ritiklrt2@gmail.com",
-                href: "mailto:ritiklrt2@gmail.com",
-                color: "from-red-500 to-pink-500",
-              },
-              {
-                icon: Linkedin,
-                label: "LinkedIn",
-                value: "Connect with me",
-                href: "https://www.linkedin.com/in/ritik-singh-10b333227",
-                color: "from-blue-500 to-blue-600",
-              },
-              {
-                icon: MessageCircleCode,
-                label: "WhatsApp",
-                value: "Chat with me",
-                href: "https://wa.me/9119060487",
-                color: "from-green-500 to-green-600",
-              },
-              {
-                icon: Download,
-                label: "Resume",
-                value: "Download CV",
-                href: "https://drive.google.com/file/d/1LVSdfOScU0OhEZHHuHrA88DNrSfC5uQL/view?usp=sharing",
-                color: "from-green-500 to-green-600",
-              },
-            ].map((contact, index) => (
-              <a
-                key={index}
-                href={contact.href}
-                target={contact.href.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  contact.href.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                className="group block p-6 sm:p-8 bg-slate-800/30 rounded-xl hover:bg-slate-800/50 transition-all duration-300 transform hover:-translate-y-2 border border-slate-700/50 hover:border-purple-500/50"
-              >
-                <div
-                  className={`w-12 h-12 rounded-lg bg-gradient-to-r ${contact.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                >
-                  <contact.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2">
-                  {contact.label}
-                </h3>
-                <p className="text-gray-400 group-hover:text-white transition-colors text-sm sm:text-base">
-                  {contact.value}
-                </p>
-              </a>
-            ))}
+          {/* Infinite Scroll Tech Bar (Visual Flair) */}
+          <div className="w-full border-t border-border-dark bg-background-dark/50 overflow-hidden py-8">
+            <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+              <div className="flex items-center gap-2 text-white font-semibold text-lg">
+                <span className="material-symbols-outlined"><Database /></span> PostgreSQL
+              </div>
+              <div className="flex items-center gap-2 text-white font-semibold text-lg">
+                <span className="material-symbols-outlined"><Server /></span> Redis
+              </div>
+              <div className="flex items-center gap-2 text-white font-semibold text-lg">
+                <span className="material-symbols-outlined"><BookCopy /></span> GraphQL
+              </div>
+              <div className="flex items-center gap-2 text-white font-semibold text-lg">
+                <span className="material-symbols-outlined"><ShieldBan /></span> OAuth2
+              </div>
+              <div className="flex items-center gap-2 text-white font-semibold text-lg">
+                <span className="material-symbols-outlined"><MonitorCheck /></span> Prometheus
+              </div>
+            </div>
           </div>
-
-          <div className="text-center mt-16">
-            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-              Always curious, always building — whether it&apos;s infrastructure
-              on AWS, RESTful services, or CLI-based tools.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-gray-400 text-sm sm:text-base">
-              Designed and Built by{" "}
-              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent font-semibold">
-                Ritik Singh
-              </span>
-              <sup className="text-xs">™</sup>
-            </p>
-          </div>
-        </div>
-      </footer>
-
-      <style>{`
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 8s linear infinite;
-        }
-        @keyframes blink {
-          0%,
-          50% {
-            opacity: 1;
-          }
-          51%,
-          100% {
-            opacity: 0;
-          }
-        }
-        .animate-blink {
-          animation: blink 1s infinite;
-        }
-      `}</style>
+        </main>
+      </div>
     </div>
   );
 };
 
 export default Page;
+
