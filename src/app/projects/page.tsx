@@ -99,10 +99,10 @@ export default function ProjectsPage() {
           </div>
           <div className="hidden md:flex flex-1 justify-end gap-8 items-center">
             <nav className="flex items-center gap-6">
-              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="#">About</a>
-              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="#">Experience</a>
-              <a className="text-white text-sm font-medium" href="#">Projects</a>
-              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="#">Contact</a>
+              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="/about">About</a>
+              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="/experience">Experience</a>
+              <a className="text-white text-sm font-medium" href="/projects">Projects</a>
+              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="/contact">Contact</a>
             </nav>
             <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-5 bg-primary hover:bg-primary/90 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all">
               <span>Resume</span>
