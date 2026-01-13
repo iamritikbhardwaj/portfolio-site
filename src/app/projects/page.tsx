@@ -1,3 +1,4 @@
+import Header from '@/components/header';
 import { BookOpenCheck, Code, SquareArrowUpRight, Star } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -69,19 +70,32 @@ const projects: Project[] = [
     featured: true,
   },
   {
-    id: '3',
-    title: 'DevOps Automation Pipeline',
-    description:
-      'Complete CI/CD pipeline with automated testing, Docker builds, AWS deployment, monitoring, and rollback capabilities. Reduces deployment time by 80% with zero-downtime deployments.',
-    technologies: ['GitHub Actions', 'Docker', 'AWS', 'Linux', 'Monitoring'],
-    demo: '/scrollani',
-    github: 'https://github.com/iamritikbhardwaj/portfolio-site',
-    highlights: [
-      'Zero-downtime deployment',
-      'Automated monitoring',
-      'Infrastructure as Code',
-    ],
-  },
+  id: '2',
+  title: 'MotionGrid – Scroll-Driven Visual Experience',
+  description:
+    'An experimental, animation-first web experience built using client-side rendering to explore smooth scrolling and scroll-based motion design. The project combines Lenis for fluid scroll behavior with GSAP ScrollTrigger to create dynamic reveal and parallax animations, resulting in an immersive, visually engaging layout.',
+  technologies: [
+    'Next.js (App Router)',
+    'React',
+    'Tailwind CSS',
+    'GSAP',
+    'ScrollTrigger',
+    'Lenis Smooth Scroll',
+    'Client-side Rendering',
+    'Vercel Deployment',
+  ],
+  demo: '/scrollani',
+  github: 'https://github.com/iamritikbhardwaj/portfolio-site/src/app/scrollani',
+  highlights: [
+    'Smooth scrolling using Lenis for enhanced user experience',
+    'Scroll-triggered reveal and parallax animations with GSAP',
+    'Animated image grid with randomized motion effects',
+    'Efficient animation lifecycle management with cleanup',
+    'Designed as a motion-focused UI/UX exploration',
+  ],
+  featured: false,
+},
+
 ];
 
 export default function ProjectsPage() {
@@ -90,29 +104,7 @@ export default function ProjectsPage() {
       {/* Main Container */}
       <div className="relative flex min-h-screen w-full flex-col">
         {/* Header */}
-        <header className="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-b-border-dark bg-background-dark/80 backdrop-blur-md px-6 py-4 lg:px-20">
-          <div className="flex items-center gap-4 text-white">
-            <div className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-purple-400 text-white">
-              <span className="material-symbols-outlined text-[20px]"><Code /></span>
-            </div>
-            <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Ritik Singh</h2>
-          </div>
-          <div className="hidden md:flex flex-1 justify-end gap-8 items-center">
-            <nav className="flex items-center gap-6">
-              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="/about">About</a>
-              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="/experience">Experience</a>
-              <a className="text-white text-sm font-medium" href="/projects">Projects</a>
-              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="/contact">Contact</a>
-            </nav>
-            <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-5 bg-primary hover:bg-primary/90 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all">
-              <span>Resume</span>
-            </button>
-          </div>
-          {/* Mobile Menu Button */}
-          <button className="md:hidden text-white">
-            <span className="material-symbols-outlined">menu</span>
-          </button>
-        </header>
+        <Header />
 
         {/* Content Area */}
         <main className="flex-1 px-4 sm:px-6 lg:px-20 py-12">

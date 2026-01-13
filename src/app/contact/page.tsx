@@ -1,5 +1,6 @@
 "use client"
 
+import Header from "@/components/header";
 import { ArrowUpRight, Copy, Mail, MessageCircle, Terminal, UserPlus } from "lucide-react";
 
 // Contact Information - Edit this object to update your contact details
@@ -27,36 +28,7 @@ export default function ContactPage() {
   return (
     <div className="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden min-h-screen flex flex-col">
       {/* Navbar */}
-      <header className="sticky top-0 z-50 w-full border-b border-card-border bg-[#171122]/90 backdrop-blur-md">
-        <div className="max-w-[1280px] mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="size-8 text-primary flex items-center justify-center bg-white/5 rounded-lg">
-              <span className="material-symbols-outlined text-[24px]"><Terminal /></span>
-            </div>
-            <h2 className="text-white text-lg font-bold tracking-tight">Ritik Singh</h2>
-          </div>
-          <nav className="hidden md:flex items-center gap-8">
-            <a className="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="/">Home</a>
-            <a className="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="/projects">Projects</a>
-            <a className="text-gray-300 hover:text-white text-sm font-medium transition-colors" href="/about">About</a>
-            <a className="text-white text-sm font-medium border-b-2 border-primary py-5" href="/contact">Contact</a>
-          </nav>
-          <div className="hidden md:flex items-center">
-            <a 
-              href={contactInfo.resumeUrl}
-              download
-              className="flex items-center gap-2 bg-primary hover:bg-primary-hover text-white text-sm font-bold px-5 py-2 rounded-lg transition-all shadow-lg shadow-primary/20 group"
-            >
-              <span className="material-symbols-outlined text-[20px]">download</span>
-              <span>CV</span>
-            </a>
-          </div>
-          {/* Mobile Menu Icon */}
-          <button className="md:hidden text-white p-2">
-            <span className="material-symbols-outlined">menu</span>
-          </button>
-        </div>
-      </header>
+      <Header />
 
       <main className="flex-grow flex flex-col items-center justify-center relative">
         {/* Background Decor */}
@@ -169,7 +141,7 @@ export default function ContactPage() {
 
           {/* Closing Statement */}
           <div className="mt-16 text-center border-t border-white/5 pt-12">
-            <p className="text-white text-lg font-medium leading-normal mb-2">Open to backend opportunities and cloud architecture projects.</p>
+            <p className="dark:text-white text-lg font-medium leading-normal mb-2">Open to backend opportunities and cloud architecture projects.</p>
             <p className="text-[#a492c9] text-sm">Let's turn your requirements into efficient code.</p>
           </div>
         </div>
@@ -197,7 +169,7 @@ export default function ContactPage() {
               <span className="material-symbols-outlined text-[20px]">work</span>
             </a>
             <a 
-              href={`mailto:${contactInfo.email}`}
+              href={`https://mailto:${contactInfo.email}`}
               className="text-[#6b5a8e] hover:text-accent-cyan transition-colors"
             >
               <span className="material-symbols-outlined text-[20px]">mail</span>

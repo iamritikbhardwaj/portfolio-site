@@ -1,3 +1,4 @@
+import Header from '@/components/header';
 import { Book, Calendar, Code, Code2, Headset, Layers, LucideProps, Phone, Server, Terminal } from 'lucide-react';
 import type { Metadata } from 'next';
 import {ReactElement} from 'react';
@@ -120,29 +121,7 @@ export default function ExperiencePage() {
       {/* Main Container */}
       <div className="relative flex min-h-screen w-full flex-col">
         {/* Header */}
-        <header className="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-b-border-dark bg-background-dark/80 backdrop-blur-md px-6 py-4 lg:px-20">
-          <div className="flex items-center gap-4 text-white">
-            <div className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-purple-400 text-white">
-              <span className="material-symbols-outlined text-[20px]"><Code2 /></span>
-            </div>
-            <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Ritik Singh</h2>
-          </div>
-          <div className="hidden md:flex flex-1 justify-end gap-8 items-center">
-            <nav className="flex items-center gap-6">
-              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="/about">About</a>
-              <a className="text-white text-sm font-medium" href="/experience">Experience</a>
-              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="/projects">Projects</a>
-              <a className="text-slate-300 hover:text-white text-sm font-medium transition-colors" href="/contact">Contact</a>
-            </nav>
-            <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-9 px-5 bg-primary hover:bg-primary/90 text-white text-sm font-bold leading-normal tracking-[0.015em] transition-all">
-              <span>Resume</span>
-            </button>
-          </div>
-          {/* Mobile Menu Button */}
-          <button className="md:hidden text-white">
-            <span className="material-symbols-outlined">menu</span>
-          </button>
-        </header>
+        <Header />
 
         {/* Content Area */}
         <main className="flex-1 px-4 sm:px-6 lg:px-40 py-12">

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+"use client"
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Terminal } from "lucide-react";
@@ -12,11 +12,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-export const metadata: Metadata = {
-  title: "Ritik Singh",
-  description: "Ritik Singh's Portfolio",
-};
 
 export default function RootLayout({
   children,

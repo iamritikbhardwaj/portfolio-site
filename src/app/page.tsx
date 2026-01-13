@@ -18,6 +18,7 @@ import {
   Star,
   BoxIcon,
 } from "lucide-react";
+import Header from "@/components/header";
 
 const Page = () => {
 
@@ -28,38 +29,7 @@ const Page = () => {
         <div className="fixed top-0 left-0 right-0 h-[500px] w-full bg-primary/10 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
 
         {/* Navigation */}
-        <nav className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-20">
-              {/* Logo */}
-              <div className="flex items-center gap-3">
-                <div className="size-10 rounded-lg bg-primary flex items-center justify-center text-white shadow-lg shadow-primary/30">
-                  <span className="material-symbols-outlined text-2xl"><Terminal /></span>
-                </div>
-                <div className="flex flex-col">
-                  <h2 className="text-lg font-bold leading-none tracking-tight">Ritik Singh</h2>
-                  <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Cloud Architect</span>
-                </div>
-              </div>
-
-              {/* Desktop Menu */}
-              <div className="hidden md:flex items-center gap-8">
-                <a className="text-sm font-medium hover:text-primary transition-colors" href="/about">About</a>
-                <a className="text-sm font-medium hover:text-primary transition-colors" href="/projects">Projects</a>
-                <a className="text-sm font-medium hover:text-primary transition-colors" href="/experience">Experience</a>
-                <a className="text-sm font-medium hover:text-primary transition-colors" href="/contact">Contact</a>
-                <button className="flex items-center justify-center rounded-lg bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2.5 transition-all shadow-lg shadow-primary/25">
-                  Get in Touch
-                </button>
-              </div>
-
-              {/* Mobile Menu Button */}
-              <button className="md:hidden p-2 text-slate-500 hover:text-white">
-                <span className="material-symbols-outlined">menu</span>
-              </button>
-            </div>
-          </div>
-        </nav>
+        <Header />
 
         {/* Hero Section */}
         <main className="flex-grow flex flex-col justify-center relative z-10">
@@ -88,7 +58,7 @@ const Page = () => {
                     <span>View Projects</span>
                     <span className="material-symbols-outlined text-xl"><ArrowBigRight /></span>
                   </button>
-                  <button className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-border-dark hover:bg-slate-100 dark:hover:bg-card-dark text-slate-900 dark:text-white text-base font-bold h-12 px-8 transition-all hover:translate-y-[-2px]">
+                  <button onClick={() => window.location.assign("https://drive.google.com/file/d/1B7PDy7INqIw-nir9RcSEx7wubiE5JFw8/view?usp=drive_link")} className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-border-dark hover:bg-slate-100 dark:hover:bg-card-dark text-slate-900 dark:text-white text-base font-bold h-12 px-8 transition-all hover:translate-y-[-2px]">
                     <span className="material-symbols-outlined text-xl"><Download /></span>
                     <span>Resume</span> 
                   </button>

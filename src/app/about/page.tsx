@@ -1,42 +1,21 @@
+"use client"
+import Header from '@/components/header';
 import { Cloud, Download, Link, Mail, Server, Settings, Terminal } from 'lucide-react';
-import type { Metadata } from 'next';
+import React from 'react';
+// import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'About Me - Ritik Singh',
-  description: 'Backend & Cloud Developer with 2+ years of experience in scalable microservices and cloud infrastructure',
-};
+// export const metadata: Metadata = {
+//   title: 'About Me - Ritik Singh',
+//   description: 'Backend & Cloud Developer with 2+ years of experience in scalable microservices and cloud infrastructure',
+// };
 
 export default function Page() {
+
   return (
 
     <div className="bg-background-light dark:bg-background-dark min-h-screen flex flex-col overflow-x-hidden text-slate-900 dark:text-white">
       {/* Top Navigation */}
-      <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
-        <div className="layout-container flex justify-center w-full">
-          <div className="flex items-center justify-between w-full max-w-[1200px] px-6 py-4">
-            <div className="flex items-center gap-4">
-              <div className="size-8 text-primary flex items-center justify-center bg-primary/10 rounded-lg">
-                <Terminal className="w-6 h-6" />
-              </div>
-              <h2 className="text-xl font-bold leading-tight tracking-tight">Ritik Singh</h2>
-            </div>
-            <nav className="hidden md:flex items-center gap-8">
-              <a className="text-sm font-medium hover:text-primary transition-colors" href="/">Home</a>
-              <a className="text-sm font-medium text-primary" href="/about">About</a>
-              <a className="text-sm font-medium hover:text-primary transition-colors" href="/projects">Projects</a>
-              <a className="text-sm font-medium hover:text-primary transition-colors" href="/contact">Contact</a>
-            </nav>
-            <div className="flex items-center gap-4">
-              <button className="hidden sm:flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-6 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold shadow-lg shadow-primary/25">
-                <span className="truncate">Hire Me</span>
-              </button>
-              <button className="md:hidden text-2xl flex items-center">
-                <span className="material-symbols-outlined">menu</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
       <main className="flex-grow flex flex-col items-center w-full">
         {/* Hero Section / Introduction */}
         <section className="w-full max-w-[1200px] px-6 py-12 md:py-20">

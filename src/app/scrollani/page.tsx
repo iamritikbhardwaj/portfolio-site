@@ -1,7 +1,6 @@
 "use client";
 // pages/index.js or app/page.js (depending on your Next.js version)
 import { useEffect } from "react";
-import Head from "next/head";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -97,7 +96,7 @@ export default function Page() {
               />
             </div>
             <div
-              className="elem"
+              className="elem right-4 top-2"
               style={{ "--r": 4, "--c": 2 } as React.CSSProperties}
             >
               <img
