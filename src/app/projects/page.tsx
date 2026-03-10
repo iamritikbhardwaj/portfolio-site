@@ -1,10 +1,11 @@
-import Header from '@/components/header';
-import { BookOpenCheck, Code, SquareArrowUpRight, Star } from 'lucide-react';
-import type { Metadata } from 'next';
+import Header from "@/components/header";
+import { BookOpenCheck, Code, SquareArrowUpRight, Star } from "lucide-react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Ritik Singh - Projects',
-  description: 'A showcase of my latest projects in web development, backend engineering, and DevOps automation.',
+  title: "Ritik Singh - Projects",
+  description:
+    "A showcase of my latest projects in web development, backend engineering, and DevOps automation.",
 };
 
 // Project Data Type
@@ -22,80 +23,130 @@ interface Project {
 // Projects Data - Edit this array to update your projects
 const projects: Project[] = [
   {
-    id: '1',
-    title: 'Hope Foundation NGO Website',
+    id: "1",
+    title: "Hope Foundation NGO Website",
     description:
-      'A responsive and accessible website for an Indian NGO, highlighting their mission, programmes, donation drives, and partner involvement. Designed with a user-friendly UI to encourage engagement and support.',
+      "A responsive and accessible website for an Indian NGO, highlighting their mission, programmes, donation drives, and partner involvement. Designed with a user-friendly UI to encourage engagement and support.",
     technologies: [
-      'React',
-      'Next.js',
-      'Tailwind CSS',
-      'Lucide React',
-      'YouTube Embed',
-      'Responsive Design',
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Lucide React",
+      "YouTube Embed",
+      "Responsive Design",
     ],
-    demo: 'https://ngo-site-nine.vercel.app/',
+    demo: "https://ngo-site-nine.vercel.app/",
     github:
-      'https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/hope-foundation',
+      "https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/hope-foundation",
     highlights: [
-      'Clean and accessible UI',
-      'Donation-focused CTAs',
-      'Integrated YouTube stories',
-      'Modular components',
-      'Mobile-friendly layout',
+      "Clean and accessible UI",
+      "Donation-focused CTAs",
+      "Integrated YouTube stories",
+      "Modular components",
+      "Mobile-friendly layout",
     ],
     featured: true,
   },
   {
-    id: '2',
-    title: 'Crochet by Simran – Handmade Crochet Store',
+    id: "2",
+    title: "Crochet by Simran – Handmade Crochet Store",
     description:
-      'A modern and visually appealing website built for a small handmade crochet business to showcase available inventory. The site highlights crochet products with clear visuals, pricing, and easy contact options, helping the client attract customers and manage inquiries efficiently.',
+      "A modern and visually appealing website built for a small handmade crochet business to showcase available inventory. The site highlights crochet products with clear visuals, pricing, and easy contact options, helping the client attract customers and manage inquiries efficiently.",
     technologies: [
-      'Next.js',
-      'React',
-      'Tailwind CSS',
-      'Responsive Design',
-      'Vercel Deployment',
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Responsive Design",
+      "Vercel Deployment",
     ],
-    demo: 'https://crochetbysimran.vercel.app/',
-    github: 'https://github.com/iamritikbhardwaj/crochetbysimran',
+    demo: "https://crochetbysimran.vercel.app/",
+    github: "https://github.com/iamritikbhardwaj/crochetbysimran",
     highlights: [
-      'Inventory-based product listing',
-      'Clean and aesthetic UI for handmade products',
-      'Mobile-first responsive design',
-      'Fast load times with optimized images',
-      'Easy customer inquiry flow for small businesses',
+      "Inventory-based product listing",
+      "Clean and aesthetic UI for handmade products",
+      "Mobile-first responsive design",
+      "Fast load times with optimized images",
+      "Easy customer inquiry flow for small businesses",
     ],
     featured: true,
   },
   {
-  id: '2',
-  title: 'MotionGrid – Scroll-Driven Visual Experience',
-  description:
-    'An experimental, animation-first web experience built using client-side rendering to explore smooth scrolling and scroll-based motion design. The project combines Lenis for fluid scroll behavior with GSAP ScrollTrigger to create dynamic reveal and parallax animations, resulting in an immersive, visually engaging layout.',
-  technologies: [
-    'Next.js (App Router)',
-    'React',
-    'Tailwind CSS',
-    'GSAP',
-    'ScrollTrigger',
-    'Lenis Smooth Scroll',
-    'Client-side Rendering',
-    'Vercel Deployment',
-  ],
-  demo: '/scrollani',
-  github: 'https://github.com/iamritikbhardwaj/portfolio-site/src/app/scrollani',
-  highlights: [
-    'Smooth scrolling using Lenis for enhanced user experience',
-    'Scroll-triggered reveal and parallax animations with GSAP',
-    'Animated image grid with randomized motion effects',
-    'Efficient animation lifecycle management with cleanup',
-    'Designed as a motion-focused UI/UX exploration',
-  ],
-  featured: false,
-},
-
+    id: "3",
+    title: "MotionGrid – Scroll-Driven Visual Experience",
+    description:
+      "An experimental, animation-first web experience built using client-side rendering to explore smooth scrolling and scroll-based motion design. The project combines Lenis for fluid scroll behavior with GSAP ScrollTrigger to create dynamic reveal and parallax animations, resulting in an immersive, visually engaging layout.",
+    technologies: [
+      "Next.js (App Router)",
+      "React",
+      "Tailwind CSS",
+      "GSAP",
+      "ScrollTrigger",
+      "Lenis Smooth Scroll",
+      "Client-side Rendering",
+      "Vercel Deployment",
+    ],
+    demo: "/scrollani",
+    github:
+      "https://github.com/iamritikbhardwaj/portfolio-site/src/app/scrollani",
+    highlights: [
+      "Smooth scrolling using Lenis for enhanced user experience",
+      "Scroll-triggered reveal and parallax animations with GSAP",
+      "Animated image grid with randomized motion effects",
+      "Efficient animation lifecycle management with cleanup",
+      "Designed as a motion-focused UI/UX exploration",
+    ],
+    featured: false,
+  },
+  {
+    id: "4",
+    title: "Travel DMC – Microservices SaaS Platform",
+    description:
+      "A high-performance CRM and booking engine designed for Destination Management Companies. The system handles complex workflows for agents, suppliers, activities, and transfers using a polyglot microservices architecture to ensure low-latency communication and high availability.",
+    technologies: [
+      "Go (Golang)",
+      "Node.js",
+      "gRPC",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "Microservices",
+    ],
+    demo: "", // Add if available
+    github: "https://github.com/iamritikbhardwaj/travel-dmc-core",
+    highlights: [
+      "Implemented gRPC for high-speed inter-service communication",
+      "Engineered a scalable Activity & Transfer booking engine",
+      "Centralized Auth and Gateway using Go for performance",
+      "Automated financial reporting and sales tracking modules",
+      "Distributed caching with Redis to optimize search results",
+    ],
+    featured: true,
+  },
+  {
+    id: "5",
+    title: "Classy Backend – Enterprise Nest.js Architecture",
+    description:
+      "A robust, production-ready backend built with Nest.js, focusing on clean architecture and maintainability. This project serves as a template for scalable microservices, featuring strict typing, automated testing, and seamless database abstraction.",
+    technologies: [
+      "Nest.js",
+      "TypeScript",
+      "TypeORM",
+      "PostgreSQL",
+      "Jest",
+      "Swagger API",
+      "Microservices",
+    ],
+    demo: "", // Add if available
+    github: "https://github.com/iamritikbhardwaj/nest-backend",
+    highlights: [
+      "100% test coverage for core business logic using Jest",
+      "Modular Nest.js architecture for plug-and-play services",
+      "Advanced database migrations and seeding with TypeORM",
+      "Comprehensive API documentation with Swagger/OpenAPI",
+      "Integrated CI/CD pipelines for automated deployment",
+    ],
+    featured: true,
+  },
 ];
 
 export default function ProjectsPage() {
@@ -113,13 +164,19 @@ export default function ProjectsPage() {
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3">
                 <div className="h-px w-12 bg-primary"></div>
-                <span className="text-primary font-mono text-sm uppercase tracking-wider">Portfolio</span>
+                <span className="text-primary font-mono text-sm uppercase tracking-wider">
+                  Portfolio
+                </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight dark:text-white">
-                Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-primary">Projects</span>
+                Featured{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-primary">
+                  Projects
+                </span>
               </h1>
               <p className="text-slate-400 max-w-2xl text-lg">
-                A collection of projects showcasing my expertise in web development, backend engineering, and cloud infrastructure.
+                A collection of projects showcasing my expertise in web
+                development, backend engineering, and cloud infrastructure.
               </p>
             </div>
 
@@ -134,8 +191,12 @@ export default function ProjectsPage() {
                   {project.featured && (
                     <div className="absolute top-4 right-4 z-10">
                       <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/20 ring-1 ring-primary/40 backdrop-blur-sm">
-                        <span className="material-symbols-outlined text-primary text-[14px]"><Star /></span>
-                        <span className="text-xs font-bold text-primary uppercase tracking-wide">Featured</span>
+                        <span className="material-symbols-outlined text-primary text-[14px]">
+                          <Star />
+                        </span>
+                        <span className="text-xs font-bold text-primary uppercase tracking-wide">
+                          Featured
+                        </span>
                       </div>
                     </div>
                   )}
@@ -158,10 +219,15 @@ export default function ProjectsPage() {
                     {/* Highlights */}
                     {project.highlights && project.highlights.length > 0 && (
                       <div className="space-y-2">
-                        <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">Key Features</h4>
+                        <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">
+                          Key Features
+                        </h4>
                         <ul className="space-y-1.5">
                           {project.highlights.map((highlight, idx) => (
-                            <li key={idx} className="flex items-<Star />t gap-2 text-slate-400 text-sm">
+                            <li
+                              key={idx}
+                              className="flex items-<Star />t gap-2 text-slate-400 text-sm"
+                            >
                               <span className="text-primary mt-0.5">▹</span>
                               <span>{highlight}</span>
                             </li>
@@ -172,7 +238,9 @@ export default function ProjectsPage() {
 
                     {/* Tech Stack */}
                     <div className="space-y-2">
-                      <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">Technologies</h4>
+                      <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider">
+                        Technologies
+                      </h4>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech) => (
                           <span
@@ -193,7 +261,9 @@ export default function ProjectsPage() {
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary hover:bg-primary/90 text-white text-sm font-bold transition-all hover:translate-y-[-2px] shadow-lg shadow-primary/25"
                       >
-                        <span className="material-symbols-outlined text-[18px]"><SquareArrowUpRight /></span>
+                        <span className="material-symbols-outlined text-[18px]">
+                          <SquareArrowUpRight />
+                        </span>
                         <span>Live Demo</span>
                       </a>
                       <a
@@ -202,8 +272,16 @@ export default function ProjectsPage() {
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/10 hover:bg-white/5 text-white text-sm font-bold transition-all hover:translate-y-[-2px]"
                       >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                          <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                        <svg
+                          className="w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                         <span>GitHub</span>
                       </a>
@@ -223,7 +301,9 @@ export default function ProjectsPage() {
                 className="group flex items-center gap-3 rounded-full bg-white/5 px-8 py-3 text-sm font-medium text-white ring-1 ring-inset ring-white/10 transition-all hover:bg-white/10 hover:ring-primary/50"
               >
                 <span>View All Projects on GitHub</span>
-                <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+                <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">
+                  arrow_forward
+                </span>
               </a>
             </div>
           </div>
