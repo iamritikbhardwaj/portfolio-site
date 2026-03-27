@@ -1,14 +1,6 @@
 "use client";
 import Header from "@/components/header";
-import {
-  Cloud,
-  Download,
-  Link,
-  Mail,
-  Server,
-  Settings,
-  Terminal,
-} from "lucide-react";
+import { Cloud, Download, Mail, Server, Settings } from "lucide-react";
 import React from "react";
 // import type { Metadata } from 'next';
 
@@ -98,7 +90,7 @@ export default function Page() {
               </h1>
               <div className="prose prose-lg prose-invert text-slate-600 dark:text-slate-300 max-w-none">
                 <p className="leading-relaxed">
-                  Hello! I'm{" "}
+                  {`Hello! I'm " "`}
                   <strong className="text-slate-900 dark:text-white">
                     Ritik Singh
                   </strong>
