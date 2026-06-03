@@ -44,10 +44,10 @@ const Page = () => {
 
                 <div className="space-y-4">
                   <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white">
-                    Building Scalable <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">Cloud Systems</span>
+                    Full-Stack <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">Software Engineer</span>
                   </h1>
                   <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    I architect robust server-side solutions and high-performance infrastructure for modern applications. Expert in optimizing backend systems for scale.
+                    Designing, scaling, and maintaining robust backend microservices (Go, Node.js) and modern web applications (React, TypeScript). Expert in DevOps automation and AI-assisted workflows.
                   </p>
                 </div>
 
@@ -83,8 +83,8 @@ const Page = () => {
                       <span className="material-symbols-outlined text-primary"><Medal /></span>
                     </div>
                     <div className="text-left">
-                      <p className="text-xl font-bold leading-none">3</p>
-                      <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mt-1">Certifications</p>
+                      <p className="text-xl font-bold leading-none">B.Tech</p>
+                      <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mt-1">Education</p>
                     </div>
                   </div>
 
@@ -95,7 +95,7 @@ const Page = () => {
                       <span className="material-symbols-outlined text-primary"><Rocket /></span>
                     </div>
                     <div className="text-left">
-                      <p className="text-xl font-bold leading-none">20+</p>
+                      <p className="text-xl font-bold leading-none">10+</p>
                       <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mt-1">Projects</p>
                     </div>
                   </div>
@@ -139,7 +139,7 @@ const Page = () => {
                         {/* Tech Chip 3 */}
                         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
                           <span className="material-symbols-outlined text-[16px]"><Star /></span>
-                          K8s
+                          React 18
                         </div>
                         
                         {/* Tech Chip 4 */}
@@ -151,13 +151,13 @@ const Page = () => {
                         {/* Tech Chip 5 */}
                         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
                           <span className="material-symbols-outlined text-[16px]"><Terminal /></span>
-                          Go
+                          Go (Golang)
                         </div>
                         
                         {/* Tech Chip 6 */}
                         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
                           <span className="material-symbols-outlined text-[16px]"><Layers /></span>
-                          Terraform
+                          Node.js
                         </div>
                       </div>
                     </div>

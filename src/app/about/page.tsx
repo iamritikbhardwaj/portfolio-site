@@ -101,11 +101,7 @@ export default function Page() {
                   <strong className="text-primary">
                     3+ years of hands-on experience
                   </strong>
-                  , I specialize in architecting scalable microservices,
-                  optimizing database performance, and automating cloud
-                  infrastructure. My approach combines robust engineering
-                  principles with modern DevOps practices to deliver
-                  high-performance solutions.
+                  , I specialize in designing, scaling, and maintaining robust backend microservices (Go, Node.js) and modern web applications (React, TypeScript). Expert at DevOps automation, slashing deployment overhead by 60% and maintaining 99.9% system uptime across complex AWS cloud environments. Expert at leveraging advanced AI-assisted engineering tools (Cursor, Claude Code, Cline) and vector workflows to accelerate delivery cycles.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
@@ -321,7 +317,7 @@ export default function Page() {
                     <span className="material-symbols-outlined text-primary text-sm">
                       database
                     </span>{" "}
-                    PostgreSQL / SQL
+                    Databases & Caching (PostgreSQL, MongoDB, Redis)
                   </span>
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
                     85%
@@ -339,14 +335,14 @@ export default function Page() {
                     <span className="material-symbols-outlined text-primary text-sm">
                       cloud_queue
                     </span>{" "}
-                    AWS / Cloud
+                    AWS & DevOps (Docker, CI/CD)
                   </span>
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                    80%
+                    85%
                   </span>
                 </div>
                 <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                  <div className="bg-gradient-to-r from-primary to-purple-400 h-2.5 rounded-full w-[80%] shadow-[0_0_10px_rgba(91,19,236,0.4)]"></div>
+                  <div className="bg-gradient-to-r from-primary to-purple-400 h-2.5 rounded-full w-[85%] shadow-[0_0_10px_rgba(91,19,236,0.4)]"></div>
                 </div>
               </div>
 
@@ -355,16 +351,16 @@ export default function Page() {
                 <div className="flex justify-between mb-2">
                   <span className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <span className="material-symbols-outlined text-primary text-sm">
-                      deployed_code
+                      psychology
                     </span>{" "}
-                    Docker & K8s
+                    AI Engineering (Cursor, Claude Code, Cline, RAG)
                   </span>
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                    75%
+                    80%
                   </span>
                 </div>
                 <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                  <div className="bg-gradient-to-r from-primary to-purple-400 h-2.5 rounded-full w-[75%] shadow-[0_0_10px_rgba(91,19,236,0.4)]"></div>
+                  <div className="bg-gradient-to-r from-primary to-purple-400 h-2.5 rounded-full w-[80%] shadow-[0_0_10px_rgba(91,19,236,0.4)]"></div>
                 </div>
               </div>
             </div>

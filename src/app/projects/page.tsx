@@ -23,127 +23,70 @@ interface Project {
 // Projects Data - Edit this array to update your projects
 const projects: Project[] = [
   {
-    id: "1",
-    title: "Hope Foundation NGO Website",
+    id: "3",
+    title: "FlightScanner",
     description:
-      "A responsive and accessible website for an Indian NGO, highlighting their mission, programmes, donation drives, and partner involvement. Designed with a user-friendly UI to encourage engagement and support.",
+      "A comprehensive flight search, comparison, and booking engine integrated with Kyte pre-ticketing, booking, and post-booking APIs, featuring live currency exchange conversion, interactive seat map grids, and automated Stripe billing/refund flows.",
+    technologies: [
+      "Next.js (App Router)",
+      "React 18",
+      "TypeScript",
+      "Redux Toolkit",
+      "Stripe",
+      "PostgreSQL",
+      "Firebase Auth",
+      "Kyte API Integration",
+    ],
+    demo: "https://flightscanner.co.za/",
+    github: "https://github.com/iamritikbhardwaj/flights-scanner",
+    highlights: [
+      "Integrated with Kyte API v3 for pre-booking, post-booking updates, and real-time seat map layouts.",
+      "Engineered secure checkout sessions with automatic Stripe refund triggers on supplier ticketing confirmation failures.",
+      "Developed responsive interactive seat maps mapping passenger age limitations and structural rules.",
+      "Created real-time currency conversion filter layers powered by active exchange rates.",
+    ],
+    featured: true,
+  },
+  {
+    id: "1",
+    title: "CRM SaaS Platform",
+    description:
+      "A high-performance, multi-tenant CRM infrastructure using a microservices architecture to smoothly support 1,000+ active users.",
     technologies: [
       "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Lucide React",
-      "YouTube Embed",
-      "Responsive Design",
+      "TypeScript",
+      "Node.js",
+      "Go (Golang)",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "AWS",
     ],
-    demo: "https://ngo-site-nine.vercel.app/",
-    github:
-      "https://github.com/iamritikbhardwaj/portfolio-site/tree/master/src/app/hope-foundation",
+    demo: "",
+    github: "https://github.com/iamritikbhardwaj/travel-dmc-core",
     highlights: [
-      "Clean and accessible UI",
-      "Donation-focused CTAs",
-      "Integrated YouTube stories",
-      "Modular components",
-      "Mobile-friendly layout",
+      "Engineered a high-performance, multi-tenant CRM infrastructure using microservices architecture.",
+      "Integrated Redis caching layers and secure data isolation schemas, leading to a 30% improvement in core dashboard load times.",
+      "Built secure, scalable RESTful APIs leveraging Go and Node.js, utilizing MongoDB for flexible data handling and PostgreSQL for relational consistency.",
     ],
     featured: true,
   },
   {
     id: "2",
-    title: "Crochet by Simran – Handmade Crochet Store",
+    title: "Gorecon - Web Reconnaissance Tool",
     description:
-      "A modern and visually appealing website built for a small handmade crochet business to showcase available inventory. The site highlights crochet products with clear visuals, pricing, and easy contact options, helping the client attract customers and manage inquiries efficiently.",
-    technologies: [
-      "Next.js",
-      "React",
-      "Tailwind CSS",
-      "Responsive Design",
-      "Vercel Deployment",
-    ],
-    demo: "https://crochetbysimran.vercel.app/",
-    github: "https://github.com/iamritikbhardwaj/crochetbysimran",
-    highlights: [
-      "Inventory-based product listing",
-      "Clean and aesthetic UI for handmade products",
-      "Mobile-first responsive design",
-      "Fast load times with optimized images",
-      "Easy customer inquiry flow for small businesses",
-    ],
-    featured: true,
-  },
-  {
-    id: "3",
-    title: "MotionGrid – Scroll-Driven Visual Experience",
-    description:
-      "An experimental, animation-first web experience built using client-side rendering to explore smooth scrolling and scroll-based motion design. The project combines Lenis for fluid scroll behavior with GSAP ScrollTrigger to create dynamic reveal and parallax animations, resulting in an immersive, visually engaging layout.",
-    technologies: [
-      "Next.js (App Router)",
-      "React",
-      "Tailwind CSS",
-      "GSAP",
-      "ScrollTrigger",
-      "Lenis Smooth Scroll",
-      "Client-side Rendering",
-      "Vercel Deployment",
-    ],
-    demo: "/scrollani",
-    github:
-      "https://github.com/iamritikbhardwaj/portfolio-site/src/app/scrollani",
-    highlights: [
-      "Smooth scrolling using Lenis for enhanced user experience",
-      "Scroll-triggered reveal and parallax animations with GSAP",
-      "Animated image grid with randomized motion effects",
-      "Efficient animation lifecycle management with cleanup",
-      "Designed as a motion-focused UI/UX exploration",
-    ],
-    featured: false,
-  },
-  {
-    id: "4",
-    title: "Travel DMC – Microservices SaaS Platform",
-    description:
-      "A high-performance CRM and booking engine designed for Destination Management Companies. The system handles complex workflows for agents, suppliers, activities, and transfers using a polyglot microservices architecture to ensure low-latency communication and high availability.",
+      "A high-speed security command-line tool written in Go for automated network domain reconnaissance and target vulnerability scanning.",
     technologies: [
       "Go (Golang)",
-      "Node.js",
-      "gRPC",
-      "PostgreSQL",
-      "Redis",
-      "Docker",
-      "Microservices",
+      "CLI",
+      "Networking",
+      "Shell Scripting",
     ],
-    demo: "", // Add if available
-    github: "https://github.com/iamritikbhardwaj/travel-dmc-core",
+    demo: "",
+    github: "https://github.com/iamritikbhardwaj/gorecon",
     highlights: [
-      "Implemented gRPC for high-speed inter-service communication",
-      "Engineered a scalable Activity & Transfer booking engine",
-      "Centralized Auth and Gateway using Go for performance",
-      "Automated financial reporting and sales tracking modules",
-      "Distributed caching with Redis to optimize search results",
-    ],
-    featured: true,
-  },
-  {
-    id: "5",
-    title: "Classy Backend – Enterprise Nest.js Architecture",
-    description:
-      "A robust, production-ready backend built with Nest.js, focusing on clean architecture and maintainability. This project serves as a template for scalable microservices, featuring strict typing, automated testing, and seamless database abstraction.",
-    technologies: [
-      "Nest.js",
-      "TypeScript",
-      "TypeORM",
-      "PostgreSQL",
-      "Jest",
-      "Swagger API",
-      "Microservices",
-    ],
-    demo: "", // Add if available
-    github: "https://github.com/iamritikbhardwaj/nest-backend",
-    highlights: [
-      "100% test coverage for core business logic using Jest",
-      "Modular Nest.js architecture for plug-and-play services",
-      "Advanced database migrations and seeding with TypeORM",
-      "Comprehensive API documentation with Swagger/OpenAPI",
-      "Integrated CI/CD pipelines for automated deployment",
+      "Developed a high-speed security CLI tool in Go for automated network domain reconnaissance.",
+      "Optimized performance and data gathering speeds by leveraging Go's Goroutines for parallelized task execution.",
     ],
     featured: true,
   },
@@ -226,7 +169,7 @@ export default function ProjectsPage() {
                           {project.highlights.map((highlight, idx) => (
                             <li
                               key={idx}
-                              className="flex items-<Star />t gap-2 text-slate-400 text-sm"
+                              className="flex items-start gap-2 text-slate-400 text-sm"
                             >
                               <span className="text-primary mt-0.5">▹</span>
                               <span>{highlight}</span>
