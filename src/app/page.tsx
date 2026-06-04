@@ -568,7 +568,7 @@ const Page = () => {
               <div className="group">
                 <div className="flex justify-between mb-2">
                   <span className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary text-sm">code</span> Golang
+                    <Code2 className="w-4 h-4 text-primary" /> Golang
                   </span>
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400">95%</span>
                 </div>
@@ -581,7 +581,7 @@ const Page = () => {
               <div className="group">
                 <div className="flex justify-between mb-2">
                   <span className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary text-sm">javascript</span> Node.js / TypeScript
+                    <Terminal className="w-4 h-4 text-primary" /> Node.js / TypeScript
                   </span>
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400">90%</span>
                 </div>
@@ -594,7 +594,7 @@ const Page = () => {
               <div className="group">
                 <div className="flex justify-between mb-2">
                   <span className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary text-sm">database</span> Databases (Postgres, Mongo, Redis)
+                    <Database className="w-4 h-4 text-primary" /> Databases (Postgres, Mongo, Redis)
                   </span>
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400">85%</span>
                 </div>
@@ -607,7 +607,7 @@ const Page = () => {
               <div className="group">
                 <div className="flex justify-between mb-2">
                   <span className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary text-sm">cloud_queue</span> AWS & DevOps (Docker, CI/CD)
+                    <Cloud className="w-4 h-4 text-primary" /> AWS & DevOps (Docker, CI/CD)
                   </span>
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400">85%</span>
                 </div>
