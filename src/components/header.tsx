@@ -7,11 +7,11 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Projects", href: "/projects" },
-    { label: "Experience", href: "/experience" },
-    { label: "Contact", href: "/contact" },
+    { label: "Home", href: "#home" },
+    { label: "About CTO", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Clients", href: "#projects" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
