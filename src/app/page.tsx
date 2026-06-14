@@ -1,5 +1,6 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Image from "next/image";
+import CopyEmailButton from "@/components/CopyEmailButton";
 import {
   Server,
   Cloud,
@@ -32,14 +33,7 @@ import {
   UserPlus,
 } from "lucide-react";
 import Header from "@/components/header";
-import Lenis from "lenis";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// Register ScrollTrigger for client-side execution
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import HomeAnimations from "@/components/animations/HomeAnimations";
 
 // Contact Information
 const contactInfo = {
@@ -54,13 +48,6 @@ const contactInfo = {
   tagline: "Let's Craft Scalable Solutions",
   description:
     "We specialize in building robust distributed backends, DevOps pipelines, and AI engineering services. Reach out to discuss your software engineering needs or technical challenges!",
-};
-
-// Helper function to copy to clipboard
-const handleCopy = (text: string) => {
-  if (typeof navigator !== "undefined" && navigator.clipboard) {
-    navigator.clipboard.writeText(text);
-  }
 };
 
 interface Capability {
@@ -260,62 +247,10 @@ const clients: ClientTestimonial[] = [
 ];
 
 const Page = () => {
-  useEffect(() => {
-    // Initialize Lenis
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-
-    const raf = (time: number) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
-
-    // Connect Lenis to GSAP ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
-
-    // Entrance and scroll animations
-    gsap.fromTo(
-      ".hero-animate",
-      { opacity: 0, y: 30 },
-      { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power2.out" },
-    );
-
-    const sections = ["#about", "#services", "#projects", "#contact"];
-    sections.forEach((sec) => {
-      gsap.fromTo(
-        sec,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sec,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        },
-      );
-    });
-
-    return () => {
-      lenis.destroy();
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
-  }, []);
-
   return (
-    <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased overflow-x-hidden transition-colors duration-300">
-      <div className="relative min-h-screen flex flex-col">
+    <div className="min-h-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-50 font-sans selection:bg-primary/30 selection:text-primary">
+      <HomeAnimations />
+      <div className="flex flex-col min-h-screen relative overflow-hidden">
         {/* Decorative Background Gradient */}
         <div className="fixed top-0 left-0 right-0 h-[500px] w-full bg-primary/10 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
 
@@ -434,15 +369,13 @@ const Page = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-60 z-10"></div>
 
                   {/* Main Image */}
-                  <div
-                    className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{
-                      backgroundImage:
-                        "url('https://i.pinimg.com/736x/ad/2d/aa/ad2daaa9380ff25d24acfaeff16cd690.jpg')",
-                    }}
-                    role="img"
-                    aria-label="Professional portrait of a male developer working in a modern office environment with warm lighting"
-                  ></div>
+                  <Image
+                    src="https://i.pinimg.com/736x/ad/2d/aa/ad2daaa9380ff25d24acfaeff16cd690.jpg"
+                    alt="Professional portrait of a male developer working in a modern office environment with warm lighting"
+                    fill
+                    priority
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
 
                   {/* Floating Tech Card */}
                   <div className="absolute bottom-6 left-6 right-6 z-20">
@@ -1068,33 +1001,7 @@ const Page = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             {/* Email Card */}
-            <button
-              onClick={() => handleCopy(contactInfo.email)}
-              className="group relative flex flex-col p-6 rounded-xl bg-card-dark border border-card-border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer text-left"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="p-3 bg-white/5 rounded-lg text-accent-cyan group-hover:bg-accent-cyan/20 transition-colors">
-                  <span className="material-symbols-outlined text-[32px] flex items-center justify-center">
-                    <Mail className="w-8 h-8" />
-                  </span>
-                </div>
-                <span className="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors">
-                  <Copy className="w-5 h-5" />
-                </span>
-              </div>
-              <h4 className="text-white text-xl font-bold mb-1">Email</h4>
-              <p className="text-[#a492c9] text-sm mb-4">
-                Best for detailed project proposals
-              </p>
-              <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                <span className="text-gray-300 font-mono text-sm">
-                  {contactInfo.email}
-                </span>
-                <span className="text-xs font-bold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                  Copy
-                </span>
-              </div>
-            </button>
+            <CopyEmailButton email={contactInfo.email} />
 
             {/* LinkedIn Card */}
             <a
