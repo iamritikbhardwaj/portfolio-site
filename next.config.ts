@@ -8,7 +8,16 @@ const nextConfig: NextConfig = {
   // basePath: "",
   // output: "export",
   images: {
-    domains: ["lh3.googleusercontent.com", "i.pinimg.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pinimg.com",
+      },
+    ],
   },
   async headers() {
     return [

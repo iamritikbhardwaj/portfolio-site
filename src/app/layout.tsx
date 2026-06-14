@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.codecraftedlabs.co.in"),
   title: "Code Crafted Labs | High-Performance Software Engineering",
   description: "We specialize in building robust distributed backends, DevOps pipelines, and AI engineering services.",
   keywords: ["Software Engineering", "Microservices", "DevOps", "Next.js", "React", "Golang", "Node.js"],
