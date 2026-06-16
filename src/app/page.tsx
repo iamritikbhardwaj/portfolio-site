@@ -364,7 +364,7 @@ const Page = () => {
                 {/* Glow effect behind image */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-primary/30 to-transparent opacity-60 blur-3xl -z-10"></div>
 
-                <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-2xl overflow-hidden border border-border-dark shadow-2xl bg-card-dark group">
+                <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-2xl overflow-hidden border border-gray-200 dark:border-border-dark shadow-2xl bg-white dark:bg-card-dark group">
                   {/* Overlay gradient */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-60 z-10"></div>
 
@@ -475,7 +475,7 @@ const Page = () => {
             {/* Profile Image / Left Col */}
             <div className="lg:col-span-5 flex justify-center lg:justify-start relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-purple-400 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-              <div className="relative w-full max-w-[400px] aspect-square rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl bg-card-dark">
+              <div className="relative w-full max-w-[400px] aspect-square rounded-2xl overflow-hidden border-2 border-black/10 dark:border-white/10 shadow-2xl bg-white dark:bg-card-dark">
                 <div
                   className="w-full h-full bg-cover bg-center"
                   style={{
@@ -760,7 +760,7 @@ const Page = () => {
                 return (
                   <div
                     key={cap.id}
-                    className="relative overflow-hidden rounded-2xl bg-card-dark p-6 sm:p-8 ring-1 ring-white/5 transition-all duration-300 hover:ring-primary/50 hover:bg-[#231c30] hover:shadow-[0_0_30px_rgba(91,19,236,0.15)]"
+                    className="relative overflow-hidden rounded-2xl bg-white dark:bg-card-dark p-6 sm:p-8 ring-1 ring-black/5 dark:ring-white/5 transition-all duration-300 hover:ring-primary/50 hover:bg-slate-50 dark:hover:bg-[#231c30] hover:shadow-[0_0_30px_rgba(91,19,236,0.15)]"
                   >
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
                       <div className="flex items-center gap-4">
@@ -768,17 +768,17 @@ const Page = () => {
                           <IconComponent className="w-6 h-6" />
                         </div>
                         <div>
-                          <h4 className="text-xl sm:text-2xl font-bold text-white mb-1">
+                          <h4 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-1">
                             {cap.title}
                           </h4>
-                          <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                          <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">
                             {cap.subtitle}
                           </p>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-slate-300 mb-6 leading-relaxed text-sm sm:text-base">
+                    <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed text-sm sm:text-base">
                       {cap.description}
                     </p>
 
@@ -786,7 +786,7 @@ const Page = () => {
                       {cap.details.map((detail, idx) => (
                         <div
                           key={idx}
-                          className="flex items-start gap-3 text-slate-400 text-sm sm:text-base"
+                          className="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base"
                         >
                           <Check className="w-4 h-4 text-primary shrink-0 mt-1" />
                           <p className="leading-relaxed">{detail}</p>
@@ -794,11 +794,11 @@ const Page = () => {
                       ))}
                     </div>
 
-                    <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200 dark:border-white/5">
                       {cap.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="inline-flex items-center rounded-lg bg-[#2f2348] px-3 py-1.5 text-xs font-medium text-slate-300 ring-1 ring-inset ring-white/5 hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
+                          className="inline-flex items-center rounded-lg bg-slate-100 dark:bg-[#2f2348] px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-black/5 dark:ring-white/5 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
                         >
                           {tech}
                         </span>
@@ -810,51 +810,101 @@ const Page = () => {
             </div>
 
             {/* Engagement Process */}
-            <div className="mt-12 p-8 rounded-3xl bg-gradient-to-r from-primary/10 to-purple-900/10 border border-primary/20">
-              <h4 className="text-2xl font-bold text-white mb-4">
+            <div className="mt-12 p-8 rounded-3xl bg-gradient-to-r from-primary/5 to-purple-900/5 dark:from-primary/10 dark:to-purple-900/10 border border-primary/20">
+              <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                 Our Engagement Process
               </h4>
-              <p className="text-slate-400 mb-6 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm sm:text-base leading-relaxed">
                 We work in streamlined cycles designed to minimize friction and
                 maximize technical excellence:
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
                 <div className="space-y-2">
-                  <h5 className="font-bold text-white flex items-center gap-2">
+                  <h5 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <span className="bg-primary text-white rounded-full size-5 flex items-center justify-center text-xs">
                       1
                     </span>
                     Architecture Design
                   </h5>
-                  <p className="text-slate-400">
+                  <p className="text-slate-600 dark:text-slate-400">
                     Specifying technical layers, database schemas, and parity
                     configurations.
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <h5 className="font-bold text-white flex items-center gap-2">
+                  <h5 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <span className="bg-primary text-white rounded-full size-5 flex items-center justify-center text-xs">
                       2
                     </span>
                     AI-Assisted Sprint Delivery
                   </h5>
-                  <p className="text-slate-400">
+                  <p className="text-slate-600 dark:text-slate-400">
                     Rapid feature coding matching rigorous testing constraints.
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <h5 className="font-bold text-white flex items-center gap-2">
+                  <h5 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <span className="bg-primary text-white rounded-full size-5 flex items-center justify-center text-xs">
                       3
                     </span>
                     CI/CD & Monitoring
                   </h5>
-                  <p className="text-slate-400">
+                  <p className="text-slate-600 dark:text-slate-400">
                     Continuous deployment to AWS with custom telemetry
                     dashboards.
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Products Section */}
+        <section
+          id="products"
+          className="w-full bg-white dark:bg-[#11091b] py-20 border-y border-gray-200 dark:border-slate-800 relative overflow-hidden scroll-mt-24"
+        >
+          <div className="layout-container max-w-[1200px] px-6 mx-auto relative z-10">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+              <div>
+                <h2 className="text-primary text-sm font-bold tracking-widest uppercase mb-2">
+                  Products
+                </h2>
+                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+                  Our Products
+                </h3>
+              </div>
+              <p className="text-slate-600 dark:text-slate-400 max-w-lg mb-2">
+                Discover the innovative solutions we've built to solve complex business challenges.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <a
+                href="https://empsass.codecraftedlabs.co.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-card-dark p-6 sm:p-8 ring-1 ring-black/5 dark:ring-white/10 transition-all duration-300 hover:ring-primary/50 hover:shadow-[0_0_30px_rgba(91,19,236,0.15)] flex flex-col justify-between h-full min-h-[250px]"
+              >
+                <div className="relative z-10 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-md">
+                      E
+                    </div>
+                    <span className="text-slate-400 group-hover:text-primary transition-colors">
+                      <ArrowUpRight className="w-6 h-6" />
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                      EmpSaaS
+                    </h4>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      A comprehensive compliance and statutory reporting platform designed to streamline your business operations and employee management.
+                    </p>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </section>
@@ -872,13 +922,13 @@ const Page = () => {
                   Success Stories
                 </span>
               </div>
-              <h3 className="text-4xl md:text-5xl font-bold tracking-tight dark:text-white">
+              <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
                 Client{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-primary">
                   Testimonials
                 </span>
               </h3>
-              <p className="text-slate-400 max-w-2xl text-lg">
+              <p className="text-slate-600 dark:text-slate-400 max-w-2xl text-lg">
                 Hear directly from the engineering leads and stakeholders who
                 have scaled their operations and infrastructure with Code
                 Crafted Labs.
@@ -889,7 +939,7 @@ const Page = () => {
               {clients.map((client) => (
                 <div
                   key={client.id}
-                  className="group relative overflow-hidden rounded-2xl bg-card-dark p-6 sm:p-8 ring-1 ring-white/10 transition-all duration-300 hover:ring-primary/50 hover:shadow-[0_0_30px_rgba(91,19,236,0.15)] hover:bg-[#231c30] flex flex-col justify-between min-h-[380px]"
+                  className="group relative overflow-hidden rounded-2xl bg-white dark:bg-card-dark p-6 sm:p-8 ring-1 ring-black/10 dark:ring-white/10 transition-all duration-300 hover:ring-primary/50 hover:shadow-[0_0_30px_rgba(91,19,236,0.15)] hover:bg-slate-50 dark:hover:bg-[#231c30] flex flex-col justify-between min-h-[380px]"
                 >
                   <div className="absolute -top-12 -right-12 size-32 bg-primary/10 blur-3xl rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -902,10 +952,10 @@ const Page = () => {
                           {client.logoText}
                         </div>
                         <div>
-                          <h4 className="text-xl font-bold text-white leading-tight">
+                          <h4 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
                             {client.clientName}
                           </h4>
-                          <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider font-semibold">
+                          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wider font-semibold">
                             {client.projectTitle}
                           </p>
                         </div>
@@ -913,22 +963,22 @@ const Page = () => {
                       <Quote className="w-8 h-8 text-primary/30" />
                     </div>
 
-                    <p className="text-slate-300 leading-relaxed italic text-sm sm:text-base">
+                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed italic text-sm sm:text-base">
                       "{client.feedback}"
                     </p>
 
                     <div className="border-l-2 border-primary/50 pl-4 py-1">
-                      <p className="text-sm font-bold text-white">
+                      <p className="text-sm font-bold text-slate-900 dark:text-white">
                         {client.reviewer}
                       </p>
-                      <p className="text-xs text-slate-400 mt-0.5">
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                         {client.reviewerRole}
                       </p>
                     </div>
 
                     {client.highlights && client.highlights.length > 0 && (
                       <div className="space-y-2 pt-2">
-                        <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                        <h4 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
                           <CheckCircle className="w-3.5 h-3.5 text-primary" />{" "}
                           Key Achievements
                         </h4>
@@ -936,7 +986,7 @@ const Page = () => {
                           {client.highlights.map((highlight, idx) => (
                             <li
                               key={idx}
-                              className="list-disc text-slate-400 text-sm"
+                              className="list-disc text-slate-600 dark:text-slate-400 text-sm"
                             >
                               {highlight}
                             </li>
@@ -946,12 +996,12 @@ const Page = () => {
                     )}
                   </div>
 
-                  <div className="relative z-10 pt-6 border-t border-white/5 space-y-4">
+                  <div className="relative z-10 pt-6 border-t border-gray-200 dark:border-white/5 space-y-4">
                     <div className="flex flex-wrap gap-2">
                       {client.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="inline-flex items-center rounded-lg bg-[#2f2348] px-2.5 py-1 text-xs font-medium text-white ring-1 ring-inset ring-white/10 hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
+                          className="inline-flex items-center rounded-lg bg-slate-100 dark:bg-[#2f2348] px-2.5 py-1 text-xs font-medium text-slate-800 dark:text-white ring-1 ring-inset ring-black/10 dark:ring-white/10 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
                         >
                           {tech}
                         </span>
@@ -1008,19 +1058,19 @@ const Page = () => {
               href={contactInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-card-dark border border-card-border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
+              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-200 dark:border-border-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="p-3 bg-white/5 rounded-lg text-[#0077b5] group-hover:bg-[#0077b5]/20 transition-colors">
+                <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-[#0077b5] group-hover:bg-[#0077b5]/20 transition-colors">
                   <span className="material-symbols-outlined text-[32px] flex items-center justify-center">
                     <UserPlus className="w-8 h-8" />
                   </span>
                 </div>
-                <span className="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors">
+                <span className="material-symbols-outlined text-gray-500 group-hover:text-slate-900 dark:text-white transition-colors">
                   <ArrowUpRight className="w-5 h-5" />
                 </span>
               </div>
-              <h4 className="text-white text-xl font-bold mb-1">LinkedIn</h4>
+              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">LinkedIn</h4>
               <p className="text-[#a492c9] text-sm mb-4">
                 Connect with our leadership
               </p>
@@ -1037,19 +1087,19 @@ const Page = () => {
               href={`https://wa.me/${contactInfo.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-card-dark border border-card-border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
+              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-200 dark:border-border-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="p-3 bg-white/5 rounded-lg text-[#25D366] group-hover:bg-[#25D366]/20 transition-colors">
+                <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-[#25D366] group-hover:bg-[#25D366]/20 transition-colors">
                   <span className="material-symbols-outlined text-[32px] flex items-center justify-center">
                     <MessageCircle className="w-8 h-8" />
                   </span>
                 </div>
-                <span className="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors">
+                <span className="material-symbols-outlined text-gray-500 group-hover:text-slate-900 dark:text-white transition-colors">
                   <ArrowUpRight className="w-5 h-5" />
                 </span>
               </div>
-              <h4 className="text-white text-xl font-bold mb-1">WhatsApp</h4>
+              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">WhatsApp</h4>
               <p className="text-[#a492c9] text-sm mb-4">
                 Quick chats &amp; inquiries
               </p>
@@ -1068,32 +1118,32 @@ const Page = () => {
               href={`https://github.com/${contactInfo.github}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-card-dark border border-card-border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
+              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-200 dark:border-border-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="p-3 bg-white/5 rounded-lg text-white group-hover:bg-white/10 transition-colors">
+                <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-slate-900 dark:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 transition-colors">
                   <svg
-                    className="w-8 h-8 text-slate-300"
+                    className="w-8 h-8 text-slate-600 dark:text-slate-300"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path
                       fillRule="evenodd"
-                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
                       clipRule="evenodd"
+                      d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"
                     />
                   </svg>
                 </div>
-                <span className="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors">
+                <span className="material-symbols-outlined text-gray-500 group-hover:text-slate-900 dark:text-white transition-colors">
                   <ArrowUpRight className="w-5 h-5" />
                 </span>
               </div>
-              <h4 className="text-white text-xl font-bold mb-1">GitHub</h4>
+              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">GitHub</h4>
               <p className="text-[#a492c9] text-sm mb-4">
                 Check out our open-source tools
               </p>
-              <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                <span className="text-gray-300 text-sm">
+              <div className="mt-auto pt-4 border-t border-gray-200 dark:border-white/5 flex items-center justify-between">
+                <span className="text-gray-500 dark:text-gray-300 text-sm">
                   @{contactInfo.github}
                 </span>
                 <span className="text-xs font-bold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
@@ -1103,8 +1153,8 @@ const Page = () => {
             </a>
           </div>
 
-          <div className="mt-16 text-center border-t border-white/5 pt-12">
-            <p className="dark:text-white text-lg font-medium leading-normal mb-2">
+          <div className="mt-16 text-center border-t border-gray-200 dark:border-white/5 pt-12">
+            <p className="text-slate-900 dark:text-white text-lg font-medium leading-normal mb-2">
               Partner with Code Crafted Labs to build high-performance software.
             </p>
             <p className="text-[#a492c9] text-sm">
@@ -1115,7 +1165,7 @@ const Page = () => {
       </div>
 
       {/* Footer */}
-      <footer className="w-full bg-[#120d1c] border-t border-card-border mt-auto relative z-10">
+      <footer className="w-full bg-slate-50 dark:bg-[#120d1c] border-t border-gray-200 dark:border-border-dark mt-auto relative z-10">
         <div className="max-w-[1280px] mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-[#6b5a8e] text-sm text-center md:text-left">
             © 2026 Code Crafted Labs. All rights reserved.
@@ -1125,7 +1175,7 @@ const Page = () => {
               href={`https://github.com/${contactInfo.github}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#6b5a8e] hover:text-white transition-colors"
+              className="text-[#6b5a8e] hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               <span className="material-symbols-outlined text-[20px] flex items-center justify-center">
                 <Terminal className="w-5 h-5" />
@@ -1135,7 +1185,7 @@ const Page = () => {
               href={contactInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#6b5a8e] hover:text-[#0077b5] transition-colors"
+              className="text-[#6b5a8e] hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               <span className="material-symbols-outlined text-[20px] flex items-center justify-center">
                 <UserPlus className="w-5 h-5" />

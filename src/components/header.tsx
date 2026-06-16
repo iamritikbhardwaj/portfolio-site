@@ -21,7 +21,7 @@ export default function Header() {
         <div className="flex items-center justify-between w-full max-w-[1200px] px-6 py-4">
           <div className="flex name items-center gap-4">
             <div className="size-10 flex items-center justify-center overflow-hidden">
-              <Image src="/ccl-logo.png" alt="Code Crafted Labs Logo" width={40} height={40} className="w-full h-full object-contain" priority />
+              <Image src="/ccl-logo.png" alt="Code Crafted Labs Logo" width={40} height={40} className="w-full h-full object-contain dark:invert" priority />
             </div>
             <h2 className="text-xl font-bold leading-tight tracking-tight">
               Ritik Singh

@@ -32,6 +32,14 @@ export const metadata: Metadata = {
     title: "Code Crafted Labs",
     description: "High-Performance Software Engineering Agency",
   },
+  icons: {
+    icon: [
+      { url: "/icon.png", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark.png", media: "(prefers-color-scheme: dark)" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
