@@ -77,7 +77,14 @@ export const metadata: Metadata = {
     url: "https://codecraftedlabs.co.in",
 
     siteName: "Code Crafted Labs",
-
+    images: [
+      {
+        url: "https://www.codecraftedlabs.co.in/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Code Crafted Labs",
+      },
+    ],
     locale: "en_US",
     type: "website",
   },
