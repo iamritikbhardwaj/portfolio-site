@@ -34,8 +34,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/header";
 import dynamic from "next/dynamic";
-
-const HomeAnimations = dynamic(() => import("@/components/animations/HomeAnimations"));
+import HomeAnimations from "@/components/animations/HomeAnimations";
 
 // Contact Information
 const contactInfo = {
@@ -275,11 +274,11 @@ const Page = () => {
 
                 <div className="space-y-4">
                   <h1 className="hero-animate text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white">
-                    Code Crafted{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
-                      Labs
-                    </span>
+                    Backend, Cloud & Full-Stack Development Services
                   </h1>
+                  <p className="text-primary font-semibold text-lg md:text-xl">
+                    Code Crafted Labs
+                  </p>
                   <p className="hero-animate text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                     High-performance software engineering agency. We design,
                     scale, and maintain robust backend systems, distributed
@@ -293,7 +292,7 @@ const Page = () => {
                     href="#projects"
                     className="flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-white text-base font-bold h-12 px-8 transition-all shadow-lg shadow-primary/25 hover:translate-y-[-2px]"
                   >
-                    <span>View Projects</span>
+                    <span>Explore My Work</span>
                     <span className="material-symbols-outlined text-xl">
                       <ArrowBigRight />
                     </span>
@@ -336,9 +335,11 @@ const Page = () => {
                       </span>
                     </div>
                     <div className="text-left">
-                      <p className="text-xl font-bold leading-none">B.Tech</p>
+                      <p className="text-xl font-bold leading-none">
+                        Cloud & Backend
+                      </p>
                       <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mt-1">
-                        Education
+                        Specialization
                       </p>
                     </div>
                   </div>
@@ -376,6 +377,7 @@ const Page = () => {
                     alt="Professional portrait of a male developer working in a modern office environment with warm lighting"
                     fill
                     priority
+                    quality={85}
                     fetchPriority="high"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -483,6 +485,7 @@ const Page = () => {
                 <div className="relative w-full h-full">
                   <Image
                     src="/images/about.webp"
+                    quality={85}
                     alt="Professional portrait of Ritik Singh, a software developer"
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -879,7 +882,8 @@ const Page = () => {
                 </h3>
               </div>
               <p className="text-slate-600 dark:text-slate-400 max-w-lg mb-2">
-                Discover the innovative solutions we've built to solve complex business challenges.
+                Discover the innovative solutions we've built to solve complex
+                business challenges.
               </p>
             </div>
 
@@ -904,7 +908,9 @@ const Page = () => {
                       EmpSaaS
                     </h4>
                     <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                      A comprehensive compliance and statutory reporting platform designed to streamline your business operations and employee management.
+                      A comprehensive compliance and statutory reporting
+                      platform designed to streamline your business operations
+                      and employee management.
                     </p>
                   </div>
                 </div>
@@ -1074,7 +1080,9 @@ const Page = () => {
                   <ArrowUpRight className="w-5 h-5" />
                 </span>
               </div>
-              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">LinkedIn</h4>
+              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">
+                LinkedIn
+              </h4>
               <p className="text-[#a492c9] text-sm mb-4">
                 Connect with our leadership
               </p>
@@ -1103,7 +1111,9 @@ const Page = () => {
                   <ArrowUpRight className="w-5 h-5" />
                 </span>
               </div>
-              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">WhatsApp</h4>
+              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">
+                WhatsApp
+              </h4>
               <p className="text-[#a492c9] text-sm mb-4">
                 Quick chats &amp; inquiries
               </p>
@@ -1142,7 +1152,9 @@ const Page = () => {
                   <ArrowUpRight className="w-5 h-5" />
                 </span>
               </div>
-              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">GitHub</h4>
+              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">
+                GitHub
+              </h4>
               <p className="text-[#a492c9] text-sm mb-4">
                 Check out our open-source tools
               </p>
