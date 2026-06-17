@@ -33,7 +33,9 @@ import {
   UserPlus,
 } from "lucide-react";
 import Header from "@/components/header";
-import HomeAnimations from "@/components/animations/HomeAnimations";
+import dynamic from "next/dynamic";
+
+const HomeAnimations = dynamic(() => import("@/components/animations/HomeAnimations"));
 
 // Contact Information
 const contactInfo = {
@@ -248,9 +250,9 @@ const clients: ClientTestimonial[] = [
 
 const Page = () => {
   return (
-    <div className="min-h-screen bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-50 font-sans selection:bg-primary/30 selection:text-primary">
+    <div className="min-h-[100dvh] bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-50 font-sans selection:bg-primary/30 selection:text-primary">
       <HomeAnimations />
-      <div className="flex flex-col min-h-screen relative overflow-hidden">
+      <div className="flex flex-col min-h-[100dvh] relative overflow-hidden">
         {/* Decorative Background Gradient */}
         <div className="fixed top-0 left-0 right-0 h-[500px] w-full bg-primary/10 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
 
@@ -370,10 +372,12 @@ const Page = () => {
 
                   {/* Main Image */}
                   <Image
-                    src="https://i.pinimg.com/736x/ad/2d/aa/ad2daaa9380ff25d24acfaeff16cd690.jpg"
+                    src="/images/hero.webp"
                     alt="Professional portrait of a male developer working in a modern office environment with warm lighting"
                     fill
                     priority
+                    fetchPriority="high"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
 
@@ -476,15 +480,15 @@ const Page = () => {
             <div className="lg:col-span-5 flex justify-center lg:justify-start relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-purple-400 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000"></div>
               <div className="relative w-full max-w-[400px] aspect-square rounded-2xl overflow-hidden border-2 border-black/10 dark:border-white/10 shadow-2xl bg-white dark:bg-card-dark">
-                <div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{
-                    backgroundImage:
-                      "url('https://i.pinimg.com/736x/29/85/3b/29853b52044d0ea63ab946afba8476a0.jpg')",
-                  }}
-                  role="img"
-                  aria-label="Professional portrait of Ritik Singh, a software developer"
-                ></div>
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/images/about.webp"
+                    alt="Professional portrait of Ritik Singh, a software developer"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
                 <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
                   <div className="flex gap-4 justify-center">
                     <a

@@ -1,4 +1,9 @@
 import type { NextConfig } from "next";
+import createBundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = createBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -40,10 +45,14 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=31536000; includeSubDomains",
           },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+          },
         ],
       },
     ];
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

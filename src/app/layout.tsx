@@ -42,18 +42,63 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.codecraftedlabs.co.in/#person",
+      "name": "Ritik Singh",
+      "url": "https://www.codecraftedlabs.co.in",
+      "sameAs": [
+        "https://github.com/iamritikbhardwaj",
+        "https://www.linkedin.com/in/ritik-singh-10b333227/"
+      ],
+      "jobTitle": "Chief Technology Officer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Code Crafted Labs"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.codecraftedlabs.co.in/#website",
+      "url": "https://www.codecraftedlabs.co.in",
+      "name": "Code Crafted Labs",
+      "publisher": {
+        "@id": "https://www.codecraftedlabs.co.in/#person"
+      }
+    }
+  ]
+};
+
+import { ThemeProvider } from "@/components/theme-provider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="canonical" href="https://www.codecraftedlabs.co.in" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-        
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

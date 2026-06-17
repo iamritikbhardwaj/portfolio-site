@@ -1,11 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Terminal, Menu, X } from "lucide-react";
+import { Terminal, Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const links = [
     { label: "Home", href: "#home" },
@@ -39,6 +46,15 @@ export default function Header() {
             ))}
           </nav>
           <div className="flex items-center gap-4">
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="flex items-center justify-center rounded-xl p-2 hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-gray-700 dark:text-gray-200"
+                aria-label="Toggle Theme"
+              >
+                {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </button>
+            )}
             <a
               href="https://cal.com/ritik-singh-3mjivg"
               target="_blank"
