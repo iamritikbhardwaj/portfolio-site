@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 
-import { ThemeProvider } from "@/components/theme-provider";
 import PersonSchema from "./person-schema";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -17,12 +16,24 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://codecraftedlabs.co.in"),
 
   title: {
     default: "Code Crafted Labs",
     template: "%s | Code Crafted Labs",
+  },
+
+  category: "Software Development",
+
+  verification: {
+    google:
+      "google-site-verification=Q6BbeDnsn-OOvu6JSQHLZ1569q4Wa1JMOfAXNR8jmMw",
   },
 
   description:
@@ -58,12 +69,12 @@ export const metadata: Metadata = {
     icon: [
       {
         media: "(prefers-color-scheme: light)",
-        url: "../../public/ccl-logo.png",
+        url: "/ccl-logo.png",
         href: "/ccl-logo.png",
       },
       {
         media: "(prefers-color-scheme: dark)",
-        url: "../../public/ccl-logo-dark.png",
+        url: "/ccl-logo-dark.png",
         href: "/ccl-logo-dark.png",
       },
     ],
@@ -110,6 +121,8 @@ export const metadata: Metadata = {
 
     title: "Code Crafted Labs",
 
+    images: ["https://codecraftedlabs.co.in/opengraph-image.png"],
+
     description:
       "Backend, Cloud and Full-Stack Development Services. Specialized in Golang, Node.js, Microservices, AWS and DevOps.",
   },
@@ -121,20 +134,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased font-body-md text-body-md text-on-surface bg-background overflow-x-hidden selection:bg-primary selection:text-on-primary`}
       >
         <PersonSchema />
-
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children}
         <Analytics />
       </body>
     </html>

@@ -1,90 +1,67 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { Terminal, Menu, X, Sun, Moon } from "lucide-react";
-import { useTheme } from "next-themes";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const links = [
-    { label: "Home", href: "#home" },
-    { label: "About CTO", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Clients", href: "#projects" },
-    { label: "Contact", href: "#contact" },
+    { label: "SYSTEMS", href: "#systems" },
+    { label: "PROJECTS", href: "#projects" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-100 dark:border-border-dark bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none">
-      <div className="layout-container flex justify-center w-full">
-        <div className="flex items-center justify-between w-full max-w-[1200px] px-6 py-4">
-          <div className="flex name items-center gap-4">
-            <div className="size-10 flex items-center justify-center overflow-hidden">
-              <Image src="/ccl-logo.png" alt="Code Crafted Labs Logo" width={40} height={40} className="w-full h-full object-contain dark:invert" priority />
-            </div>
-            <h2 className="text-xl font-bold leading-tight tracking-tight">
-              Ritik Singh
-            </h2>
-          </div>
-          <nav className="hidden gap-0.5 md:flex items-center md:gap-8">
-            {links.map((link) => (
-              <a
-                key={link.href}
-                className="text-sm font-medium hover:text-primary transition-colors active:text-primary"
-                href={link.href}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-4">
-            {mounted && (
-              <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="flex items-center justify-center rounded-xl p-2 hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-gray-700 dark:text-gray-200"
-                aria-label="Toggle Theme"
-              >
-                {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              </button>
-            )}
-            <a
-              href="https://cal.com/ritik-singh-3mjivg"
-              target="_blank"
-              className="hidden sm:flex cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-6 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold shadow-lg shadow-primary/25"
-            >
-              <span className="truncate">Hire Me</span>
-            </a>
-            <button
-              className="md:hidden flex cursor-pointer items-center justify-center rounded-xl p-2 hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-gray-700 dark:text-gray-200"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle Menu"
-            >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
+    <nav className="bg-surface border-b border-outline-variant fixed top-0 w-full z-50">
+      <div className="flex justify-between items-center px-6 md:px-margin-desktop py-4 max-w-max-width mx-auto">
+        <div className="flex items-center gap-3">
+          <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
+            terminal
+          </span>
+          <span className="font-label-caps text-label-caps tracking-tighter text-primary">
+            CODE_CRAFTED_LABS
+          </span>
         </div>
+        <div className="hidden md:flex gap-8 items-center">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              className="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors"
+              href={link.href}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            className="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors border border-outline-variant px-4 py-2 hover:bg-surface-container transition-bezier"
+            href="https://cal.com/ritik-singh-3mjivg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            BOOK_CONSULTATION
+          </a>
+        </div>
+        <button
+          className="md:hidden text-primary"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Menu"
+        >
+          {isOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
+        </button>
       </div>
 
       {/* Mobile Navigation Dropdown */}
       {isOpen && (
-        <div className="md:hidden border-t border-gray-200 dark:border-border-dark bg-background-light dark:bg-background-dark px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden border-t border-outline-variant bg-surface px-6 py-4 flex flex-col gap-4">
           <nav className="flex flex-col gap-1">
             {links.map((link) => (
               <a
                 key={link.href}
-                className="text-base font-medium hover:text-primary transition-colors py-2.5 border-b border-gray-100 dark:border-border-dark/50 last:border-b-0"
+                className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors py-3 border-b border-outline-variant/50 last:border-b-0"
                 href={link.href}
                 onClick={() => setIsOpen(false)}
               >
@@ -95,13 +72,14 @@ export default function Header() {
           <a
             href="https://cal.com/ritik-singh-3mjivg"
             target="_blank"
-            className="flex sm:hidden cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-primary hover:bg-primary/90 transition-colors text-white text-base font-bold shadow-lg shadow-primary/25 mt-2 w-full"
+            rel="noopener noreferrer"
+            className="flex cursor-pointer items-center justify-center border border-outline-variant hover:bg-surface-container transition-bezier h-12 text-on-surface font-label-caps text-label-caps mt-2 w-full"
             onClick={() => setIsOpen(false)}
           >
-            <span className="truncate">Hire Me</span>
+            <span>BOOK_CONSULTATION</span>
           </a>
         </div>
       )}
-    </header>
+    </nav>
   );
 }

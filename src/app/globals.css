@@ -1,50 +1,159 @@
 @import "tailwindcss";
-@custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Colors */
-  --color-primary: #5b13ec;
-  --color-primary-hover: #4a0bc2;
-  --color-accent-cyan: #06b6d4;
-  --color-background-light: #ffffff;
-  --color-background-dark: #161022;
-  --color-card-dark: #1e1829;
-  --color-border-dark: #2f2348;
-  --color-card-border: #2f2348;
+  /* Colors from the HTML design language */
+  --color-on-tertiary: #502400;
+  --color-tertiary-container: #df7412;
+  --color-on-secondary-fixed-variant: #39485a;
+  --color-surface-container-lowest: #0b0e15;
+  --color-tertiary-fixed: #ffdcc6;
+  --color-primary-fixed: #d8e2ff;
+  --color-secondary-container: #39485a;
+  --color-surface: #10131a;
+  --color-on-primary-fixed: #001a42;
+  --color-on-background: #e1e2ec;
+  --color-inverse-primary: #005ac2;
+  --color-on-secondary-fixed: #0d1c2d;
+  --color-surface-container: #1d2027;
+  --color-on-primary: #002e6a;
+  --color-outline-variant: #424754;
+  --color-secondary: #b9c8de;
+  --color-on-tertiary-container: #461f00;
+  --color-primary-container: #4d8eff;
+  --color-on-secondary-container: #a7b6cc;
+  --color-on-tertiary-fixed-variant: #723600;
+  --color-secondary-fixed-dim: #b9c8de;
+  --color-inverse-on-surface: #2e3038;
+  --color-surface-container-high: #272a31;
+  --color-on-secondary: #233143;
+  --color-on-surface-variant: #c2c6d6;
+  --color-tertiary-fixed-dim: #ffb786;
+  --color-background: #10131a;
+  --color-on-primary-container: #00285d;
+  --color-primary: #adc6ff;
+  --color-error: #ffb4ab;
+  --color-surface-dim: #10131a;
+  --color-surface-bright: #363941;
+  --color-on-error-container: #ffdad6;
+  --color-surface-variant: #32353c;
+  --color-surface-container-low: #191b23;
+  --color-error-container: #93000a;
+  --color-primary-fixed-dim: #adc6ff;
+  --color-surface-tint: #adc6ff;
+  --color-surface-container-highest: #32353c;
+  --color-secondary-fixed: #d4e4fa;
+  --color-outline: #8c909f;
+  --color-on-tertiary-fixed: #311400;
+  --color-on-surface: #e1e2ec;
+  --color-inverse-surface: #e1e2ec;
+  --color-on-error: #690005;
+  --color-tertiary: #ffb786;
+  --color-on-primary-fixed-variant: #004395;
 
   /* Font Families */
-  --font-family-display: "Inter", sans-serif;
-  --font-family-mono: ui-monospace, "SFMono-Regular", "Menlo", "Monaco", "Consolas", monospace;
+  --font-family-body-md: "Inter", sans-serif;
+  --font-family-headline-xl: var(--font-geist-sans), sans-serif;
+  --font-family-headline-lg: var(--font-geist-sans), sans-serif;
+  --font-family-headline-lg-mobile: var(--font-geist-sans), sans-serif;
+  --font-family-label-caps: var(--font-jetbrains-mono), monospace;
+  --font-family-code-md: var(--font-jetbrains-mono), monospace;
+  --font-family-headline-md: var(--font-geist-sans), sans-serif;
+  --font-family-body-sm: "Inter", sans-serif;
+  --font-family-body-lg: "Inter", sans-serif;
 
   /* Border Radius */
-  --radius: 0.5rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-full: 9999px;
+  --radius: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  /* Spacing */
+  --spacing-margin-desktop: 64px;
+  --spacing-margin-mobile: 16px;
+  --spacing-max-width: 1200px;
+  --spacing-base: 4px;
+  --spacing-gutter: 24px;
+}
+
+@layer utilities {
+  .text-body-md { font-size: 16px; line-height: 1.5; font-weight: 400; }
+  .text-headline-xl { font-size: 48px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 600; }
+  .text-headline-lg { font-size: 32px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; }
+  .text-headline-lg-mobile { font-size: 24px; line-height: 1.2; font-weight: 600; }
+  .text-label-caps { font-size: 12px; line-height: 1.0; letter-spacing: 0.05em; font-weight: 500; }
+  .text-code-md { font-size: 14px; line-height: 1.6; font-weight: 400; }
+  .text-headline-md { font-size: 20px; line-height: 1.4; font-weight: 500; }
+  .text-body-sm { font-size: 14px; line-height: 1.5; font-weight: 400; }
+  .text-body-lg { font-size: 18px; line-height: 1.6; font-weight: 400; }
+  
+  /* Font families if needed as utilities (Tailwind v4 maps --font-family-* directly to .font-*) */
 }
 
 body {
-  font-family: var(--font-family-display);
+  overflow-x: hidden;
+  background-color: var(--color-surface-container-lowest);
+  color: var(--color-on-surface);
+  min-height: max(884px, 100dvh);
 }
 
 .material-symbols-outlined {
-  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #161022;
+  background: var(--color-surface-container-lowest);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2f2348;
+  background: var(--color-outline-variant);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #5b13ec;
+  background: var(--color-primary);
+}
+
+/* Terminal & Architecture FX */
+.architecture-grid {
+  background-image: radial-gradient(var(--color-surface-variant) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.terminal-glow {
+  box-shadow: inset 0 0 20px rgba(173, 198, 255, 0.05);
+}
+.led-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.led-active { background-color: var(--color-primary); box-shadow: 0 0 8px var(--color-primary); }
+.transition-bezier { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+
+.terminal-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.terminal-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+}
+.scanline {
+  background: linear-gradient(to bottom, rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
 }

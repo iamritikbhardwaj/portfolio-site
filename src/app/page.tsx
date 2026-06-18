@@ -1,915 +1,374 @@
 import React from "react";
 import Image from "next/image";
-import CopyEmailButton from "@/components/CopyEmailButton";
-import {
-  Server,
-  Cloud,
-  Database,
-  Terminal,
-  Verified,
-  Medal,
-  Rocket,
-  ArrowBigRight,
-  Download,
-  Calendar,
-  BookCopy,
-  ShieldBan,
-  MonitorCheck,
-  Layers,
-  Code2,
-  Star,
-  BoxIcon,
-  Cpu,
-  Check,
-  Quote,
-  SquareArrowUpRight,
-  CheckCircle,
-  ArrowUpRight,
-  Mail,
-  MessageCircle,
-  UserPlus,
-} from "lucide-react";
 import Header from "@/components/header";
-import HomeAnimations from "@/components/animations/HomeAnimations";
+import InteractiveTerminal from "@/components/InteractiveTerminal";
+import ContactForm from "@/components/ContactForm";
 
-// Contact Information
-const contactInfo = {
-  email: "ritik@codecraftedlabs.co.in",
-  phone: "+91 9119060487",
-  github: "iamritikbhardwaj",
-  linkedin: "https://www.linkedin.com/in/ritik-singh-10b333227/",
-  medium: "https://medium.com/@ritiklrt2",
-  devTo: "https://dev.to/iamritikbhardwaj",
-  whatsapp: "+919119060487",
-  resumeUrl: "/resume.pdf",
-  resumeSize: "2.4MB",
-  availability: "Open for New Projects",
-  tagline: "Let's Craft Scalable Solutions",
-  description:
-    "We specialize in building robust distributed backends, DevOps pipelines, and AI engineering services. Reach out to discuss your software engineering needs or technical challenges!",
-};
-
-interface Capability {
-  id: string;
-  title: string;
-  subtitle: string;
-  icon: any;
-  description: string;
-  details: string[];
-  technologies: string[];
-}
-
-const capabilities: Capability[] = [
-  {
-    id: "1",
-    title: "High-Performance Backend Development",
-    subtitle: "Microservices & Distributed Systems",
-    icon: Server,
-    description:
-      "We architect and build robust, concurrent server-side solutions capable of handling millions of requests with low latency. Specialized in modular microservices and high-efficiency communication frameworks.",
-    details: [
-      "Engineered multi-tenant microservices communicating via high-speed gRPC and RESTful endpoints.",
-      "Designed transactional schemas using PostgreSQL and MongoDB, utilizing Redis caching layers to boost data delivery speed by 30%.",
-      "Developed low-latency concurrent tasks leveraging Go’s native Goroutines.",
-    ],
-    technologies: [
-      "Go (Golang)",
-      "Node.js",
-      "Express.js",
-      "NestJS",
-      "gRPC",
-      "GraphQL",
-      "RESTful APIs",
-    ],
-  },
-  {
-    id: "2",
-    title: "Cloud Infrastructure & DevOps Automation",
-    subtitle: "Scalable AWS & Automation Workflows",
-    icon: Cloud,
-    description:
-      "We orchestrate and secure production environments in the cloud, setting up zero-downtime automated deployment pipelines and maintaining near-perfect system availability.",
-    details: [
-      "Engineered automated deployment pipelines that slashed production deployment time by 60%.",
-      "Orchestrated secure and monitored cloud infrastructure on AWS (EC2, S3, IAM, VPC).",
-      "Automated containerization with Docker to establish 100% environment parity between development and production.",
-    ],
-    technologies: [
-      "AWS (EC2, S3, IAM, VPC)",
-      "Docker",
-      "GitHub Actions",
-      "CI/CD Pipelines",
-      "Nginx",
-      "Linux Administration",
-    ],
-  },
-  {
-    id: "3",
-    title: "AI Integration & Next-Gen Engineering",
-    subtitle: "Vector Workflows & LLM Applications",
-    icon: Cpu,
-    description:
-      "We leverage cutting-edge generative AI workflows and vector retrieval methods to deliver next-generation AI assistants, search features, and highly optimized delivery cycles.",
-    details: [
-      "Integrated LLM models and built Retrieval-Augmented Generation (RAG) pipelines.",
-      "Designed vector workflows utilizing vector databases like Pinecone and Milvus for fast semantic search.",
-      "Adopted advanced AI engineering workflows (Cursor, Claude Code, Cline) to accelerate sprint delivery and code quality.",
-    ],
-    technologies: [
-      "LLM Integration",
-      "RAG Pipelines",
-      "Pinecone",
-      "Milvus",
-      "Cursor",
-      "Claude Code",
-      "Cline",
-    ],
-  },
-  {
-    id: "4",
-    title: "Frontend Architecture & Modern Web Apps",
-    subtitle: "Interactive, High-Performance Interfaces",
-    icon: Code2,
-    description:
-      "We build interactive, responsive, and search-optimized web applications with modern component-driven architectures, ensuring premium user experiences.",
-    details: [
-      "Modernized web interfaces using React 18, Next.js (App Router), and TypeScript.",
-      "Managed complex client state using Redux Toolkit and React Query.",
-      "Created aesthetic, fully responsive layouts using custom CSS and Tailwind CSS.",
-    ],
-    technologies: [
-      "React 18",
-      "TypeScript",
-      "Next.js",
-      "Redux Toolkit",
-      "React Query",
-      "Tailwind CSS",
-    ],
-  },
-];
-
-interface ClientTestimonial {
-  id: string;
-  clientName: string;
-  logoText: string;
-  logoBg: string;
-  projectTitle: string;
-  feedback: string;
-  reviewer: string;
-  reviewerRole: string;
-  technologies: string[];
-  highlights: string[];
-  link?: string;
-  featured?: boolean;
-}
-
-const clients: ClientTestimonial[] = [
-  {
-    id: "1",
-    clientName: "FlightScanner Ltd",
-    logoText: "FS",
-    logoBg: "from-blue-500 to-indigo-600",
-    projectTitle: "Flight Booking Engine & API Integration",
-    feedback:
-      "Code Crafted Labs delivered our flight comparison portal ahead of schedule. The integration with the Kyte API is robust, and the automated refund loops on Stripe have saved us countless support hours.",
-    reviewer: "Gurmeet Singh",
-    reviewerRole: "Chief Executive officer",
-    technologies: [
-      "Next.js",
-      "Stripe Integration",
-      "Kyte API v3",
-      "Redux Toolkit",
-      "PostgreSQL",
-    ],
-    highlights: [
-      "Automated Stripe refund triggers on ticketing failures",
-      "Interactive seat-map layouts and rules engine",
-    ],
-    link: "https://flightscanner.co.za/",
-    featured: true,
-  },
-  {
-    id: "4",
-    clientName: "Cavendish Industries (JK Tyres)",
-    logoText: "CI",
-    logoBg: "from-emerald-500 to-teal-600",
-    projectTitle: "EmpSaaS Contractor Management",
-    feedback:
-      "Code Crafted Labs built EmpSaaS, which has completely transformed how we manage our workforce and statutory compliance. It is an indispensable tool for our daily operations.",
-    reviewer: "Operations Head",
-    reviewerRole: "Cavendish Industries",
-    technologies: ["React", "NestJS", "PostgreSQL", "MUI"],
-    highlights: [
-      "Streamlined contractor onboarding",
-      "Automated statutory compliance tracking",
-      "Real-time attendance & reports",
-    ],
-    link: "https://empsass.codecraftedlabs.co.in/",
-    featured: true,
-  },
-  {
-    id: "2",
-    clientName: "Hope Foundation",
-    logoText: "HF",
-    logoBg: "from-amber-500 to-orange-600",
-    projectTitle: "Accessible Web Platform & Donation Portal",
-    feedback:
-      "The accessible, modern NGO website built by the agency has dramatically increased user engagement and donations. The interface is clean, modular, and extremely fast.",
-    reviewer: "Simran Bhardwaj",
-    reviewerRole: "Program Director",
-    technologies: ["React", "Next.js", "Tailwind CSS", "Accessible Design"],
-    highlights: [
-      "Clean, modern, and accessible UI",
-      "High-speed optimized image delivery",
-    ],
-    link: "https://ngo-site-nine.vercel.app/",
-    featured: false,
-  },
-  {
-    id: "3",
-    clientName: "Crochet by Simran",
-    logoText: "CS",
-    logoBg: "from-pink-500 to-rose-600",
-    projectTitle: "E-Commerce Catalog & Brand Showcase",
-    feedback:
-      "Code Crafted Labs built an elegant, lighting-fast showcase catalog for our custom crochet designs. The visual presentation is stunning and inventory inquiries have surged since launch.",
-    reviewer: "Simran Kaur",
-    reviewerRole: "Founder",
-    technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "Cloudinary"],
-    highlights: [
-      "High-definition catalog with optimized media loaders",
-      "Interactive product inquiry and WhatsApp booking flow",
-    ],
-    featured: true,
-    link: "https://crochetbysimran.vercel.app/",
-  },
-];
-
-const Page = () => {
+export default function Page() {
   return (
-    <div className="min-h-[100dvh] bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-50 font-sans selection:bg-primary/30 selection:text-primary">
-      <HomeAnimations />
+    <div className="min-h-[100dvh] font-sans selection:bg-primary selection:text-on-primary bg-background text-on-surface">
       <div className="flex flex-col min-h-[100dvh] relative overflow-hidden">
-        {/* Decorative Background Gradient */}
-        <div className="fixed top-0 left-0 right-0 h-[500px] w-full bg-primary/20 dark:bg-primary/10 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
-
         {/* Navigation */}
         <Header />
 
         {/* Hero Section */}
-        <section
-          id="home"
-          className="flex-grow flex flex-col justify-center relative z-10 scroll-mt-24"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 w-full">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              {/* Text Content */}
-              <div className="flex flex-col gap-8 text-center lg:text-left order-2 lg:order-1">
-                <div className="hero-animate inline-flex items-center justify-center lg:justify-start gap-2 text-primary font-bold tracking-wide uppercase text-sm">
-                  <span className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.5)]"></span>
-                  Available for hire
-                </div>
-
-                <div className="space-y-4">
-                  <h1 className="hero-animate text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white">
-                    Backend, Cloud & Full-Stack Development Services
-                  </h1>
-                  <p className="text-primary font-semibold text-lg md:text-xl">
-                    Code Crafted Labs
-                  </p>
-                  <p className="hero-animate text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    High-performance software engineering agency. We design,
-                    scale, and maintain robust backend systems, distributed
-                    microservices, and modern web applications. Led by CTO Ritik
-                    Singh.
-                  </p>
-                </div>
-
-                <div className="hero-animate flex flex-wrap gap-4 justify-center lg:justify-start">
-                  <a
-                    href="#projects"
-                    className="flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-white text-base font-bold h-12 px-8 transition-all shadow-lg shadow-primary/25 hover:translate-y-[-2px]"
-                  >
-                    <span>Explore My Work</span>
-                    <span className="material-symbols-outlined text-xl">
-                      <ArrowBigRight />
-                    </span>
-                  </a>
-                  <a
-                    href="https://cal.com/ritik-singh-3mjivg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-border-dark hover:bg-slate-100 dark:hover:bg-card-dark text-slate-900 dark:text-white text-base font-bold h-12 px-8 transition-all hover:translate-y-[-2px]"
-                  >
-                    <span className="material-symbols-outlined text-xl">
-                      <Calendar />
-                    </span>
-                    <span>Book a free consultation</span>
-                  </a>
-                </div>
-
-                {/* Stats Row */}
-                <div className="hero-animate flex flex-wrap gap-6 justify-center lg:justify-start pt-4">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg dark:bg-card-dark dark:border dark:border-border-dark">
-                      <span className="material-symbols-outlined text-primary">
-                        <Verified />
-                      </span>
-                    </div>
-                    <div className="text-left">
-                      <p className="text-xl font-bold leading-none">3+</p>
-                      <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mt-1">
-                        Years Exp.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="w-px h-10 bg-border-dark hidden sm:block"></div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg dark:bg-card-dark dark:border dark:border-border-dark">
-                      <span className="material-symbols-outlined text-primary">
-                        <Medal />
-                      </span>
-                    </div>
-                    <div className="text-left">
-                      <p className="text-xl font-bold leading-none">
-                        Cloud & Backend
-                      </p>
-                      <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mt-1">
-                        Specialization
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="w-px h-10 bg-border-dark hidden sm:block"></div>
-
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg dark:bg-card-dark dark:border dark:border-border-dark ">
-                      <span className="material-symbols-outlined text-primary">
-                        <Rocket />
-                      </span>
-                    </div>
-                    <div className="text-left">
-                      <p className="text-xl font-bold leading-none">10+</p>
-                      <p className="text-xs text-slate-400 uppercase tracking-wider font-medium mt-1">
-                        Projects
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Visual Content */}
-              <div className="relative order-1 lg:order-2 flex justify-center hero-animate">
-                {/* Glow effect behind image */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-primary/30 to-transparent opacity-60 blur-3xl -z-10"></div>
-
-                <div className="relative w-full max-w-[500px] aspect-[4/5] rounded-2xl overflow-hidden border border-gray-200 dark:border-border-dark shadow-2xl bg-white dark:bg-card-dark group">
-                  {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent opacity-60 z-10"></div>
-
-                  {/* Main Image */}
-                  <Image
-                    src="/images/hero.webp"
-                    alt="Professional portrait of a male developer working in a modern office environment with warm lighting"
-                    fill
-                    priority
-                    quality={85}
-                    fetchPriority="high"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-
-                  {/* Floating Tech Card */}
-                  <div className="absolute bottom-6 left-6 right-6 z-20">
-                    <div className="bg-background-dark/90 backdrop-blur-md border border-border-dark p-4 rounded-xl shadow-xl">
-                      <p className="text-xs font-semibold text-slate-400 mb-3 uppercase tracking-wider">
-                        Tech Stack
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {/* Tech Chips */}
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20 text-white text-xs font-medium">
-                          <span className="material-symbols-outlined text-[16px]">
-                            <Cloud />
-                          </span>
-                          AWS
-                        </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
-                          <span className="material-symbols-outlined text-[16px]">
-                            <BoxIcon />
-                          </span>
-                          Docker
-                        </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
-                          <span className="material-symbols-outlined text-[16px]">
-                            <Star />
-                          </span>
-                          React 18
-                        </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
-                          <span className="material-symbols-outlined text-[16px]">
-                            <Code2 />
-                          </span>
-                          TypeScript
-                        </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
-                          <span className="material-symbols-outlined text-[16px]">
-                            <Terminal />
-                          </span>
-                          Go (Golang)
-                        </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 text-xs font-medium">
-                          <span className="material-symbols-outlined text-[16px]">
-                            <Layers />
-                          </span>
-                          Node.js
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Infinite Scroll Tech Bar */}
-          <div className="w-full border-t border-border-dark bg-background-dark/50 overflow-hidden py-8">
-            <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-              <div className="flex items-center gap-2 text-white font-semibold text-lg">
-                <span className="material-symbols-outlined">
-                  <Database />
-                </span>{" "}
-                PostgreSQL
-              </div>
-              <div className="flex items-center gap-2 text-white font-semibold text-lg">
-                <span className="material-symbols-outlined">
-                  <Server />
-                </span>{" "}
-                Redis
-              </div>
-              <div className="flex items-center gap-2 text-white font-semibold text-lg">
-                <span className="material-symbols-outlined">
-                  <BookCopy />
-                </span>{" "}
-                GraphQL
-              </div>
-              <div className="flex items-center gap-2 text-white font-semibold text-lg">
-                <span className="material-symbols-outlined">
-                  <ShieldBan />
-                </span>{" "}
-                OAuth2
-              </div>
-              <div className="flex items-center gap-2 text-white font-semibold text-lg">
-                <span className="material-symbols-outlined">
-                  <MonitorCheck />
-                </span>{" "}
-                Prometheus
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section
-          id="about"
-          className="w-full py-20 max-w-[1200px] px-6 mx-auto scroll-mt-24 z-10"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Profile Image / Left Col */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-start relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary to-purple-400 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-              <div className="relative w-full max-w-[400px] aspect-square rounded-2xl overflow-hidden border-2 border-black/10 dark:border-white/10 shadow-2xl bg-white dark:bg-card-dark">
-                <div className="relative w-full h-full">
-                  <Image
-                    src="/images/about.webp"
-                    quality={85}
-                    alt="Professional portrait of Ritik Singh, a software developer"
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
-                  <div className="flex gap-4 justify-center">
-                    <a
-                      className="p-2 bg-white/10 hover:bg-primary rounded-full backdrop-blur-sm transition-colors text-white"
-                      href="https://github.com/iamritikbhardwaj"
-                      aria-label="GitHub"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          clipRule="evenodd"
-                          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                          fillRule="evenodd"
-                        ></path>
-                      </svg>
-                    </a>
-                    <a
-                      className="p-2 bg-white/10 hover:bg-primary rounded-full backdrop-blur-sm transition-colors text-white"
-                      href="https://www.linkedin.com/in/ritik-singh-10b333227/"
-                      aria-label="LinkedIn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        className="w-5 h-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          clipRule="evenodd"
-                          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 21.227.792 22 1.771 22h20.451C23.2 22 24 21.227 24 20.451V1.729C24 .774 23.2 0 22.225 0z"
-                          fillRule="evenodd"
-                        ></path>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Text Content / Right Col */}
-            <div className="lg:col-span-7 flex flex-col gap-6 text-center lg:text-left">
-              <div className="inline-flex items-center justify-center lg:justify-start gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary w-fit mx-auto lg:mx-0">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                <span className="text-xs font-bold uppercase tracking-wide">
-                  Open to work
+        <section className="relative min-h-[618px] flex items-center architecture-grid border-b border-outline-variant pt-20">
+          <div className="px-6 md:px-margin-desktop max-w-max-width mx-auto w-full grid md:grid-cols-2 gap-12 items-center py-20 mt-16">
+            <div className="z-10">
+              <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-surface-container border border-outline-variant rounded-full">
+                <span className="led-dot led-active"></span>
+                <span className="font-label-caps text-[10px] tracking-widest text-on-surface-variant uppercase">
+                  SYSTEMS_ACTIVE_v4.2
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
-                About Our{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600 dark:to-purple-400">
-                  CTO
-                </span>
-              </h2>
-              <div className="prose prose-lg prose-invert text-slate-600 dark:text-slate-300 max-w-none">
-                <p className="leading-relaxed">
-                  Hello! I'm{" "}
-                  <strong className="text-slate-900 dark:text-white">
-                    Ritik Singh
-                  </strong>
-                  , Chief Technology Officer (CTO) of Code Crafted Labs.
-                </p>
-                <p className="leading-relaxed mt-4">
-                  With over{" "}
-                  <strong className="text-primary">
-                    3+ years of hands-on experience
-                  </strong>
-                  , I specialize in designing, scaling, and maintaining robust
-                  backend microservices (Go, Node.js) and modern web
-                  applications (React, TypeScript). Expert at DevOps automation,
-                  slashing deployment overhead by 60% and maintaining 99.9%
-                  system uptime across complex AWS cloud environments. Expert at
-                  leveraging advanced AI-assisted engineering tools and vector
-                  workflows to accelerate delivery cycles.
-                </p>
+              <h1 className="font-headline-xl text-headline-xl text-on-surface mb-6">
+                Build scalable{" "}
+                <span className="text-primary">backend systems</span> for
+                startups.
+              </h1>
+              <p className="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-lg">
+                High-performance infrastructure engineered with Go, Node.js, and
+                AWS. Disciplined architecture for founders who demand technical
+                rigor.
+              </p>
+              
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10 text-on-surface-variant font-code-md text-[12px] sm:text-[13px]">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary/60"></span>
+                  2+ years building production systems
+                </div>
+                <span className="hidden sm:inline-block text-outline-variant">|</span>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary/60"></span>
+                  99.9% uptime delivered
+                </div>
+                <span className="hidden sm:inline-block text-outline-variant">|</span>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary/60"></span>
+                  Microservices at scale
+                </div>
               </div>
-              <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
+
+              <div className="flex flex-wrap gap-4">
                 <a
+                  className="bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps hover:brightness-110 transition-bezier flex items-center gap-2"
+                  href="#projects"
+                >
+                  EXPLORE_WORK{" "}
+                  <span className="material-symbols-outlined text-[18px]">
+                    arrow_forward
+                  </span>
+                </a>
+                <a
+                  className="border border-outline-variant bg-surface px-8 py-4 font-label-caps text-label-caps hover:bg-surface-container transition-bezier"
                   href="https://cal.com/ritik-singh-3mjivg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-xl h-12 px-8 bg-white dark:bg-card-dark text-slate-900 dark:text-white font-bold border border-gray-100 dark:border-border-dark hover:border-primary dark:hover:border-primary transition-all shadow-xl shadow-slate-200/40 dark:shadow-none"
                 >
-                  <span className="material-symbols-outlined text-[20px]">
-                    <Calendar />
-                  </span>
-                  <span>Book a free consultation</span>
-                </a>
-                <a
-                  href="#contact"
-                  className="flex items-center justify-center gap-2 rounded-xl h-12 px-8 bg-primary hover:bg-primary/90 text-white font-bold transition-all shadow-lg shadow-primary/25"
-                >
-                  <span className="material-symbols-outlined text-[20px]">
-                    <Mail />
-                  </span>
-                  <span>Contact Me</span>
+                  BOOK_CONSULTATION
                 </a>
               </div>
-
-              {/* Mini Stats */}
-              <div className="grid grid-cols-3 gap-4 pt-8 border-t border-gray-200 dark:border-border-dark mt-4">
-                <div className="flex flex-col">
-                  <span className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">
-                    03+
-                  </span>
-                  <span className="text-xs text-slate-500 uppercase font-bold tracking-wider">
-                    Years Exp.
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">
-                    15+
-                  </span>
-                  <span className="text-xs text-slate-500 uppercase font-bold tracking-wider">
-                    Projects
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">
-                    100%
-                  </span>
-                  <span className="text-xs text-slate-500 uppercase font-bold tracking-wider">
-                    Commitment
-                  </span>
-                </div>
+            </div>
+            <div className="relative flex items-center justify-center order-first md:order-last w-full h-[320px] md:h-auto overflow-hidden">
+              <div className="absolute inset-0 scale-[0.85] origin-top md:scale-100 md:relative w-full h-full">
+                <InteractiveTerminal />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Tech Stack & Skills Section */}
-        <section className="w-full py-16 md:py-24 max-w-[1200px] px-6 mx-auto z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div className="flex flex-col justify-center">
-              <h2 className="text-primary text-sm font-bold tracking-widest uppercase mb-2">
-                Skills
-              </h2>
-              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">
-                Tech Stack
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-                I am constantly learning and adapting to new technologies. Here
-                is a snapshot of the core tools and languages I use on a daily
-                basis to build resilient systems.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none">
-                  <div className="size-2 bg-green-500 rounded-full shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
-                  <span className="font-medium text-slate-900 dark:text-white">
-                    System Design
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none">
-                  <div className="size-2 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
-                  <span className="font-medium text-slate-900 dark:text-white">
-                    Database Optimization
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none">
-                  <div className="size-2 bg-purple-500 rounded-full shadow-[0_0_8px_rgba(168,85,247,0.6)]"></div>
-                  <span className="font-medium text-slate-900 dark:text-white">
-                    Microservices
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none">
-                  <div className="size-2 bg-yellow-500 rounded-full shadow-[0_0_8px_rgba(234,179,8,0.6)]"></div>
-                  <span className="font-medium text-slate-900 dark:text-white">
-                    API Security
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-6 bg-white dark:bg-card-dark p-8 rounded-3xl border border-gray-200 dark:border-border-dark shadow-2xl">
-              {/* Skill Item */}
-              <div className="group">
-                <div className="flex justify-between mb-2">
-                  <span className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <Code2 className="w-4 h-4 text-primary" /> Golang
-                  </span>
-                  <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                    95%
-                  </span>
-                </div>
-                <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                  <div className="bg-gradient-to-r from-primary to-purple-400 h-2.5 rounded-full w-[95%]"></div>
-                </div>
-              </div>
-
-              {/* Skill Item */}
-              <div className="group">
-                <div className="flex justify-between mb-2">
-                  <span className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <Terminal className="w-4 h-4 text-primary" /> Node.js /
-                    TypeScript
-                  </span>
-                  <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                    90%
-                  </span>
-                </div>
-                <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                  <div className="bg-gradient-to-r from-primary to-purple-400 h-2.5 rounded-full w-[90%]"></div>
-                </div>
-              </div>
-
-              {/* Skill Item */}
-              <div className="group">
-                <div className="flex justify-between mb-2">
-                  <span className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <Database className="w-4 h-4 text-primary" /> Databases
-                    (Postgres, Mongo, Redis)
-                  </span>
-                  <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                    85%
-                  </span>
-                </div>
-                <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                  <div className="bg-gradient-to-r from-primary to-purple-400 h-2.5 rounded-full w-[85%]"></div>
-                </div>
-              </div>
-
-              {/* Skill Item */}
-              <div className="group">
-                <div className="flex justify-between mb-2">
-                  <span className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <Cloud className="w-4 h-4 text-primary" /> AWS & DevOps
-                    (Docker, CI/CD)
-                  </span>
-                  <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                    85%
-                  </span>
-                </div>
-                <div className="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                  <div className="bg-gradient-to-r from-primary to-purple-400 h-2.5 rounded-full w-[85%]"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
+        {/* Section: Technical Services Bento Grid */}
         <section
-          id="services"
-          className="w-full bg-white dark:bg-[#130d1d] py-20 border-y border-gray-200 dark:border-border-dark/50 relative overflow-hidden scroll-mt-24"
+          id="systems"
+          className="py-24 px-6 md:px-margin-desktop max-w-max-width mx-auto w-full mb-12"
         >
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-          <div className="layout-container max-w-[1200px] px-6 mx-auto relative z-10">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-              <div>
-                <h2 className="text-primary text-sm font-bold tracking-widest uppercase mb-2">
-                  Services
-                </h2>
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
-                  What We Do
-                </h3>
-              </div>
-              <p className="max-w-md text-slate-600 dark:text-slate-400 text-sm md:text-base">
-                We build, automate, and scale complex backend systems and
-                premium client interfaces. Explore our core capabilities.
-              </p>
-            </div>
-
-            <div className="relative flex flex-col gap-8">
-              {capabilities.map((cap) => {
-                const IconComponent = cap.icon;
-                return (
-                  <div
-                    key={cap.id}
-                    className="relative overflow-hidden rounded-2xl bg-white dark:bg-card-dark p-6 sm:p-8 ring-1 ring-black/5 dark:ring-white/5 transition-all duration-300 hover:ring-primary/50 hover:bg-slate-50 dark:hover:bg-[#231c30] hover:shadow-[0_0_30px_rgba(91,19,236,0.15)]"
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            {/* API Infrastructure */}
+            <div className="md:col-span-8 bg-surface-container/60 backdrop-blur-sm border border-outline-variant p-8 group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+              <div className="flex justify-between items-start mb-8 relative z-10">
+                <div>
+                  <span
+                    className="material-symbols-outlined text-primary mb-4"
+                    style={{ fontSize: "32px" }}
                   >
-                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
-                      <div className="flex items-center gap-4">
-                        <div className="flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                          <IconComponent className="w-6 h-6" />
-                        </div>
-                        <div>
-                          <h4 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-1">
-                            {cap.title}
-                          </h4>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">
-                            {cap.subtitle}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed text-sm sm:text-base">
-                      {cap.description}
-                    </p>
-
-                    <div className="mb-6 space-y-3">
-                      {cap.details.map((detail, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-start gap-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base"
-                        >
-                          <Check className="w-4 h-4 text-primary shrink-0 mt-1" />
-                          <p className="leading-relaxed">{detail}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200 dark:border-white/5">
-                      {cap.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="inline-flex items-center rounded-lg bg-slate-100 dark:bg-[#2f2348] px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 ring-1 ring-inset ring-black/5 dark:ring-white/5 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Engagement Process */}
-            <div className="mt-12 p-8 rounded-3xl bg-gradient-to-r from-primary/5 to-purple-900/5 dark:from-primary/10 dark:to-purple-900/10 border border-primary/20">
-              <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                Our Engagement Process
-              </h4>
-              <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm sm:text-base leading-relaxed">
-                We work in streamlined cycles designed to minimize friction and
-                maximize technical excellence:
+                    api
+                  </span>
+                  <h3 className="font-headline-lg text-headline-lg text-on-surface">
+                    API Infrastructure
+                  </h3>
+                </div>
+                <div className="text-right">
+                  <span className="font-code-md text-code-md text-primary">
+                    STATUS: PRODUCTION_READY
+                  </span>
+                </div>
+              </div>
+              <p className="text-on-surface-variant mb-8 max-w-xl relative z-10">
+                Robust, documented, and strictly-typed API gateways. We utilize
+                GraphQL and gRPC for internal service communication while
+                maintaining REST compliance for client-facing interfaces.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-                <div className="space-y-2">
-                  <h5 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <span className="bg-primary text-white rounded-full size-5 flex items-center justify-center text-xs">
-                      1
-                    </span>
-                    Architecture Design
-                  </h5>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    Specifying technical layers, database schemas, and parity
-                    configurations.
-                  </p>
+              <div className="grid grid-cols-2 gap-4 relative z-10">
+                <div className="bg-surface-container p-4 border border-outline-variant">
+                  <span className="font-label-caps text-label-caps text-on-surface-variant block mb-2">
+                    LATENCY
+                  </span>
+                  <span className="font-headline-md text-headline-md text-primary">
+                    &lt;45ms P99
+                  </span>
                 </div>
-                <div className="space-y-2">
-                  <h5 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <span className="bg-primary text-white rounded-full size-5 flex items-center justify-center text-xs">
-                      2
-                    </span>
-                    AI-Assisted Sprint Delivery
-                  </h5>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    Rapid feature coding matching rigorous testing constraints.
-                  </p>
+                <div className="bg-surface-container p-4 border border-outline-variant">
+                  <span className="font-label-caps text-label-caps text-on-surface-variant block mb-2">
+                    THROUGHPUT
+                  </span>
+                  <span className="font-headline-md text-headline-md text-primary">
+                    100k+ RPS
+                  </span>
                 </div>
-                <div className="space-y-2">
-                  <h5 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <span className="bg-primary text-white rounded-full size-5 flex items-center justify-center text-xs">
-                      3
-                    </span>
-                    CI/CD & Monitoring
-                  </h5>
-                  <p className="text-slate-600 dark:text-slate-400">
-                    Continuous deployment to AWS with custom telemetry
-                    dashboards.
-                  </p>
+              </div>
+            </div>
+            {/* Authentication */}
+            <div className="md:col-span-4 bg-surface-container-high border border-outline-variant p-8 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-tertiary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <span
+                className="material-symbols-outlined text-tertiary mb-4 relative z-10"
+                style={{ fontSize: "32px" }}
+              >
+                lock
+              </span>
+              <h3 className="font-headline-md text-headline-md text-on-surface mb-4 relative z-10">
+                Zero-Trust Auth
+              </h3>
+              <ul className="space-y-3 font-code-md text-code-md text-on-surface-variant relative z-10">
+                <li className="flex items-center gap-2">
+                  <span className="text-tertiary">#</span> OAuth2 / OpenID
+                  Connect
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-tertiary">#</span> JWT Rotation +
+                  Revocation
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-tertiary">#</span> RBAC / ABAC
+                  Permissions
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-tertiary">#</span> WebAuthn / Biometrics
+                </li>
+              </ul>
+            </div>
+            {/* Payment Workflows */}
+            <div className="md:col-span-4 bg-surface-container-high border border-outline-variant p-8 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-bl from-primary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative z-10">
+                <span
+                  className="material-symbols-outlined text-primary mb-4"
+                  style={{ fontSize: "32px" }}
+                >
+                  payments
+                </span>
+                <h3 className="font-headline-md text-headline-md text-on-surface mb-4">
+                  Ledger Systems
+                </h3>
+                <p className="font-body-sm text-body-sm text-on-surface-variant mb-6">
+                  Double-entry bookkeeping and transaction state machines with
+                  100% data integrity.
+                </p>
+              </div>
+              <div className="bg-black p-4 rounded border border-primary/20 relative z-10">
+                <pre className="font-code-md text-[12px] text-primary/80 overflow-hidden">{`{
+  "ledger": "TX_9921",
+  "status": "COMMITTED",
+  "checksum": "0x4F...3B"
+}`}</pre>
+              </div>
+            </div>
+            {/* Distributed Microservices */}
+            <div className="md:col-span-8 bg-surface-container/60 backdrop-blur-sm border border-outline-variant p-8 relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-1/3 h-full opacity-20 pointer-events-none bg-gradient-to-l from-secondary/10 to-transparent"></div>
+              <div className="relative z-10">
+                <h3 className="font-headline-lg text-headline-lg text-on-surface mb-6">
+                  Distributed Services
+                </h3>
+                <div className="flex flex-wrap gap-3 mb-8">
+                  <span className="px-3 py-1 bg-surface-variant border border-outline-variant font-code-md text-body-sm">
+                    Kubernetes
+                  </span>
+                  <span className="px-3 py-1 bg-surface-variant border border-outline-variant font-code-md text-body-sm">
+                    Kafka
+                  </span>
+                  <span className="px-3 py-1 bg-surface-variant border border-outline-variant font-code-md text-body-sm">
+                    Redis OSS
+                  </span>
+                  <span className="px-3 py-1 bg-surface-variant border border-outline-variant font-code-md text-body-sm">
+                    Terraform
+                  </span>
                 </div>
+                <p className="text-on-surface-variant max-w-lg mb-0">
+                  Decoupled logic using event-driven architectures. We eliminate
+                  single points of failure by implementing circuit breakers and
+                  automatic retry mechanisms across the service mesh.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Our Products Section */}
+        {/* Social Proof Strip */}
+        <section className="py-8 border-y border-outline-variant bg-surface-container-high w-full relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 pointer-events-none"></div>
+          <div className="max-w-max-width mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
+            <p className="font-code-md text-on-surface-variant text-center md:text-left text-sm">
+              A specialized <strong className="font-normal text-primary">backend development agency</strong> building systems powering SaaS, internal tooling, and distributed services.
+            </p>
+            <div className="flex items-center gap-3 bg-surface border border-outline-variant px-4 py-2 shrink-0">
+              <span className="material-symbols-outlined text-primary text-[18px]">verified</span>
+              <span className="font-label-caps text-[12px] tracking-wider text-on-surface">1000+ USERS SERVED ACROSS PRODUCTION ENVIRONMENTS</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Projects Preview */}
         <section
-          id="products"
-          className="w-full bg-white dark:bg-[#11091b] py-20 border-y border-gray-200 dark:border-slate-800 relative overflow-hidden scroll-mt-24"
+          className="py-24 bg-surface-container-low border-y border-outline-variant w-full"
+          id="projects"
         >
-          <div className="layout-container max-w-[1200px] px-6 mx-auto relative z-10">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="px-6 md:px-margin-desktop max-w-max-width mx-auto w-full">
+            <div className="flex justify-between items-end mb-16">
               <div>
-                <h2 className="text-primary text-sm font-bold tracking-widest uppercase mb-2">
-                  Products
+                <h2 className="font-label-caps text-label-caps text-primary mb-4">
+                  SYSTEM_OUTPUT
                 </h2>
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
-                  Our Products
+                <h3 className="font-headline-lg text-headline-lg text-on-surface">
+                  Architectural Case Studies
                 </h3>
               </div>
-              <p className="text-slate-600 dark:text-slate-400 max-w-lg mb-2">
-                Discover the innovative solutions we've built to solve complex
-                business challenges.
-              </p>
+              <div className="hidden md:block">
+                <span className="font-code-md text-on-surface-variant text-[12px]">
+                  FILTER: ALL_REPOS
+                </span>
+              </div>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Project 1 */}
               <a
-                href="https://empsass.codecraftedlabs.co.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-card-dark p-6 sm:p-8 ring-1 ring-black/5 dark:ring-white/10 transition-all duration-300 hover:ring-primary/50 hover:shadow-[0_0_30px_rgba(91,19,236,0.15)] flex flex-col justify-between h-full min-h-[250px]"
+                href="/projects/crm-saas"
+                className="flex flex-col bg-surface border border-outline-variant overflow-hidden group"
               >
-                <div className="relative z-10 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="size-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center font-bold text-white text-xl shadow-md">
-                      E
-                    </div>
-                    <span className="text-slate-400 group-hover:text-primary transition-colors">
-                      <ArrowUpRight className="w-6 h-6" />
+                <div className="h-64 relative overflow-hidden bg-surface-container flex items-center justify-center architecture-grid">
+                  <div className="absolute top-4 left-4 bg-surface/80 backdrop-blur px-3 py-1 font-label-caps text-[10px] border border-outline-variant z-20">
+                    PROJECT_01 // PAYMENT_FLOWS
+                  </div>
+                  <Image
+                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop"
+                    alt="CRM SaaS Architecture"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover opacity-30 mix-blend-luminosity group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
+                  />
+                  <span className="material-symbols-outlined text-[64px] text-primary opacity-50 group-hover:scale-110 transition-transform duration-700 relative z-10">
+                    account_balance
+                  </span>
+                </div>
+                <div className="p-8">
+                  <h4 className="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">
+                    CRM SaaS Platform
+                  </h4>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant mb-6">
+                    Engineered high-performance multi-tenant platform
+                    infrastructure capable of supporting concurrent real-time
+                    actions for 1,000+ active users.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    <span className="px-2 py-1 bg-surface-container border border-outline-variant font-code-md text-[11px]">
+                      GO
+                    </span>
+                    <span className="px-2 py-1 bg-surface-container border border-outline-variant font-code-md text-[11px]">
+                      TYPESCRIPT
+                    </span>
+                    <span className="px-2 py-1 bg-surface-container border border-outline-variant font-code-md text-[11px]">
+                      NODE.JS
+                    </span>
+                    <span className="px-2 py-1 bg-surface-container border border-outline-variant font-code-md text-[11px]">
+                      REDIS
                     </span>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
-                      EmpSaaS
-                    </h4>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                      A comprehensive compliance and statutory reporting
-                      platform designed to streamline your business operations
-                      and employee management.
-                    </p>
+                  <div className="grid grid-cols-2 gap-4 py-4 border-t border-outline-variant">
+                    <div>
+                      <p className="font-label-caps text-[10px] text-on-surface-variant uppercase">
+                        Latency
+                      </p>
+                      <p className="font-code-md text-primary">-30% Queries</p>
+                    </div>
+                    <div>
+                      <p className="font-label-caps text-[10px] text-on-surface-variant uppercase">
+                        Scale
+                      </p>
+                      <p className="font-code-md text-primary">1,000+ Users</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              {/* Project 2 */}
+              <a
+                href="/projects/emp-saas"
+                className="flex flex-col bg-surface border border-outline-variant overflow-hidden group"
+              >
+                <div className="h-64 relative overflow-hidden bg-surface-container flex items-center justify-center architecture-grid">
+                  <div className="absolute top-4 left-4 bg-surface/80 backdrop-blur px-3 py-1 font-label-caps text-[10px] border border-outline-variant z-20">
+                    PROJECT_02 // MULTI_TENANT
+                  </div>
+                  <Image
+                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+                    alt="Enterprise Management Engine Architecture"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover opacity-30 mix-blend-luminosity group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
+                  />
+                  <span className="material-symbols-outlined text-[64px] text-primary opacity-50 group-hover:scale-110 transition-transform duration-700 relative z-10">
+                    corporate_fare
+                  </span>
+                </div>
+                <div className="p-8">
+                  <h4 className="font-headline-md text-headline-md text-on-surface mb-4 group-hover:text-primary transition-colors">
+                    emp-saas Management Engine
+                  </h4>
+                  <p className="font-body-sm text-body-sm text-on-surface-variant mb-6">
+                    Architected a scalable, developer-first multi-tenant cloud
+                    engine centered on decentralized resource scheduling.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    <span className="px-2 py-1 bg-surface-container border border-outline-variant font-code-md text-[11px]">
+                      GO
+                    </span>
+                    <span className="px-2 py-1 bg-surface-container border border-outline-variant font-code-md text-[11px]">
+                      NODE.JS
+                    </span>
+                    <span className="px-2 py-1 bg-surface-container border border-outline-variant font-code-md text-[11px]">
+                      POSTGRESQL
+                    </span>
+                    <span className="px-2 py-1 bg-surface-container border border-outline-variant font-code-md text-[11px]">
+                      DOCKER
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 py-4 border-t border-outline-variant">
+                    <div>
+                      <p className="font-label-caps text-[10px] text-on-surface-variant uppercase">
+                        Reliability
+                      </p>
+                      <p className="font-code-md text-primary">
+                        Safe Migrations
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-label-caps text-[10px] text-on-surface-variant uppercase">
+                        Optimization
+                      </p>
+                      <p className="font-code-md text-primary">
+                        Predictable Perf
+                      </p>
+                    </div>
                   </div>
                 </div>
               </a>
@@ -917,403 +376,360 @@ const Page = () => {
           </div>
         </section>
 
-        {/* Projects & Testimonials Section */}
-        <section
-          id="projects"
-          className="w-full py-20 max-w-[1200px] px-6 mx-auto scroll-mt-24 z-10"
-        >
-          <div className="flex flex-col gap-12">
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <div className="h-px w-12 bg-primary"></div>
-                <span className="text-primary font-mono text-sm uppercase tracking-wider">
-                  Success Stories
-                </span>
-              </div>
-              <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
-                Client{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-primary">
-                  Testimonials
-                </span>
-              </h3>
-              <p className="text-slate-600 dark:text-slate-400 max-w-2xl text-lg">
-                Hear directly from the engineering leads and stakeholders who
-                have scaled their operations and infrastructure with Code
-                Crafted Labs.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-              {clients.map((client) => (
-                <div
-                  key={client.id}
-                  className="group relative overflow-hidden rounded-2xl bg-white dark:bg-card-dark p-6 sm:p-8 ring-1 ring-black/10 dark:ring-white/10 transition-all duration-300 hover:ring-primary/50 hover:shadow-[0_0_30px_rgba(91,19,236,0.15)] hover:bg-slate-50 dark:hover:bg-[#231c30] flex flex-col justify-between min-h-[380px]"
-                >
-                  <div className="absolute -top-12 -right-12 size-32 bg-primary/10 blur-3xl rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                  <div className="relative z-10 space-y-6">
-                    <div className="flex justify-between items-start">
-                      <div className="flex items-center gap-4">
-                        <div
-                          className={`size-12 rounded-xl bg-gradient-to-br ${client.logoBg} flex items-center justify-center font-bold text-white text-lg shadow-md`}
-                        >
-                          {client.logoText}
-                        </div>
-                        <div>
-                          <h4 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
-                            {client.clientName}
-                          </h4>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-wider font-semibold">
-                            {client.projectTitle}
-                          </p>
-                        </div>
-                      </div>
-                      <Quote className="w-8 h-8 text-primary/30" />
-                    </div>
-
-                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed italic text-sm sm:text-base">
-                      "{client.feedback}"
-                    </p>
-
-                    <div className="border-l-2 border-primary/50 pl-4 py-1">
-                      <p className="text-sm font-bold text-slate-900 dark:text-white">
-                        {client.reviewer}
-                      </p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                        {client.reviewerRole}
-                      </p>
-                    </div>
-
-                    {client.highlights && client.highlights.length > 0 && (
-                      <div className="space-y-2 pt-2">
-                        <h4 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-                          <CheckCircle className="w-3.5 h-3.5 text-primary" />{" "}
-                          Key Achievements
-                        </h4>
-                        <ul className="space-y-1.5 pl-5">
-                          {client.highlights.map((highlight, idx) => (
-                            <li
-                              key={idx}
-                              className="list-disc text-slate-600 dark:text-slate-400 text-sm"
-                            >
-                              {highlight}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+        {/* Section: Why Backend Matters */}
+        <section className="bg-surface-container py-32 border-y border-outline-variant">
+          <div className="max-w-max-width mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div>
+              <h2 className="font-headline-xl text-headline-xl text-on-surface mb-8">
+                Reliability is a Feature, Not an Afterthought.
+              </h2>
+              <div className="space-y-12">
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 border border-primary flex items-center justify-center">
+                    <span className="material-symbols-outlined text-primary">
+                      dynamic_form
+                    </span>
                   </div>
-
-                  <div className="relative z-10 pt-6 border-t border-gray-200 dark:border-white/5 space-y-4">
-                    <div className="flex flex-wrap gap-2">
-                      {client.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="inline-flex items-center rounded-lg bg-slate-100 dark:bg-[#2f2348] px-2.5 py-1 text-xs font-medium text-slate-800 dark:text-white ring-1 ring-inset ring-black/10 dark:ring-white/10 hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary transition-colors cursor-default"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {client.link && (
-                      <div className="pt-2">
-                        <a
-                          href={client.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-primary hover:bg-primary/90 text-white text-sm font-bold transition-all hover:translate-y-[-2px] shadow-lg shadow-primary/25"
-                        >
-                          <SquareArrowUpRight className="w-4 h-4" />
-                          <span>Visit Client Site</span>
-                        </a>
-                      </div>
-                    )}
+                  <div>
+                    <h4 className="font-headline-md text-headline-md mb-2">
+                      Deterministic Scaling
+                    </h4>
+                    <p className="text-on-surface-variant">
+                      Systems that react to load predictably. Our horizontal
+                      auto-scaling triggers are based on deep telemetry,
+                      ensuring users never feel the weight of your growth.
+                    </p>
                   </div>
                 </div>
-              ))}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0 w-12 h-12 bg-tertiary/10 border border-tertiary flex items-center justify-center">
+                    <span className="material-symbols-outlined text-tertiary">
+                      monitoring
+                    </span>
+                  </div>
+                  <div>
+                    <h4 className="font-headline-md text-headline-md mb-2">
+                      Observability First
+                    </h4>
+                    <p className="text-on-surface-variant">
+                      We don't guess; we measure. Every service includes
+                      OpenTelemetry integration for distributed tracing,
+                      logging, and real-time alerting.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="relative aspect-square bg-surface border border-outline-variant p-2 overflow-hidden group">
+                <Image
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  alt="Server schematic"
+                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/20 backdrop-blur-xl border border-primary p-6 flex flex-col justify-center">
+                <span className="font-headline-xl text-headline-xl text-primary">
+                  99.99
+                </span>
+                <span className="font-label-caps text-label-caps text-on-primary-container">
+                  UPTIME SLA
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section: Engagement Models */}
+        <section className="max-w-max-width mx-auto px-margin-desktop py-32">
+          <div className="text-center mb-20">
+            <h2 className="font-headline-lg text-headline-lg mb-4">
+              Engagement Vectors
+            </h2>
+            <p className="text-on-surface-variant font-code-md">
+              Tailored for early-stage pivots and enterprise-grade stability.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            {/* Startup Seed */}
+            <div className="p-8 border border-outline-variant hover:border-primary transition-colors flex flex-col">
+              <span className="font-label-caps text-label-caps text-on-surface-variant mb-8">
+                INFRASTRUCTURE_SPRINT
+              </span>
+              <h4 className="font-headline-md text-headline-md mb-4">
+                Core Infrastructure
+              </h4>
+              <p className="text-on-surface-variant mb-8 flex-grow">
+                Rapid MVP development. Essential API layer, User management, and
+                DB schema design. Focus on speed-to-market.
+              </p>
+              <div className="pt-8 border-t border-outline-variant mt-auto">
+                <div className="font-headline-md text-headline-md text-on-surface mb-2">
+                  Starting at $4k
+                </div>
+                <a
+                  href="#contact"
+                  className="block text-center w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps hover:brightness-110 transition-bezier"
+                >
+                  INITIALIZE
+                </a>
+              </div>
+            </div>
+            {/* Growth Scale */}
+            <div className="p-8 border-2 border-primary bg-primary/5 flex flex-col relative">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary px-3 py-1 text-[10px] font-bold text-on-primary font-label-caps">
+                RECOMMENDED
+              </div>
+              <span className="font-label-caps text-label-caps text-primary mb-8">
+                SCALE_PARTNERSHIP
+              </span>
+              <h4 className="font-headline-md text-headline-md mb-4">
+                Scale Architecture
+              </h4>
+              <p className="text-on-surface-variant mb-8 flex-grow">
+                Full microservice migration, payment integration, and global CDN
+                distribution. 24/7 on-call support included.
+              </p>
+              <div className="pt-8 border-t border-primary/20 mt-auto">
+                <div className="font-headline-md text-headline-md text-on-surface mb-2">
+                  Custom retainers
+                </div>
+                <a
+                  href="#contact"
+                  className="block text-center w-full py-4 bg-primary text-on-primary font-label-caps text-label-caps hover:brightness-110 transition-bezier"
+                >
+                  INITIALIZE
+                </a>
+              </div>
+            </div>
+            {/* Enterprise */}
+            <div className="p-8 border border-outline-variant hover:border-primary transition-colors flex flex-col">
+              <span className="font-label-caps text-label-caps text-on-surface-variant mb-8">
+                EMBEDDED_BACKEND
+              </span>
+              <h4 className="font-headline-md text-headline-md mb-4">
+                Custom Ecosystem
+              </h4>
+              <p className="text-on-surface-variant mb-8 flex-grow">
+                Dedicated engineering squad. Multi-region redundancy,
+                high-compliance security audits, and legacy system refactoring.
+              </p>
+              <div className="pt-8 border-t border-outline-variant mt-auto">
+                <div className="font-headline-md text-headline-md text-on-surface mb-2">
+                  Project-based
+                </div>
+                <a
+                  href="#contact"
+                  className="block text-center w-full py-4 border border-outline-variant text-on-surface font-label-caps text-label-caps hover:bg-surface-variant transition-colors"
+                >
+                  CONTACT_SALES
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Experience Timeline */}
+        <section className="py-24 bg-surface-container border-t border-outline-variant w-full">
+          <div className="px-6 md:px-margin-desktop max-w-max-width mx-auto w-full">
+            <h2 className="font-label-caps text-label-caps text-primary mb-12 text-center">
+              CAREER_MILESTONES
+            </h2>
+            <div className="space-y-1">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 border border-outline-variant hover:bg-surface-bright transition-bezier cursor-default">
+                <span className="font-code-md text-primary">
+                  OCT 2025 — PRES
+                </span>
+                <span className="font-code-md text-on-surface font-bold">
+                  Backend Software Engineer
+                </span>
+                <div className="md:col-span-2 text-on-surface-variant text-body-sm">
+                  <p className="mb-2 text-on-surface">Patch Infotech.</p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Reduced API latency by 35%</li>
+                    <li>Improved deployment reliability</li>
+                    <li>Built scalable backend microservices</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 border border-outline-variant hover:bg-surface-bright transition-bezier cursor-default">
+                <span className="font-code-md text-primary">
+                  MAY 2023 — SEP 2025
+                </span>
+                <span className="font-code-md text-on-surface font-bold">
+                  Software Developer
+                </span>
+                <div className="md:col-span-2 text-on-surface-variant text-body-sm">
+                  <p className="mb-2 text-on-surface">Infodia Technologies.</p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Maintained 99.9% uptime</li>
+                    <li>Reduced deployment time by 80%</li>
+                    <li>Improved backend observability</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section: Why Founders Work With Me */}
+        <section className="max-w-max-width mx-auto px-6 md:px-margin-desktop py-24 w-full">
+          <div className="text-center mb-16">
+            <h2 className="font-label-caps text-label-caps text-primary mb-4">
+              WHY_FOUNDERS_WORK_WITH_ME
+            </h2>
+            <h3 className="font-headline-lg text-headline-lg text-on-surface">
+              The Architecture Advantage
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Card 1 */}
+            <div className="p-8 border border-outline-variant bg-surface-container/30 hover:bg-surface-container transition-colors relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <span className="material-symbols-outlined text-tertiary mb-4 relative z-10" style={{ fontSize: "28px" }}>architecture</span>
+              <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Backend-first thinking</h4>
+              <p className="text-on-surface-variant text-body-sm relative z-10">
+                We prioritize solid data models and core business logic before painting the UI. Our <strong className="font-normal text-on-surface">cloud architecture consulting</strong> ensures your foundation won't crack under pressure.
+              </p>
+            </div>
+            {/* Card 2 */}
+            <div className="p-8 border border-outline-variant bg-surface-container/30 hover:bg-surface-container transition-colors relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <span className="material-symbols-outlined text-primary mb-4 relative z-10" style={{ fontSize: "28px" }}>rocket_launch</span>
+              <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Fast shipping without technical debt</h4>
+              <p className="text-on-surface-variant text-body-sm relative z-10">
+                Speed doesn't require sacrificing quality. By leveraging proven patterns and <strong className="font-normal text-on-surface">golang development services</strong>, we deliver robust features on aggressive timelines.
+              </p>
+            </div>
+            {/* Card 3 */}
+            <div className="p-8 border border-outline-variant bg-surface-container/30 hover:bg-surface-container transition-colors relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <span className="material-symbols-outlined text-tertiary mb-4 relative z-10" style={{ fontSize: "28px" }}>verified_user</span>
+              <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Production-grade reliability</h4>
+              <p className="text-on-surface-variant text-body-sm relative z-10">
+                Startups need enterprise stability. We specialize in <strong className="font-normal text-on-surface">scalable API development</strong> and resilient <strong className="font-normal text-on-surface">microservices consulting</strong> that survive high-traffic spikes effortlessly.
+              </p>
+            </div>
+            {/* Card 4 */}
+            <div className="p-8 border border-outline-variant bg-surface-container/30 hover:bg-surface-container transition-colors relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <span className="material-symbols-outlined text-primary mb-4 relative z-10" style={{ fontSize: "28px" }}>forum</span>
+              <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Direct founder communication</h4>
+              <p className="text-on-surface-variant text-body-sm relative z-10">
+                No bloated management layers or junior hand-offs. You interface directly with the lead engineer building your systems, aligning technical execution flawlessly with business goals.
+              </p>
             </div>
           </div>
         </section>
 
         {/* Contact Section */}
         <section
+          className="py-24 px-6 md:px-margin-desktop max-w-max-width mx-auto w-full"
           id="contact"
-          className="w-full py-20 max-w-[1200px] px-6 mx-auto scroll-mt-24 z-10"
         >
-          <div className="flex flex-col items-center text-center gap-6 mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary-300 text-xs font-semibold uppercase tracking-wider">
-              <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span>
-              {contactInfo.availability}
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-label-caps text-label-caps text-primary mb-4">
+                ESTABLISH_CONNECTION
+              </h2>
+              <h3 className="font-headline-lg text-headline-lg text-on-surface">
+                Start Your Project
+              </h3>
             </div>
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight dark:text-white leading-tight">
-              {contactInfo.tagline.split(" ").slice(0, 2).join(" ")}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-cyan">
-                {contactInfo.tagline.split(" ").slice(2).join(" ")}
-              </span>
-            </h3>
-            <p className="text-[#a492c9] text-lg max-w-2xl leading-relaxed">
-              {contactInfo.description}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-            {/* Email Card */}
-            <CopyEmailButton email={contactInfo.email} />
-
-            {/* LinkedIn Card */}
-            <a
-              href={contactInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-[#0077b5] group-hover:bg-[#0077b5]/20 transition-colors">
-                  <span className="material-symbols-outlined text-[32px] flex items-center justify-center">
-                    <UserPlus className="w-8 h-8" />
-                  </span>
-                </div>
-                <span className="material-symbols-outlined text-gray-500 group-hover:text-slate-900 dark:text-white transition-colors">
-                  <ArrowUpRight className="w-5 h-5" />
-                </span>
-              </div>
-              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">
-                LinkedIn
-              </h4>
-              <p className="text-[#a492c9] text-sm mb-4">
-                Connect with our leadership
-              </p>
-              <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                <span className="text-gray-300 text-sm">View CTO Profile</span>
-                <span className="text-xs font-bold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                  Visit
-                </span>
-              </div>
-            </a>
-
-            {/* WhatsApp Card */}
-            <a
-              href={`https://wa.me/${contactInfo.whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-[#25D366] group-hover:bg-[#25D366]/20 transition-colors">
-                  <span className="material-symbols-outlined text-[32px] flex items-center justify-center">
-                    <MessageCircle className="w-8 h-8" />
-                  </span>
-                </div>
-                <span className="material-symbols-outlined text-gray-500 group-hover:text-slate-900 dark:text-white transition-colors">
-                  <ArrowUpRight className="w-5 h-5" />
-                </span>
-              </div>
-              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">
-                WhatsApp
-              </h4>
-              <p className="text-[#a492c9] text-sm mb-4">
-                Quick chats &amp; inquiries
-              </p>
-              <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                <span className="text-gray-300 text-sm">
-                  {contactInfo.phone}
-                </span>
-                <span className="text-xs font-bold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                  Open
-                </span>
-              </div>
-            </a>
-
-            {/* GitHub Card */}
-            <a
-              href={`https://github.com/${contactInfo.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-slate-900 dark:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 transition-colors">
-                  <svg
-                    className="w-8 h-8 text-slate-600 dark:text-slate-300"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"
-                    />
-                  </svg>
-                </div>
-                <span className="material-symbols-outlined text-gray-500 group-hover:text-slate-900 dark:text-white transition-colors">
-                  <ArrowUpRight className="w-5 h-5" />
-                </span>
-              </div>
-              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">
-                GitHub
-              </h4>
-              <p className="text-[#a492c9] text-sm mb-4">
-                Check out our open-source tools
-              </p>
-              <div className="mt-auto pt-4 border-t border-gray-200 dark:border-white/5 flex items-center justify-between">
-                <span className="text-gray-500 dark:text-gray-300 text-sm">
-                  @{contactInfo.github}
-                </span>
-                <span className="text-xs font-bold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                  Visit
-                </span>
-              </div>
-            </a>
-
-            {/* Medium Card */}
-            <a
-              href={contactInfo.medium}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-slate-900 dark:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 transition-colors">
-                  <BookCopy className="w-8 h-8 text-slate-600 dark:text-slate-300" />
-                </div>
-                <span className="material-symbols-outlined text-gray-500 group-hover:text-slate-900 dark:text-white transition-colors">
-                  <ArrowUpRight className="w-5 h-5" />
-                </span>
-              </div>
-              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">
-                Medium
-              </h4>
-              <p className="text-[#a492c9] text-sm mb-4">
-                Read our engineering blogs
-              </p>
-              <div className="mt-auto pt-4 border-t border-gray-200 dark:border-white/5 flex items-center justify-between">
-                <span className="text-gray-500 dark:text-gray-300 text-sm">
-                  @ritiklrt2
-                </span>
-                <span className="text-xs font-bold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                  Visit
-                </span>
-              </div>
-            </a>
-
-            {/* Dev.to Card */}
-            <a
-              href={contactInfo.devTo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
-            >
-              <div className="flex items-start justify-between mb-4">
-                <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-slate-900 dark:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 transition-colors">
-                  <Code2 className="w-8 h-8 text-slate-600 dark:text-slate-300" />
-                </div>
-                <span className="material-symbols-outlined text-gray-500 group-hover:text-slate-900 dark:text-white transition-colors">
-                  <ArrowUpRight className="w-5 h-5" />
-                </span>
-              </div>
-              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">
-                DEV Community
-              </h4>
-              <p className="text-[#a492c9] text-sm mb-4">
-                Explore our technical tutorials
-              </p>
-              <div className="mt-auto pt-4 border-t border-gray-200 dark:border-white/5 flex items-center justify-between">
-                <span className="text-gray-500 dark:text-gray-300 text-sm">
-                  @iamritikbhardwaj
-                </span>
-                <span className="text-xs font-bold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                  Visit
-                </span>
-              </div>
-            </a>
-          </div>
-
-          <div className="mt-16 text-center border-t border-gray-200 dark:border-white/5 pt-12">
-            <p className="text-slate-900 dark:text-white text-lg font-medium leading-normal mb-2">
-              Partner with Code Crafted Labs to build high-performance software.
-            </p>
-            <p className="text-[#a492c9] text-sm">
-              Let's turn your specifications into production-grade systems.
-            </p>
+            <div className="bg-surface-container border border-outline-variant p-8 rounded-lg shadow-2xl relative overflow-hidden">
+              <div className="absolute inset-0 scanline opacity-20 pointer-events-none"></div>
+              <ContactForm />
+            </div>
           </div>
         </section>
       </div>
 
       {/* Footer */}
-      <footer className="w-full bg-slate-50 dark:bg-[#120d1c] border-t border-gray-200 dark:border-border-dark mt-auto relative z-10">
-        <div className="max-w-[1280px] mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-[#6b5a8e] text-sm text-center md:text-left">
-            © 2026 Code Crafted Labs. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <a
-              href={`https://github.com/${contactInfo.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#6b5a8e] hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              <span className="material-symbols-outlined text-[20px] flex items-center justify-center">
-                <Terminal className="w-5 h-5" />
+      <footer className="bg-surface-container border-t border-outline-variant w-full mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 md:px-margin-desktop py-12 max-w-max-width mx-auto w-full">
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="material-symbols-outlined text-primary">
+                terminal
               </span>
-            </a>
-            <a
-              href={contactInfo.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#6b5a8e] hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              <span className="material-symbols-outlined text-[20px] flex items-center justify-center">
-                <UserPlus className="w-5 h-5" />
+              <span className="font-label-caps text-on-surface">
+                CODE_CRAFTED_LABS
               </span>
-            </a>
-            <a
-              href={contactInfo.medium}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#6b5a8e] hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              <span className="material-symbols-outlined text-[20px] flex items-center justify-center">
-                <BookCopy className="w-5 h-5" />
-              </span>
-            </a>
-            <a
-              href={contactInfo.devTo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#6b5a8e] hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              <span className="material-symbols-outlined text-[20px] flex items-center justify-center">
-                <Code2 className="w-5 h-5" />
-              </span>
-            </a>
-            <a
-              href={`mailto:${contactInfo.email}`}
-              className="text-[#6b5a8e] hover:text-accent-cyan transition-colors"
-            >
-              <span className="material-symbols-outlined text-[20px] flex items-center justify-center">
-                <Mail className="w-5 h-5" />
-              </span>
-            </a>
+            </div>
+            <p className="font-code-md text-code-md text-secondary max-w-xs mb-2">
+              Founded by Ritik Singh.
+            </p>
+            <p className="font-code-md text-code-md text-on-surface-variant max-w-xs">
+              Engineering reliable backends for the next generation of startups.
+            </p>
           </div>
-          <div className="flex gap-6 text-sm">
-            <a
-              className="text-[#6b5a8e] hover:text-white transition-colors"
-              href="#"
-            >
-              Privacy
-            </a>
-            <a
-              className="text-[#6b5a8e] hover:text-white transition-colors"
-              href="#"
-            >
-              Terms
-            </a>
+          <div className="grid grid-cols-2 gap-8">
+            <div className="flex flex-col gap-4">
+              <p className="font-label-caps text-[10px] text-on-surface-variant uppercase">
+                Navigation
+              </p>
+              <a
+                className="font-code-md text-code-md text-on-surface-variant hover:text-on-surface transition-opacity cursor-pointer"
+                href="#systems"
+              >
+                Systems
+              </a>
+              <a
+                className="font-code-md text-code-md text-on-surface-variant hover:text-on-surface transition-opacity cursor-pointer"
+                href="#projects"
+              >
+                Projects
+              </a>
+            </div>
+            <div className="flex flex-col gap-4">
+              <p className="font-label-caps text-[10px] text-on-surface-variant uppercase">
+                Connect
+              </p>
+              <a
+                className="font-code-md text-code-md text-on-surface-variant hover:text-on-surface transition-opacity cursor-pointer"
+                href="https://github.com/iamritikbhardwaj"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+              <a
+                className="font-code-md text-code-md text-on-surface-variant hover:text-on-surface transition-opacity cursor-pointer"
+                href="https://linkedin.com/in/ritik-singh"
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a
+                className="font-code-md text-code-md text-on-surface-variant hover:text-on-surface transition-opacity cursor-pointer"
+                href="mailto:ritiklrt2@gmail.com"
+              >
+                Email
+              </a>
+              <div className="flex items-center gap-2 font-code-md text-code-md text-on-surface-variant">
+                <span className="led-dot bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
+                Status: Operational
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="px-6 md:px-margin-desktop py-8 border-t border-outline-variant/30 max-w-max-width mx-auto flex justify-between items-center w-full">
+          <span className="font-code-md text-code-md text-on-surface-variant/50">
+            © 2024 CODE_CRAFTED_LABS // SYSTEM_v2.0.4
+          </span>
+          <div className="flex gap-4">
+            <span className="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+              monitoring
+            </span>
+            <span className="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+              security
+            </span>
           </div>
         </div>
       </footer>
     </div>
   );
-};
-
-export default Page;
+}
