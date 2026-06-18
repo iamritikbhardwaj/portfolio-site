@@ -59,7 +59,7 @@ export default function NotFound() {
       {/* Error Message */}
       <div className="not-found-error-message">
         <h1 className="not-found-main-heading">
-          The page you are looking for doesn't exist or has been moved
+          The page you are looking for doesn&apos;t exist or has been moved
         </h1>
         <p className="not-found-sub-text">
           — Please go back

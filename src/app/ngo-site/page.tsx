@@ -84,7 +84,7 @@ function page() {
   className="relative h-[600px] bg-cover bg-center text-white"
   style={{
     backgroundImage:
-      "url('https://images.unsplash.com/photo-1494832944834-a08818c634b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80')",
+      "url('/images/hero.webp')",
   }}
 >
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>

@@ -17,15 +17,16 @@ export default function CopyEmailButton({ email }: { email: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="group relative flex flex-col p-6 rounded-xl bg-card-dark border border-card-border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer text-left"
+      aria-label="Copy email address"
+      className="group relative flex flex-col p-6 rounded-xl bg-card-dark border border-card-border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
     >
       <div className="flex items-start justify-between mb-4">
         <div className="p-3 bg-white/5 rounded-lg text-accent-cyan group-hover:bg-accent-cyan/20 transition-colors">
-          <span className="material-symbols-outlined text-[32px] flex items-center justify-center">
+          <span className="material-symbols-outlined text-[32px] flex items-center justify-center" aria-hidden="true">
             <Mail className="w-8 h-8" />
           </span>
         </div>
-        <span className="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors">
+        <span className="material-symbols-outlined text-gray-500 group-hover:text-white transition-colors" aria-hidden="true">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

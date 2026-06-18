@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
+import { Geist, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 
@@ -9,16 +9,13 @@ import { Analytics } from "@vercel/analytics/react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -66,18 +63,8 @@ export const metadata: Metadata = {
   publisher: "Code Crafted Labs",
 
   icons: {
-    icon: [
-      {
-        media: "(prefers-color-scheme: light)",
-        url: "/ccl-logo.png",
-        href: "/ccl-logo.png",
-      },
-      {
-        media: "(prefers-color-scheme: dark)",
-        url: "/ccl-logo-dark.png",
-        href: "/ccl-logo-dark.png",
-      },
-    ],
+    icon: "/ccl-logo.png",
+    apple: "/ccl-logo.png",
   },
 
   alternates: {
@@ -142,7 +129,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased font-body-md text-body-md text-on-surface bg-background overflow-x-hidden selection:bg-primary selection:text-on-primary`}
+        className={`${geistSans.variable} ${jetbrainsMono.variable} antialiased font-body-md text-body-md text-on-surface bg-background overflow-x-hidden selection:bg-primary selection:text-on-primary`}
       >
         <PersonSchema />
         {children}

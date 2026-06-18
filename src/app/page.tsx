@@ -20,8 +20,10 @@ export default function Page() {
         {/* Navigation */}
         <Header />
 
-        {/* Hero Section */}
-        <section className="relative min-h-[618px] flex items-center architecture-grid border-b border-outline-variant pt-20">
+        {/* Main Content */}
+        <main className="flex-grow">
+          {/* Hero Section */}
+          <section className="relative min-h-[618px] flex items-center architecture-grid border-b border-outline-variant pt-20">
           <div className="px-6 md:px-margin-desktop max-w-max-width mx-auto w-full grid md:grid-cols-2 gap-12 items-center py-20 mt-16">
             <div className="z-10">
               <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-surface-container border border-outline-variant rounded-full">
@@ -64,7 +66,7 @@ export default function Page() {
                   href="#projects"
                 >
                   EXPLORE_WORK{" "}
-                  <span className="material-symbols-outlined text-[18px]">
+                  <span className="material-symbols-outlined text-[18px]" aria-hidden="true">
                     arrow_forward
                   </span>
                 </a>
@@ -96,10 +98,9 @@ export default function Page() {
             <div className="md:col-span-8 bg-surface-container border border-outline-variant p-8 group relative overflow-hidden">
               <div className="flex justify-between items-start mb-8 relative z-10">
                 <div>
-                  <span
-                    className="material-symbols-outlined text-primary mb-4"
+                  <span className="material-symbols-outlined text-primary mb-4"
                     style={{ fontSize: "32px" }}
-                  >
+                   aria-hidden="true">
                     api
                   </span>
                   <h3 className="font-headline-lg text-headline-lg text-on-surface">
@@ -138,10 +139,9 @@ export default function Page() {
             </div>
             {/* Authentication */}
             <div className="md:col-span-4 bg-surface-container-high border border-outline-variant p-8 relative overflow-hidden group">
-              <span
-                className="material-symbols-outlined text-tertiary mb-4 relative z-10"
+              <span className="material-symbols-outlined text-tertiary mb-4 relative z-10"
                 style={{ fontSize: "32px" }}
-              >
+               aria-hidden="true">
                 lock
               </span>
               <h3 className="font-headline-md text-headline-md text-on-surface mb-4 relative z-10">
@@ -168,10 +168,9 @@ export default function Page() {
             {/* Payment Workflows */}
             <div className="md:col-span-4 bg-surface-container-high border border-outline-variant p-8 flex flex-col justify-between relative overflow-hidden group">
               <div className="relative z-10">
-                <span
-                  className="material-symbols-outlined text-primary mb-4"
+                <span className="material-symbols-outlined text-primary mb-4"
                   style={{ fontSize: "32px" }}
-                >
+                 aria-hidden="true">
                   payments
                 </span>
                 <h3 className="font-headline-md text-headline-md text-on-surface mb-4">
@@ -227,7 +226,7 @@ export default function Page() {
               A specialized <strong className="font-normal text-primary">backend development agency</strong> building systems powering SaaS, internal tooling, and distributed services.
             </p>
             <div className="flex items-center gap-3 bg-surface border border-outline-variant px-4 py-2 shrink-0">
-              <span className="material-symbols-outlined text-primary text-[18px]">verified</span>
+              <span className="material-symbols-outlined text-primary text-[18px]" aria-hidden="true">verified</span>
               <span className="font-label-caps text-[12px] tracking-wider text-on-surface">1000+ USERS SERVED ACROSS PRODUCTION ENVIRONMENTS</span>
             </div>
           </div>
@@ -258,20 +257,22 @@ export default function Page() {
               {/* Project 1 */}
               <a
                 href="/projects/crm-saas"
-                className="flex flex-col bg-surface border border-outline-variant overflow-hidden group"
+                className="flex flex-col bg-surface border border-outline-variant overflow-hidden group min-h-[420px]"
               >
-                <div className="h-64 relative overflow-hidden bg-surface-container flex items-center justify-center architecture-grid">
+                <div className="h-64 relative overflow-hidden bg-surface-container flex items-center justify-center architecture-grid w-full">
                   <div className="absolute top-4 left-4 bg-surface px-3 py-1 font-label-caps text-[10px] border border-outline-variant z-20">
                     PROJECT_01 // PAYMENT_FLOWS
                   </div>
                   <Image
-                    src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop"
+                    src="/images/project-1.webp"
                     alt="CRM SaaS Architecture"
-                    fill
+                    width={800}
+                    height={500}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover opacity-30 mix-blend-luminosity group-hover:opacity-50 group-hover:scale-105 transition-all duration-300"
+                    className="absolute inset-0 object-cover w-full h-full opacity-30 mix-blend-luminosity group-hover:opacity-50 group-hover:scale-105 transition-all duration-300"
+                    loading="lazy"
                   />
-                  <span className="material-symbols-outlined text-[64px] text-primary opacity-50 group-hover:scale-110 transition-transform duration-300 relative z-10">
+                  <span className="material-symbols-outlined text-[64px] text-primary opacity-50 group-hover:scale-110 transition-transform duration-300 relative z-10" aria-hidden="true">
                     account_balance
                   </span>
                 </div>
@@ -317,20 +318,22 @@ export default function Page() {
               {/* Project 2 */}
               <a
                 href="/projects/emp-saas"
-                className="flex flex-col bg-surface border border-outline-variant overflow-hidden group"
+                className="flex flex-col bg-surface border border-outline-variant overflow-hidden group min-h-[420px]"
               >
-                <div className="h-64 relative overflow-hidden bg-surface-container flex items-center justify-center architecture-grid">
+                <div className="h-64 relative overflow-hidden bg-surface-container flex items-center justify-center architecture-grid w-full">
                   <div className="absolute top-4 left-4 bg-surface px-3 py-1 font-label-caps text-[10px] border border-outline-variant z-20">
                     PROJECT_02 // MULTI_TENANT
                   </div>
                   <Image
-                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+                    src="/images/project-2.webp"
                     alt="Enterprise Management Engine Architecture"
-                    fill
+                    width={800}
+                    height={500}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover opacity-30 mix-blend-luminosity group-hover:opacity-50 group-hover:scale-105 transition-all duration-300"
+                    className="absolute inset-0 object-cover w-full h-full opacity-30 mix-blend-luminosity group-hover:opacity-50 group-hover:scale-105 transition-all duration-300"
+                    loading="lazy"
                   />
-                  <span className="material-symbols-outlined text-[64px] text-primary opacity-50 group-hover:scale-110 transition-transform duration-300 relative z-10">
+                  <span className="material-symbols-outlined text-[64px] text-primary opacity-50 group-hover:scale-110 transition-transform duration-300 relative z-10" aria-hidden="true">
                     corporate_fare
                   </span>
                 </div>
@@ -390,7 +393,7 @@ export default function Page() {
               <div className="space-y-12">
                 <div className="flex gap-6">
                   <div className="flex-shrink-0 w-12 h-12 bg-primary/10 border border-primary flex items-center justify-center">
-                    <span className="material-symbols-outlined text-primary">
+                    <span className="material-symbols-outlined text-primary" aria-hidden="true">
                       dynamic_form
                     </span>
                   </div>
@@ -407,7 +410,7 @@ export default function Page() {
                 </div>
                 <div className="flex gap-6">
                   <div className="flex-shrink-0 w-12 h-12 bg-tertiary/10 border border-tertiary flex items-center justify-center">
-                    <span className="material-symbols-outlined text-tertiary">
+                    <span className="material-symbols-outlined text-tertiary" aria-hidden="true">
                       monitoring
                     </span>
                   </div>
@@ -427,11 +430,13 @@ export default function Page() {
             <div className="relative">
               <div className="relative aspect-square bg-surface border border-outline-variant p-2 overflow-hidden group">
                 <Image
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                  src="/images/project-1.webp"
                   alt="Server schematic"
-                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop"
-                  fill
+                  width={800}
+                  height={800}
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300"
+                  loading="lazy"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-surface-container border border-primary p-6 flex flex-col justify-center">
@@ -591,7 +596,7 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Card 1 */}
             <div className="p-8 border border-outline-variant bg-surface-container hover:bg-surface-container-high transition-colors relative group">
-              <span className="material-symbols-outlined text-tertiary mb-4 relative z-10" style={{ fontSize: "28px" }}>architecture</span>
+              <span className="material-symbols-outlined text-tertiary mb-4 relative z-10" style={{ fontSize: "28px" }} aria-hidden="true">architecture</span>
               <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Backend-first thinking</h4>
               <p className="text-on-surface-variant text-body-sm relative z-10">
                 We prioritize solid data models and core business logic before painting the UI. Our <strong className="font-normal text-on-surface">cloud architecture consulting</strong> ensures your foundation won't crack under pressure.
@@ -599,7 +604,7 @@ export default function Page() {
             </div>
             {/* Card 2 */}
             <div className="p-8 border border-outline-variant bg-surface-container hover:bg-surface-container-high transition-colors relative group">
-              <span className="material-symbols-outlined text-primary mb-4 relative z-10" style={{ fontSize: "28px" }}>rocket_launch</span>
+              <span className="material-symbols-outlined text-primary mb-4 relative z-10" style={{ fontSize: "28px" }} aria-hidden="true">rocket_launch</span>
               <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Fast shipping without technical debt</h4>
               <p className="text-on-surface-variant text-body-sm relative z-10">
                 Speed doesn't require sacrificing quality. By leveraging proven patterns and <strong className="font-normal text-on-surface">golang development services</strong>, we deliver robust features on aggressive timelines.
@@ -607,7 +612,7 @@ export default function Page() {
             </div>
             {/* Card 3 */}
             <div className="p-8 border border-outline-variant bg-surface-container hover:bg-surface-container-high transition-colors relative group">
-              <span className="material-symbols-outlined text-tertiary mb-4 relative z-10" style={{ fontSize: "28px" }}>verified_user</span>
+              <span className="material-symbols-outlined text-tertiary mb-4 relative z-10" style={{ fontSize: "28px" }} aria-hidden="true">verified_user</span>
               <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Production-grade reliability</h4>
               <p className="text-on-surface-variant text-body-sm relative z-10">
                 Startups need enterprise stability. We specialize in <strong className="font-normal text-on-surface">scalable API development</strong> and resilient <strong className="font-normal text-on-surface">microservices consulting</strong> that survive high-traffic spikes effortlessly.
@@ -615,7 +620,7 @@ export default function Page() {
             </div>
             {/* Card 4 */}
             <div className="p-8 border border-outline-variant bg-surface-container hover:bg-surface-container-high transition-colors relative group">
-              <span className="material-symbols-outlined text-primary mb-4 relative z-10" style={{ fontSize: "28px" }}>forum</span>
+              <span className="material-symbols-outlined text-primary mb-4 relative z-10" style={{ fontSize: "28px" }} aria-hidden="true">forum</span>
               <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Direct founder communication</h4>
               <p className="text-on-surface-variant text-body-sm relative z-10">
                 No bloated management layers or junior hand-offs. You interface directly with the lead engineer building your systems, aligning technical execution flawlessly with business goals.
@@ -644,92 +649,111 @@ export default function Page() {
             </div>
           </div>
         </section>
-      </div>
+      </main>
+        <footer className="bg-surface-container-lowest pt-20 mt-20 border-t border-outline-variant">
+          <div className="max-w-max-width mx-auto px-6 md:px-margin-desktop mb-20 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">
+                  terminal
+                </span>
+                <span className="font-label-caps text-label-caps tracking-tighter text-primary">
+                  CODE_CRAFTED_LABS
+                </span>
+              </div>
+              <p className="font-body-sm text-body-sm text-on-surface-variant max-w-sm mb-6">
+                Architecting robust backend systems that scale predictably and
+                fail gracefully.
+              </p>
+              <div className="flex gap-4">
+                <a
+                  href="https://github.com/iamritikbhardwaj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-surface-container hover:border-primary transition-all group focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                  aria-label="GitHub Profile"
+                >
+                  <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true">
+                    code
+                  </span>
+                </a>
+                <a
+                  href="https://linkedin.com/in/ritik-singh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 border border-outline-variant flex items-center justify-center hover:bg-surface-container hover:border-primary transition-all group focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                  aria-label="LinkedIn Profile"
+                >
+                  <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" aria-hidden="true">
+                    work
+                  </span>
+                </a>
+              </div>
+            </div>
 
-      {/* Footer */}
-      <footer className="bg-surface-container border-t border-outline-variant w-full mt-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 md:px-margin-desktop py-12 max-w-max-width mx-auto w-full">
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="material-symbols-outlined text-primary">
-                terminal
-              </span>
-              <span className="font-label-caps text-on-surface">
-                CODE_CRAFTED_LABS
-              </span>
-            </div>
-            <p className="font-code-md text-code-md text-secondary max-w-xs mb-2">
-              Founded by Ritik Singh.
-            </p>
-            <p className="font-code-md text-code-md text-on-surface-variant max-w-xs">
-              Engineering reliable backends for the next generation of startups.
-            </p>
-          </div>
-          <div className="grid grid-cols-2 gap-8">
-            <div className="flex flex-col gap-4">
-              <p className="font-label-caps text-[10px] text-on-surface-variant uppercase">
-                Navigation
-              </p>
-              <a
-                className="font-code-md text-code-md text-on-surface-variant hover:text-on-surface transition-opacity cursor-pointer"
-                href="#systems"
-              >
-                Systems
-              </a>
-              <a
-                className="font-code-md text-code-md text-on-surface-variant hover:text-on-surface transition-opacity cursor-pointer"
-                href="#projects"
-              >
-                Projects
-              </a>
-            </div>
-            <div className="flex flex-col gap-4">
-              <p className="font-label-caps text-[10px] text-on-surface-variant uppercase">
-                Connect
-              </p>
-              <a
-                className="font-code-md text-code-md text-on-surface-variant hover:text-on-surface transition-opacity cursor-pointer"
-                href="https://github.com/iamritikbhardwaj"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
-              <a
-                className="font-code-md text-code-md text-on-surface-variant hover:text-on-surface transition-opacity cursor-pointer"
-                href="https://linkedin.com/in/ritik-singh"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-              <a
-                className="font-code-md text-code-md text-on-surface-variant hover:text-on-surface transition-opacity cursor-pointer"
-                href="mailto:ritiklrt2@gmail.com"
-              >
-                Email
-              </a>
-              <div className="flex items-center gap-2 font-code-md text-code-md text-on-surface-variant">
-                <span className="led-dot bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
-                Status: Operational
+            <div className="grid grid-cols-2 col-span-1 md:col-span-2 gap-8">
+              <div>
+                <h4 className="font-label-caps text-label-caps text-on-surface mb-6 uppercase">
+                  Navigation
+                </h4>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href="#systems"
+                    className="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                  >
+                    Systems
+                  </a>
+                  <a
+                    href="#projects"
+                    className="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                  >
+                    Deployments
+                  </a>
+                  <a
+                    href="https://cal.com/ritik-singh-3mjivg"
+                    className="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                  >
+                    Consultation
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h4 className="font-label-caps text-label-caps text-on-surface mb-6 uppercase">
+                  Resources
+                </h4>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href="/resume"
+                    className="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                  >
+                    Resume.pdf
+                  </a>
+                  <a
+                    href="/metrics"
+                    className="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
+                  >
+                    Uptime Metrics
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="px-6 md:px-margin-desktop py-8 border-t border-outline-variant/30 max-w-max-width mx-auto flex justify-between items-center w-full">
-          <span className="font-code-md text-code-md text-on-surface-variant/50">
-            © 2024 CODE_CRAFTED_LABS // SYSTEM_v2.0.4
-          </span>
-          <div className="flex gap-4">
-            <span className="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
-              monitoring
+
+          <div className="px-6 md:px-margin-desktop py-8 border-t border-outline-variant/30 max-w-max-width mx-auto flex justify-between items-center w-full">
+            <span className="font-code-md text-code-md text-on-surface-variant/50">
+              © 2024 CODE_CRAFTED_LABS // SYSTEM_v2.0.4
             </span>
-            <span className="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
-              security
-            </span>
+            <div className="flex gap-4">
+              <button aria-label="Monitoring status" className="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-primary transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                monitoring
+              </button>
+              <button aria-label="Security status" className="material-symbols-outlined text-[20px] text-on-surface-variant hover:text-primary transition-colors cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
+                security
+              </button>
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }

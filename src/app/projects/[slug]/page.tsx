@@ -104,7 +104,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
               <p>{project.problem}</p>
               <ul className="list-none space-y-3">
                 <li className="flex gap-3 items-start">
-                  <span className="material-symbols-outlined text-error mt-1" style={{ fontVariationSettings: "'wght' 200" }}>error</span>
+                  <span className="material-symbols-outlined text-error mt-1" style={{ fontVariationSettings: "'wght' 200" }} aria-hidden="true">error</span>
                   <span>Critical scaling constraints required immediate re-architecture.</span>
                 </li>
               </ul>
@@ -134,7 +134,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
             {/* Main API Gateway */}
             <div className="md:col-span-4 p-6 bg-surface-container border border-primary/30 flex flex-col gap-4">
               <div className="flex justify-between items-start">
-                <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'wght' 200" }}>hub</span>
+                <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'wght' 200" }} aria-hidden="true">hub</span>
                 <span className="font-label-caps text-[10px] px-2 py-0.5 border border-primary text-primary">INGRESS</span>
               </div>
               <div>
@@ -148,7 +148,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
             {/* Message Queue */}
             <div className="md:col-span-8 p-6 bg-surface-container border border-outline-variant flex flex-col gap-4">
               <div className="flex justify-between items-start">
-                <span className="material-symbols-outlined text-tertiary text-3xl" style={{ fontVariationSettings: "'wght' 200" }}>reorder</span>
+                <span className="material-symbols-outlined text-tertiary text-3xl" style={{ fontVariationSettings: "'wght' 200" }} aria-hidden="true">reorder</span>
                 <span className="font-label-caps text-[10px] px-2 py-0.5 border border-tertiary text-tertiary">MESSAGING</span>
               </div>
               <div className="grid md:grid-cols-2 gap-8">
@@ -170,7 +170,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
             {/* Database Layer */}
             <div className="md:col-span-7 p-6 bg-surface-container border border-outline-variant">
               <div className="flex items-center gap-3 mb-6">
-                <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'wght' 200" }}>database</span>
+                <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'wght' 200" }} aria-hidden="true">database</span>
                 <h4 className="font-headline-md text-headline-md">Persistence Layer</h4>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -193,7 +193,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
             {/* Worker Pool */}
             <div className="md:col-span-5 p-6 bg-surface-container border border-outline-variant flex flex-col gap-4">
               <div className="flex justify-between items-start">
-                <span className="material-symbols-outlined text-on-surface text-3xl" style={{ fontVariationSettings: "'wght' 200" }}>memory</span>
+                <span className="material-symbols-outlined text-on-surface text-3xl" style={{ fontVariationSettings: "'wght' 200" }} aria-hidden="true">memory</span>
                 <span className="font-label-caps text-[10px] px-2 py-0.5 border border-on-surface text-on-surface">COMPUTE</span>
               </div>
               <div>
@@ -218,20 +218,20 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
               {/* Client */}
               <div className="flex flex-col items-center gap-4">
                 <div className="w-16 h-16 rounded-xl border border-outline-variant flex items-center justify-center bg-surface">
-                  <span className="material-symbols-outlined text-on-surface-variant" style={{ fontVariationSettings: "'wght' 200" }}>laptop_mac</span>
+                  <span className="material-symbols-outlined text-on-surface-variant" style={{ fontVariationSettings: "'wght' 200" }} aria-hidden="true">laptop_mac</span>
                 </div>
                 <span className="font-label-caps text-[10px]">CLIENT</span>
               </div>
-              <span className="material-symbols-outlined text-primary hidden md:block" style={{ fontVariationSettings: "'wght' 200" }}>trending_flat</span>
+              <span className="material-symbols-outlined text-primary hidden md:block" style={{ fontVariationSettings: "'wght' 200" }} aria-hidden="true">trending_flat</span>
               {/* Gateway */}
               <div className="flex flex-col items-center gap-4">
                 <div className="w-24 h-24 border border-primary flex flex-col items-center justify-center bg-surface p-2 text-center">
-                  <span className="material-symbols-outlined text-primary mb-2" style={{ fontVariationSettings: "'wght' 200" }}>security</span>
+                  <span className="material-symbols-outlined text-primary mb-2" style={{ fontVariationSettings: "'wght' 200" }} aria-hidden="true">security</span>
                   <span className="font-code-md text-[10px]">Auth &amp; Router</span>
                 </div>
                 <span className="font-label-caps text-[10px]">GATEWAY</span>
               </div>
-              <span className="material-symbols-outlined text-primary hidden md:block" style={{ fontVariationSettings: "'wght' 200" }}>trending_flat</span>
+              <span className="material-symbols-outlined text-primary hidden md:block" style={{ fontVariationSettings: "'wght' 200" }} aria-hidden="true">trending_flat</span>
               {/* Microservices */}
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-4 p-4 border border-outline-variant bg-surface-container-high w-48">
@@ -284,11 +284,13 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
           <div className="h-96 w-full relative">
             <div className="absolute inset-0 w-full h-full opacity-60">
               <Image
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop"
+                src="/images/project-1.webp"
                 alt="Core Cluster Visualization"
-                fill
+                width={1200}
+                height={600}
                 sizes="100vw"
-                className="object-cover"
+                className="object-cover w-full h-full"
+                loading="lazy"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>

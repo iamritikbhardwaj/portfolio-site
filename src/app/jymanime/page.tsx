@@ -110,25 +110,33 @@ function GolfAni() {
     }
     
 
-    const cursor: any = document.getElementById("cursor");
-    const blur: any = document.getElementById("cursor-blur");
+    const cursor = document.getElementById("cursor") as HTMLElement | null;
+    const blur = document.getElementById("cursor-blur") as HTMLElement | null;
     document.addEventListener("mousemove", (dets) => {
-      cursor.style.left = dets.x + "px";
-      cursor.style.top = dets.y + "px";
-      blur.style.left = dets.x - 77 + "px";
-      blur.style.top = dets.y - 77 + "px";
+      if (cursor) {
+        cursor.style.left = dets.x + "px";
+        cursor.style.top = dets.y + "px";
+      }
+      if (blur) {
+        blur.style.left = dets.x - 77 + "px";
+        blur.style.top = dets.y - 77 + "px";
+      }
     });
 
     document.querySelectorAll("#nav h4").forEach((item) => {
       item.addEventListener("mouseenter", () => {
-        cursor.style.scale = 3;
-        cursor.style.border = "1px solid #fff";
-        cursor.style.backgroundColor = "transparent";
+        if (cursor) {
+          cursor.style.scale = "3";
+          cursor.style.border = "1px solid #fff";
+          cursor.style.backgroundColor = "transparent";
+        }
       });
       item.addEventListener("mouseleave", () => {
-        cursor.style.scale = 1;
-        cursor.style.border = "none";
-        cursor.style.backgroundColor = "#93b33c";
+        if (cursor) {
+          cursor.style.scale = "1";
+          cursor.style.border = "none";
+          cursor.style.backgroundColor = "#93b33c";
+        }
       });
     });
   }, []);

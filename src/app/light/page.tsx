@@ -368,7 +368,7 @@ const Page: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             <div>
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                I'm a passionate Backend & Cloud Developer focused on building
+                I&apos;m a passionate Backend & Cloud Developer focused on building
                 scalable, production-grade systems. With 2+ years of experience,
                 I specialize in creating high-performance APIs, microservices
                 architecture, and implementing robust cloud solutions.
@@ -376,7 +376,7 @@ const Page: React.FC = () => {
               <p className="text-lg text-gray-700 leading-relaxed">
                 My expertise spans across modern technologies like Go, Node.js,
                 AWS, and Docker, with a strong emphasis on DevOps practices,
-                security, and automation. I'm driven by the challenge of solving
+                security, and automation. I&apos;m driven by the challenge of solving
                 complex problems and building systems that can scale to serve
                 thousands of users.
               </p>

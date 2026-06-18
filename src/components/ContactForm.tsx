@@ -34,7 +34,7 @@ export default function ContactForm() {
         <p className="font-body-sm text-on-surface-variant">Your project inquiry has been securely stored and relayed. I will review the payload and respond shortly.</p>
         <button 
           onClick={() => setSuccess(false)}
-          className="mt-6 border border-outline-variant bg-surface px-6 py-2 font-label-caps text-[11px] hover:bg-surface-container transition-bezier uppercase"
+          className="mt-6 border border-outline-variant bg-surface px-6 py-2 font-label-caps text-[11px] hover:bg-surface-container transition-bezier uppercase focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary"
         >
           INITIATE_NEW_TRANSMISSION
         </button>
@@ -52,17 +52,17 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label className="font-label-caps text-[11px] text-on-surface-variant uppercase">Full_Name</label>
-          <input name="fullName" required className="w-full bg-surface-container border border-outline-variant focus:border-primary text-on-surface px-4 py-3 outline-none transition-bezier" placeholder="e.g. Satoshi Nakamoto" type="text" />
+          <input name="fullName" required className="w-full bg-surface-container border border-outline-variant focus:border-primary text-on-surface px-4 py-3 outline-none transition-bezier focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" placeholder="e.g. Satoshi Nakamoto" type="text" />
         </div>
         <div className="space-y-2">
           <label className="font-label-caps text-[11px] text-on-surface-variant uppercase">Email_Endpoint</label>
-          <input name="email" required className="w-full bg-surface-container border border-outline-variant focus:border-primary text-on-surface px-4 py-3 outline-none transition-bezier" placeholder="user@domain.com" type="email" />
+          <input name="email" required className="w-full bg-surface-container border border-outline-variant focus:border-primary text-on-surface px-4 py-3 outline-none transition-bezier focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" placeholder="user@domain.com" type="email" />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label className="font-label-caps text-[11px] text-on-surface-variant uppercase">Project_Type</label>
-          <select name="projectType" className="w-full bg-surface-container border border-outline-variant focus:border-primary text-on-surface px-4 py-3 outline-none transition-bezier appearance-none">
+          <select name="projectType" className="w-full bg-surface-container border border-outline-variant focus:border-primary text-on-surface px-4 py-3 outline-none transition-bezier appearance-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
             <option value="API_INFRASTRUCTURE">API_INFRASTRUCTURE</option>
             <option value="CLOUD_MIGRATION">CLOUD_MIGRATION</option>
             <option value="MICROSERVICES">MICROSERVICES</option>
@@ -71,7 +71,7 @@ export default function ContactForm() {
         </div>
         <div className="space-y-2">
           <label className="font-label-caps text-[11px] text-on-surface-variant uppercase">Allocated_Budget</label>
-          <select name="budget" className="w-full bg-surface-container border border-outline-variant focus:border-primary text-on-surface px-4 py-3 outline-none transition-bezier appearance-none">
+          <select name="budget" className="w-full bg-surface-container border border-outline-variant focus:border-primary text-on-surface px-4 py-3 outline-none transition-bezier appearance-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
             <option value="< $1,000">&lt; $1,000</option>
             <option value="$1,000 - $5,000">$1,000 - $5,000</option>
             <option value="$5,000 - $15,000">$5,000 - $15,000</option>
@@ -81,9 +81,9 @@ export default function ContactForm() {
       </div>
       <div className="space-y-2">
         <label className="font-label-caps text-[11px] text-on-surface-variant uppercase">Message_Payload</label>
-        <textarea name="message" required className="w-full bg-surface-container border border-outline-variant focus:border-primary text-on-surface px-4 py-3 outline-none transition-bezier" placeholder="Describe the technical challenges and current stack..." rows={5}></textarea>
+        <textarea name="message" required className="w-full bg-surface-container border border-outline-variant focus:border-primary text-on-surface px-4 py-3 outline-none transition-bezier focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" placeholder="Describe the technical challenges and current stack..." rows={5}></textarea>
       </div>
-      <button disabled={loading} className="w-full bg-primary text-on-primary py-4 font-label-caps text-label-caps tracking-widest hover:brightness-110 transition-bezier uppercase disabled:opacity-50 disabled:cursor-not-allowed" type="submit">
+      <button disabled={loading} className="w-full bg-primary text-on-primary py-4 font-label-caps text-label-caps tracking-widest hover:brightness-110 transition-bezier uppercase disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-on-primary focus-visible:outline-offset-2" type="submit">
         {loading ? "TRANSMITTING..." : "SEND_TRANSMISSION"}
       </button>
     </form>
