@@ -18,22 +18,17 @@ import {
   Code2,
   Star,
   BoxIcon,
-  Settings,
   Cpu,
   Check,
-  ArrowRight,
-  MessageSquare,
   Quote,
   SquareArrowUpRight,
   CheckCircle,
   ArrowUpRight,
-  Copy,
   Mail,
   MessageCircle,
   UserPlus,
 } from "lucide-react";
 import Header from "@/components/header";
-import dynamic from "next/dynamic";
 import HomeAnimations from "@/components/animations/HomeAnimations";
 
 // Contact Information
@@ -42,6 +37,8 @@ const contactInfo = {
   phone: "+91 9119060487",
   github: "iamritikbhardwaj",
   linkedin: "https://www.linkedin.com/in/ritik-singh-10b333227/",
+  medium: "https://medium.com/@ritiklrt2",
+  devTo: "https://dev.to/iamritikbhardwaj",
   whatsapp: "+919119060487",
   resumeUrl: "/resume.pdf",
   resumeSize: "2.4MB",
@@ -253,7 +250,7 @@ const Page = () => {
       <HomeAnimations />
       <div className="flex flex-col min-h-[100dvh] relative overflow-hidden">
         {/* Decorative Background Gradient */}
-        <div className="fixed top-0 left-0 right-0 h-[500px] w-full bg-primary/10 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
+        <div className="fixed top-0 left-0 right-0 h-[500px] w-full bg-primary/20 dark:bg-primary/10 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4"></div>
 
         {/* Navigation */}
         <Header />
@@ -549,7 +546,7 @@ const Page = () => {
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
                 About Our{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600 dark:to-purple-400">
                   CTO
                 </span>
               </h2>
@@ -645,25 +642,25 @@ const Page = () => {
                 basis to build resilient systems.
               </p>
               <div className="grid grid-cols-2 gap-4">
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-200 dark:border-border-dark">
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none">
                   <div className="size-2 bg-green-500 rounded-full shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
                   <span className="font-medium text-slate-900 dark:text-white">
                     System Design
                   </span>
                 </div>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-200 dark:border-border-dark">
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none">
                   <div className="size-2 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
                   <span className="font-medium text-slate-900 dark:text-white">
                     Database Optimization
                   </span>
                 </div>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-200 dark:border-border-dark">
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none">
                   <div className="size-2 bg-purple-500 rounded-full shadow-[0_0_8px_rgba(168,85,247,0.6)]"></div>
                   <span className="font-medium text-slate-900 dark:text-white">
                     Microservices
                   </span>
                 </div>
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-200 dark:border-border-dark">
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none">
                   <div className="size-2 bg-yellow-500 rounded-full shadow-[0_0_8px_rgba(234,179,8,0.6)]"></div>
                   <span className="font-medium text-slate-900 dark:text-white">
                     API Security
@@ -1068,7 +1065,7 @@ const Page = () => {
               href={contactInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-200 dark:border-border-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
+              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-[#0077b5] group-hover:bg-[#0077b5]/20 transition-colors">
@@ -1099,7 +1096,7 @@ const Page = () => {
               href={`https://wa.me/${contactInfo.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-200 dark:border-border-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
+              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-[#25D366] group-hover:bg-[#25D366]/20 transition-colors">
@@ -1132,7 +1129,7 @@ const Page = () => {
               href={`https://github.com/${contactInfo.github}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-200 dark:border-border-dark transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
+              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-slate-900 dark:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 transition-colors">
@@ -1161,6 +1158,68 @@ const Page = () => {
               <div className="mt-auto pt-4 border-t border-gray-200 dark:border-white/5 flex items-center justify-between">
                 <span className="text-gray-500 dark:text-gray-300 text-sm">
                   @{contactInfo.github}
+                </span>
+                <span className="text-xs font-bold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                  Visit
+                </span>
+              </div>
+            </a>
+
+            {/* Medium Card */}
+            <a
+              href={contactInfo.medium}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-slate-900 dark:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 transition-colors">
+                  <BookCopy className="w-8 h-8 text-slate-600 dark:text-slate-300" />
+                </div>
+                <span className="material-symbols-outlined text-gray-500 group-hover:text-slate-900 dark:text-white transition-colors">
+                  <ArrowUpRight className="w-5 h-5" />
+                </span>
+              </div>
+              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">
+                Medium
+              </h4>
+              <p className="text-[#a492c9] text-sm mb-4">
+                Read our engineering blogs
+              </p>
+              <div className="mt-auto pt-4 border-t border-gray-200 dark:border-white/5 flex items-center justify-between">
+                <span className="text-gray-500 dark:text-gray-300 text-sm">
+                  @ritiklrt2
+                </span>
+                <span className="text-xs font-bold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                  Visit
+                </span>
+              </div>
+            </a>
+
+            {/* Dev.to Card */}
+            <a
+              href={contactInfo.devTo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex flex-col p-6 rounded-xl bg-white dark:bg-card-dark border border-gray-100 dark:border-border-dark shadow-xl shadow-slate-200/40 dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(91,19,236,0.25)] hover:border-primary cursor-pointer"
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-3 bg-black/5 dark:bg-white/5 rounded-lg text-slate-900 dark:text-white group-hover:bg-black/10 dark:group-hover:bg-white/10 transition-colors">
+                  <Code2 className="w-8 h-8 text-slate-600 dark:text-slate-300" />
+                </div>
+                <span className="material-symbols-outlined text-gray-500 group-hover:text-slate-900 dark:text-white transition-colors">
+                  <ArrowUpRight className="w-5 h-5" />
+                </span>
+              </div>
+              <h4 className="text-slate-900 dark:text-white text-xl font-bold mb-1">
+                DEV Community
+              </h4>
+              <p className="text-[#a492c9] text-sm mb-4">
+                Explore our technical tutorials
+              </p>
+              <div className="mt-auto pt-4 border-t border-gray-200 dark:border-white/5 flex items-center justify-between">
+                <span className="text-gray-500 dark:text-gray-300 text-sm">
+                  @iamritikbhardwaj
                 </span>
                 <span className="text-xs font-bold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                   Visit
@@ -1205,6 +1264,26 @@ const Page = () => {
             >
               <span className="material-symbols-outlined text-[20px] flex items-center justify-center">
                 <UserPlus className="w-5 h-5" />
+              </span>
+            </a>
+            <a
+              href={contactInfo.medium}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#6b5a8e] hover:text-slate-900 dark:hover:text-white transition-colors"
+            >
+              <span className="material-symbols-outlined text-[20px] flex items-center justify-center">
+                <BookCopy className="w-5 h-5" />
+              </span>
+            </a>
+            <a
+              href={contactInfo.devTo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#6b5a8e] hover:text-slate-900 dark:hover:text-white transition-colors"
+            >
+              <span className="material-symbols-outlined text-[20px] flex items-center justify-center">
+                <Code2 className="w-5 h-5" />
               </span>
             </a>
             <a

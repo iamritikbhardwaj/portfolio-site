@@ -23,7 +23,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-100 dark:border-border-dark bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none">
       <div className="layout-container flex justify-center w-full">
         <div className="flex items-center justify-between w-full max-w-[1200px] px-6 py-4">
           <div className="flex name items-center gap-4">
