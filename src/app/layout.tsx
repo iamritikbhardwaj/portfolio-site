@@ -53,6 +53,21 @@ export const metadata: Metadata = {
   creator: "Ritik Singh",
   publisher: "Code Crafted Labs",
 
+  icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "../../public/ccl-logo.png",
+        href: "/ccl-logo.png",
+      },
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "../../public/ccl-logo-dark.png",
+        href: "/ccl-logo-dark.png",
+      },
+    ],
+  },
+
   alternates: {
     canonical: "https://codecraftedlabs.co.in",
   },
@@ -96,23 +111,6 @@ export const metadata: Metadata = {
 
     description:
       "Backend, Cloud and Full-Stack Development Services. Specialized in Golang, Node.js, Microservices, AWS and DevOps.",
-  },
-
-  icons: {
-    icon: [
-      {
-        url: "/icon.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-    ],
-
-    shortcut: "/icon.png",
-
-    apple: "/icon.png",
   },
 };
 
