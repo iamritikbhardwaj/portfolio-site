@@ -3,7 +3,7 @@
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const FROM_EMAIL = "Portfolio System <ritik@codecraftedlabs.co.in>"; // Ideally replace with your verified custom domain
+const FROM_EMAIL = "Code Crafted Labs <ritik@codecraftedlabs.co.in>"; // Ideally replace with your verified custom domain
 
 export async function submitContactForm(formData: FormData) {
   try {
@@ -36,7 +36,10 @@ export async function submitContactForm(formData: FormData) {
 
     if (inquiryError) {
       console.error("Resend Inquiry Error:", inquiryError);
-      return { success: false, error: "Failed to relay transmission to the system admin." };
+      return {
+        success: false,
+        error: "Failed to relay transmission to the system admin.",
+      };
     }
 
     // 2. Send the confirmation receipt to the user
@@ -58,13 +61,16 @@ export async function submitContactForm(formData: FormData) {
 
     if (confirmationError) {
       console.error("Resend Confirmation Error:", confirmationError);
-      // We don't necessarily fail the whole action if the confirmation email fails, 
+      // We don't necessarily fail the whole action if the confirmation email fails,
       // but we could log it.
     }
 
     return { success: true };
   } catch (err) {
     console.error("Server Action Error:", err);
-    return { success: false, error: "An unexpected error occurred during transmission." };
+    return {
+      success: false,
+      error: "An unexpected error occurred during transmission.",
+    };
   }
 }
