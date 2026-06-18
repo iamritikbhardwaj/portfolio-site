@@ -80,7 +80,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
       <Header />
       <main className="pt-24 architecture-grid">
         {/* Hero Section: Project Header */}
-        <section className="max-w-max-width mx-auto px-margin-desktop py-20 border-x border-outline-variant bg-surface/80 backdrop-blur-sm">
+        <section className="max-w-max-width mx-auto px-margin-desktop py-20 border-x border-outline-variant bg-surface">
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-3">
               <span className="px-2 py-1 bg-primary-container text-on-primary-container font-code-md text-code-md rounded">CASE_STUDY</span>
@@ -173,7 +173,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
                 <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'wght' 200" }}>database</span>
                 <h4 className="font-headline-md text-headline-md">Persistence Layer</h4>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 <div className="p-4 bg-surface-container-high border border-outline-variant">
                   <span className="font-label-caps text-[10px] text-on-surface-variant block mb-1">PRIMARY_DATA</span>
                   <span className="font-code-md text-code-md text-secondary">PostgreSQL_v15</span>
@@ -243,8 +243,8 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
                   <span className="font-code-md text-code-md">Compute_Svc</span>
                 </div>
                 <div className="flex items-center gap-4 p-4 border border-outline-variant bg-surface-container-high w-48">
-                  <span className="w-2 h-2 rounded-full bg-primary/40"></span>
-                  <span className="font-code-md text-code-md opacity-50">Notify_Svc</span>
+                  <span className="w-2 h-2 rounded-full bg-surface-variant border border-outline-variant"></span>
+                  <span className="font-code-md text-code-md text-outline">Notify_Svc</span>
                 </div>
               </div>
             </div>

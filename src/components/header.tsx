@@ -7,8 +7,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { label: "SYSTEMS", href: "#systems" },
-    { label: "PROJECTS", href: "#projects" },
+    { label: "SYSTEMS", href: "/#systems" },
+    { label: "PROJECTS", href: "/#projects" },
   ];
 
   return (

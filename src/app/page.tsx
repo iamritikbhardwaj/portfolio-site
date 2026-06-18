@@ -1,7 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import Header from "@/components/header";
-import InteractiveTerminal from "@/components/InteractiveTerminal";
+import dynamic from "next/dynamic";
+
+const InteractiveTerminal = dynamic(() => import("@/components/InteractiveTerminal"), {
+  ssr: true,
+  loading: () => (
+    <div className="w-full h-[500px] bg-surface-container-lowest border border-outline-variant rounded-lg animate-pulse flex items-center justify-center text-on-surface-variant font-code-md">
+      INITIALIZING_TERMINAL...
+    </div>
+  ),
+});
 import ContactForm from "@/components/ContactForm";
 
 export default function Page() {
@@ -84,8 +93,7 @@ export default function Page() {
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
             {/* API Infrastructure */}
-            <div className="md:col-span-8 bg-surface-container/60 backdrop-blur-sm border border-outline-variant p-8 group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+            <div className="md:col-span-8 bg-surface-container border border-outline-variant p-8 group relative overflow-hidden">
               <div className="flex justify-between items-start mb-8 relative z-10">
                 <div>
                   <span
@@ -130,7 +138,6 @@ export default function Page() {
             </div>
             {/* Authentication */}
             <div className="md:col-span-4 bg-surface-container-high border border-outline-variant p-8 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-tertiary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <span
                 className="material-symbols-outlined text-tertiary mb-4 relative z-10"
                 style={{ fontSize: "32px" }}
@@ -160,7 +167,6 @@ export default function Page() {
             </div>
             {/* Payment Workflows */}
             <div className="md:col-span-4 bg-surface-container-high border border-outline-variant p-8 flex flex-col justify-between relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-bl from-primary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative z-10">
                 <span
                   className="material-symbols-outlined text-primary mb-4"
@@ -177,7 +183,7 @@ export default function Page() {
                 </p>
               </div>
               <div className="bg-black p-4 rounded border border-primary/20 relative z-10">
-                <pre className="font-code-md text-[12px] text-primary/80 overflow-hidden">{`{
+                <pre className="font-code-md text-[12px] text-primary overflow-hidden">{`{
   "ledger": "TX_9921",
   "status": "COMMITTED",
   "checksum": "0x4F...3B"
@@ -185,8 +191,7 @@ export default function Page() {
               </div>
             </div>
             {/* Distributed Microservices */}
-            <div className="md:col-span-8 bg-surface-container/60 backdrop-blur-sm border border-outline-variant p-8 relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-1/3 h-full opacity-20 pointer-events-none bg-gradient-to-l from-secondary/10 to-transparent"></div>
+            <div className="md:col-span-8 bg-surface-container border border-outline-variant p-8 relative overflow-hidden">
               <div className="relative z-10">
                 <h3 className="font-headline-lg text-headline-lg text-on-surface mb-6">
                   Distributed Services
@@ -217,7 +222,6 @@ export default function Page() {
 
         {/* Social Proof Strip */}
         <section className="py-8 border-y border-outline-variant bg-surface-container-high w-full relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 pointer-events-none"></div>
           <div className="max-w-max-width mx-auto px-6 md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
             <p className="font-code-md text-on-surface-variant text-center md:text-left text-sm">
               A specialized <strong className="font-normal text-primary">backend development agency</strong> building systems powering SaaS, internal tooling, and distributed services.
@@ -257,7 +261,7 @@ export default function Page() {
                 className="flex flex-col bg-surface border border-outline-variant overflow-hidden group"
               >
                 <div className="h-64 relative overflow-hidden bg-surface-container flex items-center justify-center architecture-grid">
-                  <div className="absolute top-4 left-4 bg-surface/80 backdrop-blur px-3 py-1 font-label-caps text-[10px] border border-outline-variant z-20">
+                  <div className="absolute top-4 left-4 bg-surface px-3 py-1 font-label-caps text-[10px] border border-outline-variant z-20">
                     PROJECT_01 // PAYMENT_FLOWS
                   </div>
                   <Image
@@ -265,9 +269,9 @@ export default function Page() {
                     alt="CRM SaaS Architecture"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover opacity-30 mix-blend-luminosity group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
+                    className="object-cover opacity-30 mix-blend-luminosity group-hover:opacity-50 group-hover:scale-105 transition-all duration-300"
                   />
-                  <span className="material-symbols-outlined text-[64px] text-primary opacity-50 group-hover:scale-110 transition-transform duration-700 relative z-10">
+                  <span className="material-symbols-outlined text-[64px] text-primary opacity-50 group-hover:scale-110 transition-transform duration-300 relative z-10">
                     account_balance
                   </span>
                 </div>
@@ -316,7 +320,7 @@ export default function Page() {
                 className="flex flex-col bg-surface border border-outline-variant overflow-hidden group"
               >
                 <div className="h-64 relative overflow-hidden bg-surface-container flex items-center justify-center architecture-grid">
-                  <div className="absolute top-4 left-4 bg-surface/80 backdrop-blur px-3 py-1 font-label-caps text-[10px] border border-outline-variant z-20">
+                  <div className="absolute top-4 left-4 bg-surface px-3 py-1 font-label-caps text-[10px] border border-outline-variant z-20">
                     PROJECT_02 // MULTI_TENANT
                   </div>
                   <Image
@@ -324,9 +328,9 @@ export default function Page() {
                     alt="Enterprise Management Engine Architecture"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover opacity-30 mix-blend-luminosity group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
+                    className="object-cover opacity-30 mix-blend-luminosity group-hover:opacity-50 group-hover:scale-105 transition-all duration-300"
                   />
-                  <span className="material-symbols-outlined text-[64px] text-primary opacity-50 group-hover:scale-110 transition-transform duration-700 relative z-10">
+                  <span className="material-symbols-outlined text-[64px] text-primary opacity-50 group-hover:scale-110 transition-transform duration-300 relative z-10">
                     corporate_fare
                   </span>
                 </div>
@@ -423,14 +427,14 @@ export default function Page() {
             <div className="relative">
               <div className="relative aspect-square bg-surface border border-outline-variant p-2 overflow-hidden group">
                 <Image
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
                   alt="Server schematic"
                   src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/20 backdrop-blur-xl border border-primary p-6 flex flex-col justify-center">
+              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-surface-container border border-primary p-6 flex flex-col justify-center">
                 <span className="font-headline-xl text-headline-xl text-primary">
                   99.99
                 </span>
@@ -586,8 +590,7 @@ export default function Page() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Card 1 */}
-            <div className="p-8 border border-outline-variant bg-surface-container/30 hover:bg-surface-container transition-colors relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="p-8 border border-outline-variant bg-surface-container hover:bg-surface-container-high transition-colors relative group">
               <span className="material-symbols-outlined text-tertiary mb-4 relative z-10" style={{ fontSize: "28px" }}>architecture</span>
               <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Backend-first thinking</h4>
               <p className="text-on-surface-variant text-body-sm relative z-10">
@@ -595,8 +598,7 @@ export default function Page() {
               </p>
             </div>
             {/* Card 2 */}
-            <div className="p-8 border border-outline-variant bg-surface-container/30 hover:bg-surface-container transition-colors relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="p-8 border border-outline-variant bg-surface-container hover:bg-surface-container-high transition-colors relative group">
               <span className="material-symbols-outlined text-primary mb-4 relative z-10" style={{ fontSize: "28px" }}>rocket_launch</span>
               <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Fast shipping without technical debt</h4>
               <p className="text-on-surface-variant text-body-sm relative z-10">
@@ -604,8 +606,7 @@ export default function Page() {
               </p>
             </div>
             {/* Card 3 */}
-            <div className="p-8 border border-outline-variant bg-surface-container/30 hover:bg-surface-container transition-colors relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="p-8 border border-outline-variant bg-surface-container hover:bg-surface-container-high transition-colors relative group">
               <span className="material-symbols-outlined text-tertiary mb-4 relative z-10" style={{ fontSize: "28px" }}>verified_user</span>
               <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Production-grade reliability</h4>
               <p className="text-on-surface-variant text-body-sm relative z-10">
@@ -613,8 +614,7 @@ export default function Page() {
               </p>
             </div>
             {/* Card 4 */}
-            <div className="p-8 border border-outline-variant bg-surface-container/30 hover:bg-surface-container transition-colors relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="p-8 border border-outline-variant bg-surface-container hover:bg-surface-container-high transition-colors relative group">
               <span className="material-symbols-outlined text-primary mb-4 relative z-10" style={{ fontSize: "28px" }}>forum</span>
               <h4 className="font-headline-md text-headline-md mb-3 relative z-10">Direct founder communication</h4>
               <p className="text-on-surface-variant text-body-sm relative z-10">

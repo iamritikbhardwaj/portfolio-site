@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 export default function Page() {
   useEffect(() => {
@@ -79,183 +80,124 @@ export default function Page() {
         <div className="image-grid bg-gray-200">
           <div className="grid relative">
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 3, "--c": 5 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=1"
-                alt="Random 1"
-              />
+              <Image src="https://picsum.photos/200/300?random=1" alt="Random 1" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
+              className="elem relative overflow-hidden"
               style={{ "--r": 6, "--c": 4 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=2"
-                alt="Random 2"
-              />
+              <Image src="https://picsum.photos/200/300?random=2" alt="Random 2" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem right-4 top-2"
+              className="elem right-4 top-2 relative overflow-hidden"
               style={{ "--r": 4, "--c": 2 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=3"
-                alt="Random 3"
-              />
+              <Image src="https://picsum.photos/200/300?random=3" alt="Random 3" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 6, "--c": 8 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=4"
-                alt="Random 4"
-              />
+              <Image src="https://picsum.photos/200/300?random=4" alt="Random 4" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 5, "--c": 3 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=5"
-                alt="Random 5"
-              />
+              <Image src="https://picsum.photos/200/300?random=5" alt="Random 5" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 1, "--c": 4 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=6"
-                alt="Random 6"
-              />
+              <Image src="https://picsum.photos/200/300?random=6" alt="Random 6" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 6, "--c": 1 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=7"
-                alt="Random 7"
-              />
+              <Image src="https://picsum.photos/200/300?random=7" alt="Random 7" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 4, "--c": 6 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=8"
-                alt="Random 8"
-              />
+              <Image src="https://picsum.photos/200/300?random=8" alt="Random 8" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 2, "--c": 3 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=9"
-                alt="Random 9"
-              />
+              <Image src="https://picsum.photos/200/300?random=9" alt="Random 9" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 5, "--c": 7 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=10"
-                alt="Random 10"
-              />
+              <Image src="https://picsum.photos/200/300?random=10" alt="Random 10" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 1, "--c": 2 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=11"
-                alt="Random 11"
-              />
+              <Image src="https://picsum.photos/200/300?random=11" alt="Random 11" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 4, "--c": 4 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=12"
-                alt="Random 12"
-              />
+              <Image src="https://picsum.photos/200/300?random=12" alt="Random 12" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 2, "--c": 1 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=13"
-                alt="Random 13"
-              />
+              <Image src="https://picsum.photos/200/300?random=13" alt="Random 13" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 5, "--c": 5 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=14"
-                alt="Random 14"
-              />
+              <Image src="https://picsum.photos/200/300?random=14" alt="Random 14" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 3, "--c": 8 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=15"
-                alt="Random 15"
-              />
+              <Image src="https://picsum.photos/200/300?random=15" alt="Random 15" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 1, "--c": 6 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=16"
-                alt="Random 16"
-              />
+              <Image src="https://picsum.photos/200/300?random=16" alt="Random 16" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 4, "--c": 8 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=17"
-                alt="Random 17"
-              />
+              <Image src="https://picsum.photos/200/300?random=17" alt="Random 17" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 2, "--c": 7 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=18"
-                alt="Random 18"
-              />
+              <Image src="https://picsum.photos/200/300?random=18" alt="Random 18" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 5, "--c": 1 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=19"
-                alt="Random 19"
-              />
+              <Image src="https://picsum.photos/200/300?random=19" alt="Random 19" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
             <div
-              className="elem"
+              className="elem relative overflow-hidden"
               style={{ "--r": 3, "--c": 3 } as React.CSSProperties}
             >
-              <img
-                src="https://picsum.photos/200/300?random=20"
-                alt="Random 20"
-              />
+              <Image src="https://picsum.photos/200/300?random=20" alt="Random 20" fill sizes="(max-width: 768px) 50vw, 33vw" className="object-cover" />
             </div>
           </div>
 

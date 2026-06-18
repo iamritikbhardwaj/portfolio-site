@@ -66,7 +66,7 @@ type HistoryEntry = {
   content: string;
 };
 
-export default function InteractiveTerminal() {
+export const InteractiveTerminal = React.memo(function InteractiveTerminal() {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<HistoryEntry[]>([
     {
@@ -103,46 +103,47 @@ export default function InteractiveTerminal() {
     }
   }, [history]);
 
-  const handleCommand = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleCommand = React.useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       const trimmedCmd = input.trim().toLowerCase();
       setInput("");
 
-      const newHistory: HistoryEntry[] = [
-        ...history,
-        {
-          id: Date.now(),
-          type: "command",
-          content: `<div class='flex gap-4 font-bold border-l-2 border-primary pl-4 my-4'><span class='text-secondary'>guest@codecraftedlabs</span><span class='text-primary'>$</span><span>${input}</span></div>`,
-        },
-      ];
+      setHistory((prevHistory) => {
+        const newHistory: HistoryEntry[] = [
+          ...prevHistory,
+          {
+            id: Date.now(),
+            type: "command",
+            content: `<div class='flex gap-4 font-bold border-l-2 border-primary pl-4 my-4'><span class='text-secondary'>guest@codecraftedlabs</span><span class='text-primary'>$</span><span>${input}</span></div>`,
+          },
+        ];
 
-      if (trimmedCmd === "clear") {
-        setHistory([]);
-        return;
-      }
+        if (trimmedCmd === "clear") {
+          return [];
+        }
 
-      if (COMMAND_DATA[trimmedCmd]) {
-        const time = new Date().toLocaleTimeString("en-GB");
-        COMMAND_DATA[trimmedCmd].forEach((line, index) => {
-          newHistory.push({
-            id: Date.now() + index + 1,
-            type: "output",
-            content: `<div class='flex gap-4 animate-in fade-in duration-300'><span class='text-outline invisible md:visible'>${time}</span><span class='flex-grow'>${line}</span></div>`,
+        if (COMMAND_DATA[trimmedCmd]) {
+          const time = new Date().toLocaleTimeString("en-GB");
+          COMMAND_DATA[trimmedCmd].forEach((line, index) => {
+            newHistory.push({
+              id: Date.now() + index + 1,
+              type: "output",
+              content: `<div class='flex gap-4 animate-in fade-in duration-300'><span class='text-outline invisible md:visible'>${time}</span><span class='flex-grow'>${line}</span></div>`,
+            });
           });
-        });
-      } else if (trimmedCmd !== "") {
-        const time = new Date().toLocaleTimeString("en-GB");
-        newHistory.push({
-          id: Date.now() + 1,
-          type: "error",
-          content: `<div class='flex gap-4 text-error animate-in fade-in duration-300'><span class='text-outline invisible md:visible'>${time}</span><span>Command not found: ${trimmedCmd}. Type 'help' for available commands.</span></div>`,
-        });
-      }
+        } else if (trimmedCmd !== "") {
+          const time = new Date().toLocaleTimeString("en-GB");
+          newHistory.push({
+            id: Date.now() + 1,
+            type: "error",
+            content: `<div class='flex gap-4 text-error animate-in fade-in duration-300'><span class='text-outline invisible md:visible'>${time}</span><span>Command not found: ${trimmedCmd}. Type 'help' for available commands.</span></div>`,
+          });
+        }
 
-      setHistory(newHistory);
+        return newHistory;
+      });
     }
-  };
+  }, [input]);
 
   return (
     <div
@@ -184,4 +185,6 @@ export default function InteractiveTerminal() {
       </div>
     </div>
   );
-}
+});
+
+export default InteractiveTerminal;

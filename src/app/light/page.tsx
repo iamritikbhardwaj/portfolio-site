@@ -244,7 +244,7 @@ const Page: React.FC = () => {
   return (
     <div className="min-h-screen bg-neutral-100 text-gray-900">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-200 shadow-sm">
+      <nav className="fixed top-0 w-full bg-white/95 z-50 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <div className="text-2xl font-bold bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent">
@@ -494,7 +494,7 @@ const Page: React.FC = () => {
               >
                 {/* Project Content */}
                 <div
-                  className={`transition-all duration-500 ${
+                  className={`transition-all duration-300 ${
                     hoveredProject === index ? "lg:w-1/2" : "w-full"
                   }`}
                 >

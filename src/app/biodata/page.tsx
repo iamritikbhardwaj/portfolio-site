@@ -70,7 +70,7 @@ export default function BiodataPage() {
   return (
     <div className="bg-background-light dark:bg-background-dark font-display text-[#181511] antialiased min-h-screen flex flex-col">
       {/* Top Navigation Bar */}
-      <header className="sticky top-0 z-50 w-full bg-white/80 dark:bg-[#181511]/80 backdrop-blur-md border-b border-[#f4f3f0] dark:border-[#332f25] px-4 md:px-10 py-3">
+      <header className="sticky top-0 z-50 w-full bg-white dark:bg-[#181511] border-b border-[#f4f3f0] dark:border-[#332f25] px-4 md:px-10 py-3">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="text-primary">
@@ -99,10 +99,10 @@ export default function BiodataPage() {
             {/* Card Header */}
             <div className="relative flex flex-col items-center pt-10 pb-6 px-6 text-center border-b border-[#f4f3f0] dark:border-[#3a3429]">
               {/* Om Symbol */}
-              <div className="text-primary/80 mb-4 opacity-80">
+              <div className="text-primary mb-4">
                 <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"></path>
-                  <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fillOpacity="0.3"></path>
+                  <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" fillOpacity="0.6"></path>
                 </svg>
               </div>
               <h1 className="text-[#181511] dark:text-white text-4xl md:text-5xl font-black tracking-tighter mb-2">
@@ -125,7 +125,7 @@ export default function BiodataPage() {
 
                 {/* Personal Details */}
                 <div className="flex flex-col gap-6">
-                  <h3 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest border-b border-gray-200 dark:border-gray-700 pb-2">
+                  <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest border-b border-gray-200 dark:border-gray-700 pb-2">
                     Personal Details
                   </h3>
                   <div className="space-y-5">
@@ -134,7 +134,7 @@ export default function BiodataPage() {
                         <Calendar className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase">Date of Birth</p>
+                        <p className="text-xs text-gray-700 dark:text-gray-300 font-medium uppercase">Date of Birth</p>
                         <p className="text-[#181511] dark:text-gray-200 font-medium">{biodataInfo.personalDetails.dateOfBirth}</p>
                         <p className="text-xs text-gray-400">{biodataInfo.personalDetails.timeOfBirth}</p>
                       </div>
@@ -145,7 +145,7 @@ export default function BiodataPage() {
                         <Ruler className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase">Height</p>
+                        <p className="text-xs text-gray-700 dark:text-gray-300 font-medium uppercase">Height</p>
                         <p className="text-[#181511] dark:text-gray-200 font-medium">{biodataInfo.personalDetails.height}</p>
                       </div>
                     </div>
@@ -155,7 +155,7 @@ export default function BiodataPage() {
                         <Sparkles className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase">Rashi & Gotra</p>
+                        <p className="text-xs text-gray-700 dark:text-gray-300 font-medium uppercase">Rashi & Gotra</p>
                         <p className="text-[#181511] dark:text-gray-200 font-medium">{biodataInfo.personalDetails.rashi}</p>
                         <p className="text-sm text-gray-500">{biodataInfo.personalDetails.gotra}</p>
                       </div>
@@ -166,7 +166,7 @@ export default function BiodataPage() {
                         <Church className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase">Religion</p>
+                        <p className="text-xs text-gray-700 dark:text-gray-300 font-medium uppercase">Religion</p>
                         <p className="text-[#181511] dark:text-gray-200 font-medium">{biodataInfo.personalDetails.religion}</p>
                         <p className="text-sm text-gray-500">{biodataInfo.personalDetails.caste}</p>
                       </div>
@@ -177,7 +177,7 @@ export default function BiodataPage() {
                         <MapPin className="w-5 h-5" />
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase">Location</p>
+                        <p className="text-xs text-gray-700 dark:text-gray-300 font-medium uppercase">Location</p>
                         <p className="text-[#181511] dark:text-gray-200 font-medium">{biodataInfo.personalDetails.location}</p>
                       </div>
                     </div>
@@ -186,7 +186,7 @@ export default function BiodataPage() {
 
                 {/* Education Sidebar */}
                 <div className="flex flex-col gap-4 pt-2">
-                  <h3 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest border-b border-gray-200 dark:border-gray-700 pb-2">
+                  <h3 className="text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest border-b border-gray-200 dark:border-gray-700 pb-2">
                     Education
                   </h3>
                   {biodataInfo.education.map((edu, idx) => (
@@ -206,7 +206,7 @@ export default function BiodataPage() {
                     <div className="h-8 w-1 bg-primary rounded-full"></div>
                     <h3 className="text-2xl font-bold text-[#181511] dark:text-white">About Me</h3>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
                     {biodataInfo.about}
                   </p>
                 </section>
@@ -227,11 +227,11 @@ export default function BiodataPage() {
                         Present
                       </span>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    <p className="text-gray-700 dark:text-gray-300 text-sm">
                       Currently working as a technical interviewer and software engineer at {biodataInfo.professional.company}. Based in {biodataInfo.professional.location}.
                     </p>
                     <div className="flex gap-4 mt-2">
-                      <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                      <div className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
                         <IndianRupee className="w-4 h-4" />
                         <span>{biodataInfo.professional.salary}</span>
                       </div>
@@ -289,11 +289,11 @@ export default function BiodataPage() {
 
                 {/* Contact Footer */}
                 <div className="mt-auto pt-8 border-t border-[#f4f3f0] dark:border-[#3a3429]">
-                  <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">
+                  <h3 className="text-sm font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest mb-4">
                     Contact Information
                   </h3>
                   <div className="flex flex-col gap-4 mb-4">
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
                       <span className="font-bold">Contact Person:</span> {biodataInfo.contact.person}
                     </p>
                   </div>
@@ -323,7 +323,7 @@ export default function BiodataPage() {
                   </div>
                   <div className="mt-4 p-4 bg-[#f8f7f6] dark:bg-[#332d22] rounded-lg">
                     <p className="text-xs text-gray-400 uppercase font-bold mb-1">Permanent Address</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">{biodataInfo.contact.address}</p>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">{biodataInfo.contact.address}</p>
                   </div>
                 </div>
               </div>
@@ -332,8 +332,8 @@ export default function BiodataPage() {
 
           {/* Footer Message */}
           <div className="py-6 text-center">
-            <p className="text-gray-500 dark:text-gray-400 italic mb-2">॥ शुभ विवाह ॥</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">May this union be blessed with happiness and prosperity</p>
+            <p className="text-gray-700 dark:text-gray-300 italic mb-2">॥ शुभ विवाह ॥</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">May this union be blessed with happiness and prosperity</p>
             <p className="text-xs text-gray-400 mt-4">© 2024 {biodataInfo.name} Biodata. All rights reserved.</p>
           </div>
         </div>

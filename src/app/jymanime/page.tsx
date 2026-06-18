@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 function GolfAni() {
   gsap.registerPlugin(ScrollTrigger);
@@ -24,7 +25,7 @@ function GolfAni() {
     cardh4:
       "font-black text-2xl text-left text-black uppercase mb-4 whitespace-nowrap",
     overlay:
-      "bg-[#95C11E] h-full w-full items-center pt-[80px] p-5 rounded-lg opacity-0 transform scale-100 transition-all duration-700 ease-in-out overlay ",
+      "bg-[#95C11E] h-full w-full items-center pt-[80px] p-5 rounded-lg opacity-0 transform scale-100 transition-all duration-300 ease-in-out overlay ",
     nav: "flex z-99 fixed px-36 items-center justify-start w-full h-36 gap-10",
     scrollerTags:
       "uppercase inline-block mr-2.5 hover:text-[#95C11E] z-20 relative",
@@ -135,11 +136,15 @@ function GolfAni() {
   return (
     <div className="text-white w-full h-fit">
       <div id="nav" ref={navRef} className={`${styles.nav}`}>
-        <img
-          className="h-20"
-          src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/logo-white.svg"
-          alt="background"
-        />
+        <div className="relative h-20 w-32">
+          <Image
+            fill
+            sizes="128px"
+            className="object-contain"
+            src="https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/logo-white.svg"
+            alt="background"
+          />
+        </div>
         <h4 className="uppercase">TOPTRACER RANGE</h4>
         <h4 className="uppercase">Golf lessons</h4>
         <h4 className="uppercase">Adventure Golf</h4>
@@ -193,7 +198,7 @@ function GolfAni() {
         <div id="page2" className="min-h-screen">
           <div className="whitespace-nowrap text-9xl font-extrabold text-stroke relative z-10">
             <div className="whitespace-nowrap inline-block">
-              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E] transition-all duration-500">
+              <h4 className="uppercase inline-block mr-2.5 hover:text-[#95C11E] transition-all duration-300">
                 Top Racer Range{" "}
               </h4>
               <h4 className={`${styles.scrollerTags}`}>Golf lessons</h4>
@@ -213,12 +218,15 @@ function GolfAni() {
             id="about-us"
             className="h-[40vh] items-center w-screen flex justify-around z-10 relative"
           >
-            <img
-              ref={aboutRef1}
-              src="https://images.pexels.com/photos/8153618/pexels-photo-8153618.jpeg"
-              className="md:w-50 md:h-60 w-30 h-40 object-cover rounded-2xl"
-              alt="sample"
-            />
+            <div ref={aboutRef1} className="relative md:w-50 md:h-60 w-30 h-40">
+              <Image
+                src="https://images.pexels.com/photos/8153618/pexels-photo-8153618.jpeg"
+                fill
+                sizes="(max-width: 768px) 120px, 200px"
+                className="object-cover rounded-2xl"
+                alt="sample"
+              />
+            </div>
             <div
               ref={aboutRef2}
               id="about-us-in"
@@ -237,12 +245,15 @@ function GolfAni() {
                 debitis sapiente possimus nemo commodi necessitatibus.
               </p>
             </div>
-            <img
-              ref={aboutRef3}
-              src="https://images.pexels.com/photos/8153618/pexels-photo-8153618.jpeg"
-              className="md:w-50 md:h-60 w-30 h-40 object-cover rounded-2xl"
-              alt="sample"
-            />
+            <div ref={aboutRef3} className="relative md:w-50 md:h-60 w-30 h-40">
+              <Image
+                src="https://images.pexels.com/photos/8153618/pexels-photo-8153618.jpeg"
+                fill
+                sizes="(max-width: 768px) 120px, 200px"
+                className="object-cover rounded-2xl"
+                alt="sample"
+              />
+            </div>
           </div>
           <div className=" w-screen h-[60vh] justify-center items-center gap-16 flex">
             <div id="card1" className={`${styles.card}`}>
@@ -286,43 +297,57 @@ function GolfAni() {
             id="green-div"
             className="bg-gradient-to-br from-[#95C11E] to-[#c1dd97] h-[30vh] flex justify-between items-center"
           >
-            <img
-              className="h-full w-1/14"
-              src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
-              alt=""
-            />
+            <div className="relative h-[80%] w-[100px]">
+              <Image
+                fill
+                sizes="100px"
+                className="object-contain"
+                src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+                alt="dots"
+              />
+            </div>
             <h4 className="text-black text-2xl font-black px-40 text-center">
               SIGN UP FOR SIDCUP NEWS AND SPECIAL OFFERS STRAIGHT TO YOUR INBOX
             </h4>
-            <img
-              className="h-full w-1/14"
-              src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
-              alt=""
-            />
+            <div className="relative h-[80%] w-[100px]">
+              <Image
+                fill
+                sizes="100px"
+                className="object-contain"
+                src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+                alt="dots"
+              />
+            </div>
           </div>
         </div>
         <div
           id="page3"
           className="min-h-screen flex items-center justify-center p-10 relative"
         >
-          <img
-            id="colon1"
-            className="h-8 mx-2 top-50 absolute left-40"
-            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
-            alt=""
-          />
+          <div id="colon1" className="relative h-8 w-8 top-50 absolute left-40">
+            <Image
+              fill
+              sizes="32px"
+              className="object-contain"
+              src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
+              alt="quote"
+            />
+          </div>
           <p className="text-center text-3xl font-bold w-[70%] uppercase">
             Excellent couple of hours, relax and enjoy in the fun. Staff were
             accommodating, friendly and very helpful. Café on site for
             refreshments etc. Will keep children enterntained during the
             holidays. Worth a visit if you haven’t been.
           </p>
-          <img
-            id="colon2"
-            className="h-8 mx-2 absolute bottom-50 right-40"
-            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
-            alt=""
-          />
+          <div id="colon2" className="relative h-8 w-8 absolute bottom-50 right-40">
+            <Image
+              fill
+              sizes="32px"
+              className="object-contain"
+              src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
+              alt="quote"
+            />
+          </div>
         </div>
       </div>
     </div>
