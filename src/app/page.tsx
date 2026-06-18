@@ -11,6 +11,7 @@ import {
   Rocket,
   ArrowBigRight,
   Download,
+  Calendar,
   BookCopy,
   ShieldBan,
   MonitorCheck,
@@ -295,15 +296,15 @@ const Page = () => {
                     </span>
                   </a>
                   <a
-                    href="https://drive.google.com/file/d/1B7PDy7INqIw-nir9RcSEx7wubiE5JFw8/view?usp=drive_link"
+                    href="https://cal.com/ritik-singh-3mjivg"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-border-dark hover:bg-slate-100 dark:hover:bg-card-dark text-slate-900 dark:text-white text-base font-bold h-12 px-8 transition-all hover:translate-y-[-2px]"
                   >
                     <span className="material-symbols-outlined text-xl">
-                      <Download />
+                      <Calendar />
                     </span>
-                    <span>Resume</span>
+                    <span>Book a free consultation</span>
                   </a>
                 </div>
 
@@ -574,15 +575,15 @@ const Page = () => {
               </div>
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
                 <a
-                  href="https://drive.google.com/file/d/1B7PDy7INqIw-nir9RcSEx7wubiE5JFw8/view?usp=sharing"
+                  href="https://cal.com/ritik-singh-3mjivg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 rounded-xl h-12 px-8 bg-white dark:bg-card-dark text-slate-900 dark:text-white font-bold border border-gray-200 dark:border-border-dark hover:border-primary dark:hover:border-primary transition-all shadow-sm"
+                  className="flex items-center justify-center gap-2 rounded-xl h-12 px-8 bg-white dark:bg-card-dark text-slate-900 dark:text-white font-bold border border-gray-100 dark:border-border-dark hover:border-primary dark:hover:border-primary transition-all shadow-xl shadow-slate-200/40 dark:shadow-none"
                 >
                   <span className="material-symbols-outlined text-[20px]">
-                    <Download />
+                    <Calendar />
                   </span>
-                  <span>Resume</span>
+                  <span>Book a free consultation</span>
                 </a>
                 <a
                   href="#contact"
