@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 
 import PersonSchema from "./person-schema";
 import { Analytics } from "@vercel/analytics/react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Backend, Cloud and Full-Stack Development Services. Specialized in Golang, Node.js, Microservices, AWS, DevOps and scalable web applications.",
+    "Code Crafted Labs builds scalable backend systems, cloud architecture, and full-stack products using Go, Node.js, AWS, and microservices.",
 
   keywords: [
     "Backend Developer",
@@ -86,7 +88,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Code Crafted Labs",
     description:
-      "Backend, Cloud and Full-Stack Development Services. Specialized in Golang, Node.js, Microservices, AWS and DevOps.",
+      "Code Crafted Labs builds scalable backend systems, cloud architecture, and full-stack products using Go, Node.js, AWS, and microservices.",
 
     url: "https://codecraftedlabs.co.in",
 
@@ -111,7 +113,7 @@ export const metadata: Metadata = {
     images: ["https://codecraftedlabs.co.in/opengraph-image.png"],
 
     description:
-      "Backend, Cloud and Full-Stack Development Services. Specialized in Golang, Node.js, Microservices, AWS and DevOps.",
+      "Code Crafted Labs builds scalable backend systems, cloud architecture, and full-stack products using Go, Node.js, AWS, and microservices.",
   },
 };
 
@@ -122,15 +124,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        />
-      </head>
+
       <body
-        className={`${geistSans.variable} ${jetbrainsMono.variable} antialiased font-body-md text-body-md text-on-surface bg-background overflow-x-hidden selection:bg-primary selection:text-on-primary`}
+        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased font-body-md text-primary bg-primary-bg selection:bg-accent-lime selection:text-black overflow-x-hidden`}
       >
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-bg focus:text-accent-lime focus:outline focus:outline-2 focus:outline-accent-lime">
+          Skip to content
+        </a>
         <PersonSchema />
         {children}
         <Analytics />
