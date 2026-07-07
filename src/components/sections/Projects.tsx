@@ -3,31 +3,31 @@ import React from "react";
 const projects = [
   {
     id: "CASE_STUDY_01",
-    title: "High-Concurrency Payment Engine",
-    problem: "Payment bottlenecks and dropped transactions during sudden traffic spikes under legacy monolithic architecture.",
-    solution: "Implemented a distributed, queue-based processing system utilizing Kafka for event streaming and Redis for state locks. Decoupled the ledger from the main API.",
-    outcome: "72% reduction in transaction failures. Latency stabilized to <45ms P99 even during peak load events.",
+    title: "Network Monitoring System (NMS)",
+    problem: "High-frequency telemetry ingestion causing write bottlenecks and delayed alerting over time-series data collections.",
+    solution: "Built an ingestion middleware layer in Go to batch-process metrics captured via Telegraf streams into a hyper-optimized TimescaleDB cluster, relying on parallel cron jobs for threshold validations.",
+    outcome: "Achieved continuous real-time data streaming and ingestion with zero data point dropping, enabling immediate asynchronous hardware anomaly alerting.",
     metrics: [
-      { label: "THROUGHPUT", value: "10k TPS" },
-      { label: "LATENCY", value: "45ms P99" }
+      { label: "TELEMETRY", value: "REAL-TIME" },
+      { label: "DB_ENGINE", value: "TIMESCALE" }
     ],
-    tags: ["GO", "KAFKA", "REDIS", "POSTGRESQL"],
+    tags: ["GO", "TIMESCALEDB", "TELEGRAF", "CRON"],
     visual: (
       <div className="w-full h-48 bg-secondary-bg border border-border-soft flex items-center justify-center p-4">
         <div className="flex flex-col gap-2 font-mono-code text-[12px] text-text-muted w-full max-w-[300px]">
           <div className="flex flex-wrap gap-1 justify-between items-center bg-elevated p-2 border border-border-standard">
-            <span className="truncate max-w-[150px] sm:max-w-none">[API_GATEWAY]</span>
-            <span className="text-accent-lime">10k TPS</span>
+            <span className="truncate max-w-[150px] sm:max-w-none">[TELEMETRY_STREAM]</span>
+            <span className="text-accent-lime">TELEGRAF</span>
           </div>
           <div className="text-center">↓</div>
           <div className="flex flex-wrap gap-1 justify-between items-center bg-elevated p-2 border border-border-standard">
-            <span className="truncate max-w-[150px] sm:max-w-none">[KAFKA_TOPIC]</span>
-            <span className="text-accent-lime">OK</span>
+            <span className="truncate max-w-[150px] sm:max-w-none">[GO_MIDDLEWARE]</span>
+            <span className="text-accent-lime">BATCH_OK</span>
           </div>
           <div className="text-center">↓</div>
           <div className="flex flex-wrap gap-1 justify-between items-center bg-elevated p-2 border border-border-standard">
-            <span className="truncate max-w-[150px] sm:max-w-none">[LEDGER_WORKER]</span>
-            <span className="text-warning-amber">LOCKED</span>
+            <span className="truncate max-w-[150px] sm:max-w-none">[TIMESCALE_CLUSTER]</span>
+            <span className="text-warning-amber">CRON_EVAL</span>
           </div>
         </div>
       </div>
@@ -35,23 +35,23 @@ const projects = [
   },
   {
     id: "CASE_STUDY_02",
-    title: "Multi-Tenant Resource Scheduler",
-    problem: "Inefficient hardware utilization and noisy neighbor issues in a multi-tenant SaaS environment.",
-    solution: "Architected a decentralized scheduling engine utilizing Go coroutines and a custom greedy resource allocation algorithm to bin-pack workloads.",
-    outcome: "Increased hardware utilization by 40% while strictly isolating tenant workloads. Eliminated P99 latency spikes for premium tenants.",
+    title: "Multi-Tenant Compliance SaaS",
+    problem: "Operational overhead, data integrity leaks, and backend request blockages when processing large-scale batched contractor calculations manually.",
+    solution: "Architected a decentralized multi-tenant infrastructure with strict multi-schema data isolation policies in PostgreSQL and embedded an asynchronous Redis memory caching layer to hold session states.",
+    outcome: "Boosted backend analytical dashboard query processing loops by 30% while enforcing full multi-tenant data boundary security.",
     metrics: [
-      { label: "UTILIZATION", value: "+40%" },
-      { label: "ISOLATION", value: "Strict" }
+      { label: "DASHBOARD_QUERY", value: "+30% SPEED" },
+      { label: "ISOLATION", value: "SCHEMA-LEVEL" }
     ],
-    tags: ["GO", "DOCKER", "GRPC", "ETCD"],
+    tags: ["NODE.JS", "POSTGRESQL", "REDIS", "DATA_PIPELINES"],
     visual: (
       <div className="w-full h-48 bg-secondary-bg border border-border-soft flex items-center justify-center p-4">
         <div className="grid grid-cols-2 gap-2 font-mono-code text-[12px] text-text-muted w-full max-w-[300px]">
-          <div className="col-span-2 text-center mb-2">NODE_CLUSTER_01</div>
-          <div className="bg-elevated p-2 border border-accent-lime">TENANT_A (80%)</div>
-          <div className="bg-elevated p-2 border border-border-standard">TENANT_B (20%)</div>
-          <div className="bg-elevated p-2 border border-warning-amber">TENANT_C (95%)</div>
-          <div className="bg-elevated p-2 border border-border-standard">TENANT_D (15%)</div>
+          <div className="col-span-2 text-center mb-2">[TENANT_ISOLATION_ROUTER]</div>
+          <div className="bg-elevated p-2 border border-accent-lime text-center truncate">SCHEMA_JK_TYRES</div>
+          <div className="bg-elevated p-2 border border-border-standard text-center truncate">REDIS_CACHE_STATE</div>
+          <div className="bg-elevated p-2 border border-warning-amber text-center truncate">ASYNC_PIPELINE</div>
+          <div className="bg-elevated p-2 border border-border-standard text-center truncate">BATCH_OK (200)</div>
         </div>
       </div>
     )
