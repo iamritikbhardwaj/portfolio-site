@@ -13,16 +13,50 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-2 px-3 py-1 bg-elevated border border-border-soft w-fit rounded-pill">
             <span className="w-2 h-2 rounded-full bg-accent-lime"></span>
-            <span className="font-mono-label text-text-muted">STATUS: OPERATIONAL</span>
+            <span className="font-mono-label text-text-muted">
+              STATUS: OPERATIONAL
+            </span>
           </div>
         </div>
 
         <div className="flex gap-16">
           <div className="flex flex-col gap-2">
-            <span className="font-mono-label text-text-disabled mb-2">RESOURCES</span>
-            <a href="https://github.com/iamritikbhardwaj" target="_blank" rel="noopener noreferrer" className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2">GITHUB</a>
-            <a href="https://linkedin.com/in/ritik-singh" target="_blank" rel="noopener noreferrer" className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2">LINKEDIN</a>
-            <a href="https://cal.com/ritik-singh-3mjivg" target="_blank" rel="noopener noreferrer" className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2">CONSULTATION</a>
+            <span className="font-mono-label text-text-disabled mb-2">
+              RESOURCES
+            </span>
+            <a
+              href="https://www.upwork.com/freelancers/~01c95e7b8432cf26b1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2"
+            >
+              UPWORK
+            </a>
+
+            <a
+              href="https://github.com/iamritikbhardwaj"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2"
+            >
+              GITHUB
+            </a>
+            <a
+              href="https://linkedin.com/in/ritik-singh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2"
+            >
+              LINKEDIN
+            </a>
+            <a
+              href="https://cal.com/ritik-singh-3mjivg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2"
+            >
+              CONSULTATION
+            </a>
           </div>
         </div>
       </div>
