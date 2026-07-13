@@ -119,6 +119,87 @@ const projects = [
       </div>
     ),
   },
+  {
+    id: "CASE_STUDY_04",
+    title: "Microservices Travel DMC Platform",
+    problem:
+      "Maintaining tight loose-coupling boundaries, proper role-based validation, and clean data routing across segmented booking domains.",
+    solution:
+      "Architected an isolated multi-service ecosystem separating User Service, Admin control, and a central Channel Manager from standalone Activities, Transfers, and Hotels service dependencies interacting across PostgreSQL and MongoDB nodes. Integrated multi-supplier data logic strictly across Booking.com, GlobalTix, and iWay endpoints.",
+    outcome:
+      "Achieved modular service independence, enforced strong data boundary verification steps, and preserved high operational availability.",
+    metrics: [
+      { label: "ARCHITECTURE", value: "LOOSELY_COUPLED" },
+      { label: "DATABASES", value: "POLYGLOT (PG/MONGO)" },
+    ],
+    tags: ["NODE.JS", "GO", "MICROSERVICES", "MOBI_DMC"],
+    visual: (
+      <div className="w-full h-48 bg-secondary-bg border border-border-soft flex items-center justify-center p-3">
+        <div className="flex flex-col gap-1 font-mono-code text-[10px] text-text-muted w-full max-w-[320px]">
+          <div className="grid grid-cols-2 gap-1 text-center">
+            <div className="bg-elevated p-1 border border-border-standard">
+              [User Service]
+            </div>
+            <div className="bg-elevated p-1 border border-border-standard">
+              [Admin Service]
+            </div>
+          </div>
+          <div className="text-center">↓</div>
+          <div className="text-center bg-elevated p-1 border border-border-standard">
+            [Channel Manager]
+          </div>
+          <div className="text-center">↓</div>
+          <div className="grid grid-cols-3 gap-1 text-center text-[9px]">
+            <div className="bg-elevated p-1 border border-accent-lime truncate">
+              Hotels
+              <br />
+              (Booking.com)
+            </div>
+            <div className="bg-elevated p-1 border border-accent-lime truncate">
+              Activities
+              <br />
+              (GlobalTix)
+            </div>
+            <div className="bg-elevated p-1 border border-accent-lime truncate">
+              Transfers
+              <br />
+              (iWay)
+            </div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "CASE_STUDY_05",
+    title: "High-Concurrency Flight Aggregator Engine",
+    problem:
+      "Runtime response distortion, extreme data coupling, and structural latency anomalies when consolidating variant global distribution streams.",
+    solution:
+      "Designed a centralized service Orchestrator layer utilizing the Strategy Design Pattern in Go to isolate distinct, injected transformation maps for downstream payload requests running concurrently across GoKyte, Duffel, and PKFare engines.",
+    outcome:
+      "Locked down flight search transactional integrity, minimized processing friction, and fully decoupled multi-vendor fallback mapping routes.",
+    metrics: [
+      { label: "PATTERN", value: "STRATEGY_ORCHESTRATOR" },
+      { label: "EXECUTION", value: "HIGH-CONCURRENCY" },
+    ],
+    tags: ["GO", "FLIGHT_SCANNER", "STRATEGY_PATTERN", "ORCHESTRATOR"],
+    visual: (
+      <div className="w-full h-48 bg-secondary-bg border border-border-soft flex items-center justify-center p-4">
+        <div className="flex flex-col gap-2 font-mono-code text-[12px] text-text-muted w-full max-w-[300px]">
+          <div className="text-center bg-elevated p-1 border border-border-standard">
+            [FLIGHT_ORCHESTRATOR_CORE]
+          </div>
+          <div className="text-center">↓ (Dynamic Strategy Selector)</div>
+          <div className="flex gap-1 justify-between bg-elevated p-2 border border-warning-amber text-[10px]">
+            <span>[Strategy: GoKyte]</span>
+            <span>[Strategy: Duffel]</span>
+            <span>[Strategy: PKFare]</span>
+          </div>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function Projects() {
