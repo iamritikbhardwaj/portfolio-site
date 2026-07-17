@@ -54,7 +54,6 @@ const biodataInfo = {
     designation: "Technical Interviewer & Software Engineer",
     company: "Patch Infotech",
     location: "Sector 49, Gurgaon",
-    salary: "5 LPA",
   },
   about:
     "I am a career-oriented individual with a blend of modern values and respect for traditions. Friends describe me as grounded, ambitious, and easy-going. I enjoy traveling, reading non-fiction, and staying fit. I am looking for a partner who is understanding, educated, and ready to share a journey of growth and happiness together.",
@@ -215,6 +214,9 @@ export default function BiodataPage() {
                           {biodataInfo.personalDetails.religion}
                         </p>
                         <p className="text-sm text-gray-500">
+                          {biodataInfo.personalDetails.rajput}
+                        </p>
+                        <p className="text-sm text-gray-500">
                           {biodataInfo.personalDetails.caste}
                         </p>
                       </div>
@@ -294,12 +296,7 @@ export default function BiodataPage() {
                       engineer at {biodataInfo.professional.company}. Based in{" "}
                       {biodataInfo.professional.location}.
                     </p>
-                    <div className="flex gap-4 mt-2">
-                      <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                        <IndianRupee className="w-4 h-4" />
-                        <span>{biodataInfo.professional.salary}</span>
-                      </div>
-                    </div>
+                    <div className="flex gap-4 mt-2"></div>
                   </div>
                 </section>
 
