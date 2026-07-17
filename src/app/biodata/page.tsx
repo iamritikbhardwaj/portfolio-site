@@ -26,8 +26,7 @@ export const metadata: Metadata = {
 // Biodata Information - Edit this object to update your details
 const biodataInfo = {
   name: "Ritik Singh",
-  photo:
-    "https://i.pinimg.com/736x/29/85/3b/29853b52044d0ea63ab946afba8476a0.jpg",
+  photo: "/images/profile_photo.jpg",
   personalDetails: {
     dateOfBirth: "19th February, 2001",
     timeOfBirth: "01:30 AM",
