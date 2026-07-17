@@ -18,6 +18,8 @@ import {
   Share2,
 } from "lucide-react";
 
+import BiodataActions from "./BiodataActions";
+
 export const metadata: Metadata = {
   title: "Marriage Biodata - Ritik Singh",
   description: "Marriage biodata of Ritik Singh",
@@ -87,40 +89,31 @@ const biodataInfo = {
 
 export default function BiodataPage() {
   return (
-    <div className="bg-background-light dark:bg-background-dark font-display text-[#181511] antialiased min-h-screen flex flex-col">
+    <div className="bg-[#fcfbf9] dark:bg-[#0a0a0a] font-display text-[#181511] antialiased min-h-screen flex flex-col print:bg-white print:text-black">
       {/* Top Navigation Bar */}
-      <header className="sticky top-0 z-50 w-full bg-white/80 dark:bg-[#181511]/80 backdrop-blur-md border-b border-[#f4f3f0] dark:border-[#332f25] px-4 md:px-10 py-3">
+      <header className="sticky top-0 z-50 w-full bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-[#f4f3f0] dark:border-[#262626] px-4 md:px-10 py-3 print:hidden">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="text-primary">
+            <div className="text-amber-600 dark:text-amber-500">
               <Users className="w-6 h-6" />
             </div>
             <h2 className="text-[#181511] dark:text-white text-lg font-bold leading-tight tracking-tight">
               Biodata
             </h2>
           </div>
-          <div className="flex gap-2">
-            <button className="flex items-center justify-center rounded-lg h-9 bg-background-light dark:bg-white/10 text-[#181511] dark:text-white hover:bg-primary/20 transition-colors gap-2 text-sm font-bold px-4">
-              <Download className="w-5 h-5" />
-              <span className="hidden sm:inline">Download PDF</span>
-            </button>
-            <button className="flex items-center justify-center rounded-lg h-9 bg-background-light dark:bg-white/10 text-[#181511] dark:text-white hover:bg-primary/20 transition-colors gap-2 text-sm font-bold px-4">
-              <Share2 className="w-5 h-5" />
-              <span className="hidden sm:inline">Share</span>
-            </button>
-          </div>
+          <BiodataActions />
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 w-full py-8 px-4 md:px-8 overflow-y-auto">
-        <div className="max-w-5xl mx-auto">
+      <main className="flex-1 w-full py-8 px-4 md:px-8 overflow-y-auto print:overflow-visible print:py-0 print:px-0">
+        <div className="max-w-5xl mx-auto print:max-w-none print:w-full">
           {/* Biodata Card */}
-          <div className="bg-white dark:bg-[#2a2418] shadow-sm rounded-xl overflow-hidden border border-[#f4f3f0] dark:border-[#3a3429]">
+          <div className="bg-white dark:bg-[#141414] shadow-sm rounded-xl overflow-hidden border border-[#f4f3f0] dark:border-[#262626] print:shadow-none print:border-none print:rounded-none">
             {/* Card Header */}
-            <div className="relative flex flex-col items-center pt-10 pb-6 px-6 text-center border-b border-[#f4f3f0] dark:border-[#3a3429]">
+            <div className="relative flex flex-col items-center pt-10 pb-6 px-6 text-center border-b border-[#f4f3f0] dark:border-[#262626]">
               {/* Om Symbol */}
-              <div className="text-primary/80 mb-4 opacity-80">
+              <div className="text-amber-600/80 dark:text-amber-500/80 mb-4 opacity-80">
                 <svg
                   className="w-12 h-12"
                   fill="currentColor"
@@ -137,7 +130,7 @@ export default function BiodataPage() {
               <h1 className="text-[#181511] dark:text-white text-4xl md:text-5xl font-black tracking-tighter mb-2">
                 {biodataInfo.name}
               </h1>
-              <p className="text-primary text-sm md:text-base font-medium tracking-widest uppercase">
+              <p className="text-amber-600 dark:text-amber-500 text-sm md:text-base font-medium tracking-widest uppercase">
                 Marriage Biodata
               </p>
               <p className="text-gray-500 dark:text-gray-400 text-sm italic mt-2">
@@ -145,9 +138,9 @@ export default function BiodataPage() {
               </p>
             </div>
 
-            <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col md:flex-row print:flex-row">
               {/* LEFT COLUMN: Sidebar */}
-              <div className="w-full md:w-1/3 bg-[#fcfbf9] dark:bg-[#252015] border-r border-[#f4f3f0] dark:border-[#3a3429] p-6 md:p-8 flex flex-col gap-8">
+              <div className="w-full md:w-1/3 print:w-1/3 bg-[#fcfbf9] dark:bg-[#1a1a1a] border-r border-[#f4f3f0] dark:border-[#262626] p-6 md:p-8 flex flex-col gap-8">
                 {/* Photo */}
                 <div
                   className="aspect-[3/4] w-full bg-cover bg-center rounded-lg shadow-inner overflow-hidden relative group"
@@ -158,12 +151,12 @@ export default function BiodataPage() {
 
                 {/* Personal Details */}
                 <div className="flex flex-col gap-6">
-                  <h3 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest border-b border-gray-200 dark:border-gray-700 pb-2">
+                  <h3 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest border-b border-gray-200 dark:border-[#333333] pb-2">
                     Personal Details
                   </h3>
                   <div className="space-y-5">
                     <div className="flex gap-4 items-start">
-                      <div className="bg-primary/10 text-primary p-2 rounded-lg shrink-0">
+                      <div className="bg-amber-600/10 dark:bg-amber-500/10 text-amber-600 dark:text-amber-500 p-2 rounded-lg shrink-0">
                         <Calendar className="w-5 h-5" />
                       </div>
                       <div>
@@ -180,7 +173,7 @@ export default function BiodataPage() {
                     </div>
 
                     <div className="flex gap-4 items-start">
-                      <div className="bg-primary/10 text-primary p-2 rounded-lg shrink-0">
+                      <div className="bg-amber-600/10 dark:bg-amber-500/10 text-amber-600 dark:text-amber-500 p-2 rounded-lg shrink-0">
                         <Ruler className="w-5 h-5" />
                       </div>
                       <div>
@@ -194,7 +187,7 @@ export default function BiodataPage() {
                     </div>
 
                     <div className="flex gap-4 items-start">
-                      <div className="bg-primary/10 text-primary p-2 rounded-lg shrink-0">
+                      <div className="bg-amber-600/10 dark:bg-amber-500/10 text-amber-600 dark:text-amber-500 p-2 rounded-lg shrink-0">
                         <Sparkles className="w-5 h-5" />
                       </div>
                       <div>
@@ -211,7 +204,7 @@ export default function BiodataPage() {
                     </div>
 
                     <div className="flex gap-4 items-start">
-                      <div className="bg-primary/10 text-primary p-2 rounded-lg shrink-0">
+                      <div className="bg-amber-600/10 dark:bg-amber-500/10 text-amber-600 dark:text-amber-500 p-2 rounded-lg shrink-0">
                         <Church className="w-5 h-5" />
                       </div>
                       <div>
@@ -228,7 +221,7 @@ export default function BiodataPage() {
                     </div>
 
                     <div className="flex gap-4 items-start">
-                      <div className="bg-primary/10 text-primary p-2 rounded-lg shrink-0">
+                      <div className="bg-amber-600/10 dark:bg-amber-500/10 text-amber-600 dark:text-amber-500 p-2 rounded-lg shrink-0">
                         <MapPin className="w-5 h-5" />
                       </div>
                       <div>
@@ -245,12 +238,12 @@ export default function BiodataPage() {
 
                 {/* Education Sidebar */}
                 <div className="flex flex-col gap-4 pt-2">
-                  <h3 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest border-b border-gray-200 dark:border-gray-700 pb-2">
+                  <h3 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest border-b border-gray-200 dark:border-[#333333] pb-2">
                     Education
                   </h3>
                   {biodataInfo.education.map((edu, idx) => (
                     <div key={idx} className="flex gap-3 items-center">
-                      <edu.icon className="text-primary w-[18px] h-[18px]" />
+                      <edu.icon className="text-amber-600 dark:text-amber-500 w-[18px] h-[18px]" />
                       <span className="text-[#181511] dark:text-gray-200 text-sm font-medium">
                         {edu.degree}
                       </span>
@@ -260,11 +253,11 @@ export default function BiodataPage() {
               </div>
 
               {/* RIGHT COLUMN: Main Content */}
-              <div className="w-full md:w-2/3 p-6 md:p-10 flex flex-col gap-10">
+              <div className="w-full md:w-2/3 print:w-2/3 p-6 md:p-10 flex flex-col gap-10">
                 {/* About Me */}
                 <section>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="h-8 w-1 bg-primary rounded-full"></div>
+                    <div className="h-8 w-1 bg-amber-600 dark:bg-amber-500 rounded-full"></div>
                     <h3 className="text-2xl font-bold text-[#181511] dark:text-white">
                       About Me
                     </h3>
@@ -277,22 +270,22 @@ export default function BiodataPage() {
                 {/* Professional Background */}
                 <section>
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="h-8 w-1 bg-primary rounded-full"></div>
+                    <div className="h-8 w-1 bg-amber-600 dark:bg-amber-500 rounded-full"></div>
                     <h3 className="text-2xl font-bold text-[#181511] dark:text-white">
                       Professional Background
                     </h3>
                   </div>
-                  <div className="bg-[#f8f7f6] dark:bg-[#332d22] rounded-xl p-6 flex flex-col gap-4 border border-transparent hover:border-primary/20 transition-all">
+                  <div className="bg-[#f8f7f6] dark:bg-[#1a1a1a] rounded-xl p-6 flex flex-col gap-4 border border-transparent hover:border-amber-600/20 dark:hover:border-amber-500/20 transition-all">
                     <div className="flex items-start justify-between flex-wrap gap-2">
                       <div>
                         <h4 className="text-lg font-bold text-[#181511] dark:text-white">
                           {biodataInfo.professional.designation}
                         </h4>
-                        <p className="text-primary font-medium">
+                        <p className="text-amber-600 dark:text-amber-500 font-medium">
                           {biodataInfo.professional.company}
                         </p>
                       </div>
-                      <span className="bg-white dark:bg-[#2a2418] text-xs font-bold px-3 py-1 rounded-full text-gray-500 border border-gray-100 dark:border-gray-700">
+                      <span className="bg-white dark:bg-[#141414] text-xs font-bold px-3 py-1 rounded-full text-gray-500 border border-gray-100 dark:border-[#333333]">
                         Present
                       </span>
                     </div>
@@ -313,15 +306,15 @@ export default function BiodataPage() {
                 {/* Family Background */}
                 <section>
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="h-8 w-1 bg-primary rounded-full"></div>
+                    <div className="h-8 w-1 bg-amber-600 dark:bg-amber-500 rounded-full"></div>
                     <h3 className="text-2xl font-bold text-[#181511] dark:text-white">
                       Family Background
                     </h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Father */}
-                    <div className="flex items-center gap-4 p-4 border border-[#f4f3f0] dark:border-[#3a3429] rounded-xl">
-                      <div className="bg-primary/10 h-12 w-12 rounded-full flex items-center justify-center text-primary shrink-0">
+                    <div className="flex items-center gap-4 p-4 border border-[#f4f3f0] dark:border-[#262626] rounded-xl">
+                      <div className="bg-amber-600/10 dark:bg-amber-500/10 h-12 w-12 rounded-full flex items-center justify-center text-amber-600 dark:text-amber-500 shrink-0">
                         <User className="w-6 h-6" />
                       </div>
                       <div>
@@ -338,8 +331,8 @@ export default function BiodataPage() {
                     </div>
 
                     {/* Mother */}
-                    <div className="flex items-center gap-4 p-4 border border-[#f4f3f0] dark:border-[#3a3429] rounded-xl">
-                      <div className="bg-primary/10 h-12 w-12 rounded-full flex items-center justify-center text-primary shrink-0">
+                    <div className="flex items-center gap-4 p-4 border border-[#f4f3f0] dark:border-[#262626] rounded-xl">
+                      <div className="bg-amber-600/10 dark:bg-amber-500/10 h-12 w-12 rounded-full flex items-center justify-center text-amber-600 dark:text-amber-500 shrink-0">
                         <User className="w-6 h-6" />
                       </div>
                       <div>
@@ -359,9 +352,9 @@ export default function BiodataPage() {
                     {biodataInfo.family.siblings.map((sibling, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center gap-4 p-4 border border-[#f4f3f0] dark:border-[#3a3429] rounded-xl md:col-span-2"
+                        className="flex items-center gap-4 p-4 border border-[#f4f3f0] dark:border-[#262626] rounded-xl md:col-span-2"
                       >
-                        <div className="bg-primary/10 h-12 w-12 rounded-full flex items-center justify-center text-primary shrink-0">
+                        <div className="bg-amber-600/10 dark:bg-amber-500/10 h-12 w-12 rounded-full flex items-center justify-center text-amber-600 dark:text-amber-500 shrink-0">
                           <Users className="w-6 h-6" />
                         </div>
                         <div>
@@ -384,7 +377,7 @@ export default function BiodataPage() {
                 </section>
 
                 {/* Contact Footer */}
-                <div className="mt-auto pt-8 border-t border-[#f4f3f0] dark:border-[#3a3429]">
+                <div className="mt-auto pt-8 border-t border-[#f4f3f0] dark:border-[#262626]">
                   <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-4">
                     Contact Information
                   </h3>
@@ -399,12 +392,12 @@ export default function BiodataPage() {
                       className="flex items-center gap-3 group"
                       href={`tel:${biodataInfo.contact.mobile}`}
                     >
-                      <div className="bg-[#181511] dark:bg-white text-white dark:text-[#181511] p-2.5 rounded-lg group-hover:scale-110 transition-transform">
+                      <div className="bg-[#181511] dark:bg-[#f5f5f3] text-white dark:text-[#0a0a0a] p-2.5 rounded-lg group-hover:scale-110 transition-transform">
                         <Phone className="w-5 h-5" />
                       </div>
                       <div className="flex flex-col">
                         <span className="text-xs text-gray-500">Mobile</span>
-                        <span className="font-bold text-[#181511] dark:text-white group-hover:text-primary transition-colors">
+                        <span className="font-bold text-[#181511] dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-500 transition-colors">
                           {biodataInfo.contact.mobile}
                         </span>
                       </div>
@@ -413,18 +406,18 @@ export default function BiodataPage() {
                       className="flex items-center gap-3 group"
                       href={`mailto:${biodataInfo.contact.email}`}
                     >
-                      <div className="bg-[#181511] dark:bg-white text-white dark:text-[#181511] p-2.5 rounded-lg group-hover:scale-110 transition-transform">
+                      <div className="bg-[#181511] dark:bg-[#f5f5f3] text-white dark:text-[#0a0a0a] p-2.5 rounded-lg group-hover:scale-110 transition-transform">
                         <Mail className="w-5 h-5" />
                       </div>
                       <div className="flex flex-col">
                         <span className="text-xs text-gray-500">Email</span>
-                        <span className="font-bold text-[#181511] dark:text-white group-hover:text-primary transition-colors">
+                        <span className="font-bold text-[#181511] dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-500 transition-colors">
                           {biodataInfo.contact.email}
                         </span>
                       </div>
                     </a>
                   </div>
-                  <div className="mt-4 p-4 bg-[#f8f7f6] dark:bg-[#332d22] rounded-lg">
+                  <div className="mt-4 p-4 bg-[#f8f7f6] dark:bg-[#1a1a1a] rounded-lg">
                     <p className="text-xs text-gray-400 uppercase font-bold mb-1">
                       Permanent Address
                     </p>
