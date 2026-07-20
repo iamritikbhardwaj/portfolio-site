@@ -10,6 +10,14 @@
     "export": "next export",
     "analyze": "cross-env ANALYZE=true next build"
   },
+  "browserslist": [
+    "chrome >= 92",
+    "firefox >= 90",
+    "safari >= 15.4",
+    "edge >= 92",
+    "ios >= 15.4",
+    "not dead"
+  ],
   "dependencies": {
     "@next/bundle-analyzer": "^16.2.9",
     "@vercel/analytics": "^2.0.1",
@@ -28,6 +36,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "critters": "^0.0.25",
     "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.4.2",

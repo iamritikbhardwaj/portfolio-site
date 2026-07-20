@@ -7,6 +7,9 @@ const withBundleAnalyzer = createBundleAnalyzer({
 
 const nextConfig: NextConfig = {
   /* config options here */
+  experimental: {
+    optimizeCss: true,
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
