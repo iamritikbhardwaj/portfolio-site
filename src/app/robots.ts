@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://www.codecraftedlabs.co.in/sitemap.xml',
+    sitemap: 'https://codecraftedlabs.co.in/sitemap.xml',
   };
 }

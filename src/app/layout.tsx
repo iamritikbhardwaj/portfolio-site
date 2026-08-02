@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     siteName: "Code Crafted Labs",
     images: [
       {
-        url: "https://www.codecraftedlabs.co.in/opengraph-image.png",
+        url: "https://codecraftedlabs.co.in/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Code Crafted Labs",

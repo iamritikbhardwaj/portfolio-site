@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -24,6 +25,12 @@ export default function Footer() {
             <span className="font-mono-label text-text-disabled mb-2">
               RESOURCES
             </span>
+            <Link
+              href="/#about"
+              className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2"
+            >
+              ABOUT
+            </Link>
             <a
               href="https://www.upwork.com/freelancers/~01c95e7b8432cf26b1"
               target="_blank"
@@ -57,6 +64,12 @@ export default function Footer() {
             >
               CONSULTATION
             </a>
+            <Link
+              href="/card"
+              className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2"
+            >
+              DIGITAL CARD
+            </Link>
           </div>
         </div>
       </div>

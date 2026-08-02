@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
 import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
@@ -13,6 +14,7 @@ export default function Page() {
       <div className="flex flex-col min-h-[100dvh] relative overflow-hidden">
         <main id="main-content" className="flex-grow">
           <Hero />
+          <About />
           <Services />
           <Projects />
           <Experience />
