@@ -49,7 +49,7 @@ export default function Footer() {
               GITHUB
             </a>
             <a
-              href="https://linkedin.com/in/ritik-singh"
+              href="https://www.linkedin.com/in/ritik-singh-10b333227/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2"

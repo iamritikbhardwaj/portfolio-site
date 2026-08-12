@@ -90,6 +90,22 @@ textarea:focus-visible {
   50% { opacity: 0; }
 }
 
+/* Partners marquee */
+.partners-marquee-content {
+  animation: partners-marquee 24s linear infinite;
+  will-change: transform;
+}
+
+.partners-marquee:hover .partners-marquee-content,
+.partners-marquee:focus-within .partners-marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes partners-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
@@ -101,5 +117,11 @@ textarea:focus-visible {
     scroll-behavior: auto !important;
     transition-duration: 0s !important;
     transition-delay: 0s !important;
+  }
+
+  .partners-marquee-content {
+    animation: none !important;
+    transform: none !important;
+    will-change: auto;
   }
 }
