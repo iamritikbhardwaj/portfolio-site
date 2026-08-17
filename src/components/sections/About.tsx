@@ -32,6 +32,9 @@ export default function About() {
             fill
             sizes="(max-width: 1024px) 100vw, 40vw"
             className="object-cover object-center"
+            priority
+            loading="eager"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-4 p-6 md:p-8">

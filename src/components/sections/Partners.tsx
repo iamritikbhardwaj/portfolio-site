@@ -59,6 +59,7 @@ export default function Partners() {
                         width={96}
                         height={64}
                         sizes="64px"
+                        loading="lazy"
                         className="h-auto w-full object-contain"
                       />
                     </span>

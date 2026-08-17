@@ -1,13 +1,16 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
-import Partners from "@/components/sections/Partners";
-import Services from "@/components/sections/Services";
-import Projects from "@/components/sections/Projects";
-import Experience from "@/components/sections/Experience";
-import Pricing from "@/components/sections/Pricing";
-import Contact from "@/components/sections/Contact";
-import Footer from "@/components/sections/Footer";
+
+// Below-fold sections — code-split to reduce initial JS parse
+const Services = dynamic(() => import("@/components/sections/Services"));
+const Projects = dynamic(() => import("@/components/sections/Projects"));
+const Experience = dynamic(() => import("@/components/sections/Experience"));
+const Pricing = dynamic(() => import("@/components/sections/Pricing"));
+const Contact = dynamic(() => import("@/components/sections/Contact"));
+const Partners = dynamic(() => import("@/components/sections/Partners"));
+const Footer = dynamic(() => import("@/components/sections/Footer"));
 
 export default function Page() {
   return (
