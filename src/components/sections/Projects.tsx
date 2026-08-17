@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 const projects = [
   {
@@ -203,6 +205,10 @@ const projects = [
 ];
 
 export default function Projects() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const displayedProjects = isExpanded ? projects : projects.slice(0, 2);
+
   return (
     <section
       id="projects"
@@ -216,7 +222,7 @@ export default function Projects() {
       </div>
 
       <div className="flex flex-col gap-16">
-        {projects.map((project, idx) => (
+        {displayedProjects.map((project, idx) => (
           <div
             key={idx}
             className="flex flex-col md:flex-row gap-8 border border-border-soft bg-surface p-8"
@@ -287,6 +293,17 @@ export default function Projects() {
           </div>
         ))}
       </div>
+
+      {projects.length > 2 && (
+        <div className="mt-16 flex justify-center">
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="px-8 py-3 bg-elevated border border-border-standard font-mono-btn text-accent-lime hover:bg-border-soft transition-colors duration-200"
+          >
+            [{isExpanded ? "COLLAPSE_LIST" : "EXPAND_CASE_STUDIES"}]
+          </button>
+        </div>
+      )}
     </section>
   );
 }
