@@ -3,7 +3,6 @@ import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 
-import PersonSchema from "./person-schema";
 import { Analytics } from "@vercel/analytics/react";
 
 const spaceGrotesk = Space_Grotesk({
@@ -131,7 +130,6 @@ export default function RootLayout({
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-bg focus:text-accent-lime focus:outline focus:outline-2 focus:outline-accent-lime">
           Skip to content
         </a>
-        <PersonSchema />
         {children}
         <Analytics />
       </body>
