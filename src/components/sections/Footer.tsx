@@ -70,6 +70,18 @@ export default function Footer() {
             >
               DIGITAL CARD
             </Link>
+            <Link
+              href="/privacy"
+              className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2"
+            >
+              PRIVACY
+            </Link>
+            <Link
+              href="/sms-terms"
+              className="font-mono-link text-text-secondary hover:text-text-primary transition-colors min-h-[44px] min-w-[44px] inline-flex items-center py-2"
+            >
+              SMS TERMS
+            </Link>
           </div>
         </div>
       </div>

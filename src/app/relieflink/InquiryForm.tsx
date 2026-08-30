@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { CheckCircle2, LoaderCircle, Send } from "lucide-react";
+import Link from "next/link";
 
 import { submitReliefLinkInquiry } from "./actions";
 import styles from "./relieflink.module.css";
@@ -61,6 +62,10 @@ export default function InquiryForm() {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
+      <div hidden aria-hidden="true">
+        <label htmlFor="relief-website">Leave this field empty</label>
+        <input id="relief-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className={styles.formGrid}>
         <div className={styles.field}>
           <label htmlFor="relief-name">Full name</label>
@@ -83,6 +88,18 @@ export default function InquiryForm() {
         <label htmlFor="relief-details">Errand details</label>
         <textarea id="relief-details" name="details" rows={5} placeholder="Tell us what your parent needs, preferred timing, and anything our care professional should know." required minLength={10} maxLength={3000} />
         <span className={styles.fieldHint}>Please avoid sharing medical records or sensitive financial information.</span>
+      </div>
+
+      <div className={styles.smsConsent}>
+        <input id="relief-sms-consent" name="smsConsent" type="checkbox" value="yes" />
+        <label htmlFor="relief-sms-consent">
+          I agree to receive recurring service-related SMS messages from ReliefLink
+          about my inquiry and care status. Message frequency varies. Message and
+          data rates may apply. Reply <strong>STOP</strong> to unsubscribe or{" "}
+          <strong>HELP</strong> for help. Consent is not a condition of purchase. See
+          our <Link href="/relieflink/terms">SMS Terms</Link> and{" "}
+          <Link href="/relieflink/privacy">Privacy Policy</Link>.
+        </label>
       </div>
 
       {status.type === "success" && (

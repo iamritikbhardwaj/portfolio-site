@@ -520,6 +520,7 @@
 }
 
 .form {
+  position: relative;
   display: grid;
   gap: 22px;
   border: 1px solid rgb(194 199 202 / 58%);
@@ -583,6 +584,36 @@
 .fieldHint {
   color: var(--rl-ink-muted);
   font-size: 12px;
+}
+
+.smsConsent {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: start;
+  gap: 12px;
+  border: 1px solid rgb(194 199 202 / 58%);
+  border-radius: 10px;
+  background: var(--rl-surface-low);
+  padding: 16px;
+}
+
+.smsConsent input {
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--rl-primary);
+}
+
+.smsConsent label {
+  color: var(--rl-ink-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.smsConsent a {
+  color: var(--rl-primary);
+  font-weight: 700;
+  text-underline-offset: 2px;
 }
 
 .formSubmit {
@@ -661,6 +692,94 @@
   text-decoration: none;
 }
 
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.serviceDisclaimer {
+  max-width: 1120px;
+  margin: 1.5rem auto 0;
+  padding: 1.25rem clamp(1.25rem, 4vw, 2rem) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.legalHeader {
+  border-bottom: 1px solid rgb(194 199 202 / 38%);
+  background: var(--rl-surface);
+}
+
+.legalHeaderInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100% - 32px, 920px);
+  min-height: 76px;
+  margin-inline: auto;
+  gap: 24px;
+}
+
+.legalPage {
+  width: min(100% - 32px, 760px);
+  margin-inline: auto;
+  padding-block: clamp(56px, 8vw, 88px);
+}
+
+.legalIntro {
+  margin-bottom: 48px;
+  border-bottom: 1px solid rgb(194 199 202 / 55%);
+  padding-bottom: 38px;
+}
+
+.legalIntro h1 {
+  margin: 12px 0 16px;
+  color: var(--rl-primary);
+  font-size: clamp(38px, 6vw, 58px);
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.legalIntro p {
+  max-width: 660px;
+  margin: 0;
+  color: var(--rl-ink-muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.legalPage section {
+  margin-block: 34px;
+  scroll-margin-top: 24px;
+}
+
+.legalPage h2 {
+  margin: 0 0 12px;
+  color: var(--rl-primary);
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.legalPage p {
+  margin: 10px 0;
+  color: var(--rl-ink-muted);
+  line-height: 1.75;
+}
+
+.legalPage strong {
+  color: var(--rl-ink);
+}
+
+.legalPage a {
+  color: var(--rl-secondary);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 760px) {
   .nav {
     display: none;
@@ -698,6 +817,16 @@
     grid-template-columns: 1fr;
     gap: 16px;
     text-align: center;
+  }
+
+  .footerLinks {
+    justify-content: center;
+  }
+
+  .legalHeader .button {
+    min-height: 42px;
+    padding: 11px 16px;
+    font-size: 13px;
   }
 }
 

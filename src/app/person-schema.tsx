@@ -22,6 +22,8 @@ export default function PersonSchema() {
           "DevOps",
           "System Design",
           "Full Stack Development",
+          "SaaS Product Engineering",
+          "Cloud Architecture",
         ],
       },
       {

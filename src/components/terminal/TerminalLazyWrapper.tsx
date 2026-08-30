@@ -37,7 +37,11 @@ export default function TerminalLazyWrapper() {
       (entries) => {
         if (entries[0].isIntersecting) {
           // Delay actual hydration a tiny bit to let other things paint
-          const idle = window.requestIdleCallback?.(() => setMounted(true)) ?? setTimeout(() => setMounted(true), 100);
+          if (window.requestIdleCallback) {
+            window.requestIdleCallback(() => setMounted(true));
+          } else {
+            setTimeout(() => setMounted(true), 100);
+          }
           observer.disconnect();
         }
       },

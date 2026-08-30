@@ -37,6 +37,15 @@ export async function submitReliefLinkInquiry(
     const phone = readField(formData, "phone", 30);
     const city = readField(formData, "city", 120);
     const details = readField(formData, "details", 3000);
+    const website = readField(formData, "website", 200);
+    const smsConsent = formData.get("smsConsent") === "yes";
+    const consentRecordedAt = new Date().toISOString();
+    const consentSource = "https://codecraftedlabs.co.in/relieflink#inquiry";
+    const consentDisclosureVersion = "2026-08-30";
+
+    if (website) {
+      return { success: true };
+    }
 
     if (!name || !email || !phone || !city || !details) {
       return { success: false, error: "Please complete all required fields." };
@@ -56,6 +65,7 @@ export async function submitReliefLinkInquiry(
       phone: escapeHtml(phone),
       city: escapeHtml(city),
       details: escapeHtml(details).replaceAll("\n", "<br />"),
+      smsConsent: smsConsent ? "Yes - explicit web checkbox opt-in" : "No",
     };
 
     const { error: inquiryError } = await resend.emails.send({
@@ -63,7 +73,7 @@ export async function submitReliefLinkInquiry(
       to: [INQUIRY_EMAIL],
       replyTo: email,
       subject: `[RELIEFLINK] New care inquiry from ${name}`,
-      text: `New ReliefLink inquiry\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCity/location: ${city}\n\nErrand details:\n${details}`,
+      text: `New ReliefLink inquiry\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCity/location: ${city}\nSMS consent: ${smsConsent ? "Yes - explicit web checkbox opt-in" : "No"}\nConsent recorded: ${consentRecordedAt}\nConsent source: ${consentSource}\nDisclosure version: ${consentDisclosureVersion}\n\nErrand details:\n${details}`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:640px;margin:auto;color:#1c1b1a">
           <div style="background:#041920;color:#fff;padding:24px;border-radius:12px 12px 0 0">
@@ -74,6 +84,10 @@ export async function submitReliefLinkInquiry(
             <p><strong>Email:</strong> ${safe.email}</p>
             <p><strong>Phone:</strong> ${safe.phone}</p>
             <p><strong>City/location:</strong> ${safe.city}</p>
+            <p><strong>SMS consent:</strong> ${safe.smsConsent}</p>
+            <p><strong>Consent recorded:</strong> ${consentRecordedAt}</p>
+            <p><strong>Consent source:</strong> ${consentSource}</p>
+            <p><strong>Disclosure version:</strong> ${consentDisclosureVersion}</p>
             <hr style="border:0;border-top:1px solid #e5e2df;margin:24px 0" />
             <p style="margin-bottom:8px"><strong>Errand details</strong></p>
             <p style="line-height:1.6;margin-top:0">${safe.details}</p>
@@ -94,11 +108,12 @@ export async function submitReliefLinkInquiry(
       from: FROM_EMAIL,
       to: [email],
       subject: "We received your ReliefLink inquiry",
-      text: `Hello ${name},\n\nThank you for contacting ReliefLink. We received your request for support in ${city} and will review the details shortly.\n\nRegards,\nReliefLink`,
+      text: `Hello ${name},\n\nThank you for contacting ReliefLink. We received your request for support in ${city} and will review the details shortly.${smsConsent ? " You also opted in to recurring service-related SMS updates. Message frequency varies; message and data rates may apply. Reply STOP to opt out or HELP for help." : " You did not opt in to SMS updates."}\n\nRegards,\nReliefLink`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:auto;color:#1c1b1a">
           <h1 style="color:#041920;font-size:26px">Thank you, ${safe.name}.</h1>
           <p style="line-height:1.6">We received your request for support in <strong>${safe.city}</strong>. Our team will review the details and contact you shortly.</p>
+          <p style="line-height:1.6">${smsConsent ? "You also opted in to recurring service-related SMS updates. Message frequency varies; message and data rates may apply. Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help." : "You did not opt in to SMS updates."}</p>
           <p style="margin-top:28px">Regards,<br /><strong>ReliefLink</strong></p>
         </div>
       `,

@@ -50,7 +50,7 @@ Designed a centralized orchestrator in Go using the Strategy Design Pattern to i
 
 - [Home](https://codecraftedlabs.co.in): Main portfolio page with full project case studies, experience timeline, and contact form.
 - [Digital Card](https://codecraftedlabs.co.in/card): Compact digital business card with contact details.
-- [Partners](https://codecraftedlabs.co.in/#partners): Current partner companies including Flight Scanners.
+- [Products](https://codecraftedlabs.co.in/#products): Live products including ReliefLink, EmpSaaS, Flight Scanners, Hope Foundation, and the Code Crafted Labs digital card.
 
 ## Contact & Profiles
 

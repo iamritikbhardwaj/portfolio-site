@@ -26,13 +26,20 @@ const bangaloreImage =
 export const metadata: Metadata = {
   title: { absolute: "ReliefLink - Professional Errand Services for Parents in India" },
   description:
-    "Trusted grocery runs, healthcare check-ins, bill assistance, and real-time updates for parents in India when family lives abroad.",
+    "Trusted grocery runs, appointment check-ins, bill assistance, and real-time updates for parents in India when family lives abroad.",
   category: "Errand and family support services",
   keywords: [
     "errand services for parents India",
     "elderly parent support India",
     "grocery delivery assistance",
-    "healthcare check-ins India",
+    "appointment check-ins India",
+    "NRI parent assistance India",
+    "senior errand service India",
+    "medicine pickup for parents India",
+    "bill payment assistance for parents",
+    "family support services India",
+    "care updates for parents India",
+    "non-medical senior support India",
     "ReliefLink",
   ],
   authors: [{ name: "ReliefLink" }],
@@ -82,7 +89,7 @@ const howItWorks = [
 
 const timeline = [
   { time: "10:15 AM", title: "Fresh produce delivered to Sector 15", copy: "Quality checked against instructions.", icon: ShoppingBag, active: true },
-  { time: "11:30 AM", title: "BP check-up complete", copy: "Reading: 120/80 - Normal", icon: Activity },
+  { time: "11:30 AM", title: "Appointment check-in complete", copy: "Attendance confirmed without sharing medical details.", icon: Activity },
   { time: "Scheduled: 4:00 PM", title: "Utility bills payment assistance", copy: "Next update will arrive after completion.", icon: ReceiptText },
 ];
 
@@ -113,14 +120,14 @@ function StoryCards() {
       <article className={styles.storyCard}>
         <span className={styles.storyTag}>New York, 9:00 AM EST</span>
         <div className={styles.storyImage}>
-          <Image src={newYorkImage} alt="A woman in New York checking a ReliefLink update about her parent in India" fill priority sizes="(max-width: 768px) calc(100vw - 72px), 500px" />
+          <Image src={newYorkImage} alt="A woman in New York checking a ReliefLink update about her parent in India" fill priority fetchPriority="high" sizes="(max-width: 768px) calc(100vw - 72px), 500px" />
         </div>
         <p>“Just got the notification. Knowing Mom&apos;s meds were picked up and delivered safely gives me such peace of mind while I&apos;m at work.”</p>
       </article>
       <article className={`${styles.storyCard} ${styles.storyCardOffset}`}>
         <span className={styles.storyTag}>Bangalore, 6:30 PM IST</span>
         <div className={styles.storyImage}>
-          <Image src={bangaloreImage} alt="A ReliefLink professional delivering groceries and medicine to an older woman in Bangalore" fill priority sizes="(max-width: 768px) calc(100vw - 72px), 500px" />
+          <Image src={bangaloreImage} alt="A ReliefLink professional delivering groceries and medicine to an older woman in Bangalore" fill quality={65} sizes="(max-width: 768px) calc(100vw - 72px), 500px" />
         </div>
         <p>“The young man from ReliefLink is always so polite. He brought the groceries right to the kitchen and made sure I had everything for the week.”</p>
       </article>
@@ -234,8 +241,13 @@ function Footer() {
       <div className={styles.footerInner}>
         <div><span className={styles.brand}>ReliefLink</span><p>Care you can count on, across every distance.</p></div>
         <p>© {new Date().getFullYear()} ReliefLink Errand Services.</p>
-        <a href="mailto:ritiklrt2@gmail.com">Support</a>
+        <nav className={styles.footerLinks} aria-label="ReliefLink legal and support links">
+          <a href="mailto:ritiklrt2@gmail.com">Support</a>
+          <Link href="/relieflink/privacy">Privacy</Link>
+          <Link href="/relieflink/terms">SMS Terms</Link>
+        </nav>
       </div>
+      <p className={styles.serviceDisclaimer}>ReliefLink provides non-medical errand and companionship support. It is not an emergency service and does not provide medical advice, diagnosis, treatment, or clinical monitoring. Contact local emergency services for urgent needs.</p>
     </footer>
   );
 }

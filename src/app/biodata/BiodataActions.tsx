@@ -26,6 +26,8 @@ export default function BiodataActions() {
   return (
     <div className="flex gap-2 print:hidden">
       <button
+        type="button"
+        aria-label="Download biodata as PDF"
         onClick={handlePrint}
         className="flex items-center justify-center rounded-lg h-9 bg-gray-100 dark:bg-white/10 text-[#181511] dark:text-white hover:bg-amber-600/20 dark:hover:bg-amber-500/20 transition-colors gap-2 text-sm font-bold px-4 cursor-pointer"
       >
@@ -33,6 +35,8 @@ export default function BiodataActions() {
         <span className="hidden sm:inline">Download PDF</span>
       </button>
       <button
+        type="button"
+        aria-label="Share biodata"
         onClick={handleShare}
         className="flex items-center justify-center rounded-lg h-9 bg-gray-100 dark:bg-white/10 text-[#181511] dark:text-white hover:bg-amber-600/20 dark:hover:bg-amber-500/20 transition-colors gap-2 text-sm font-bold px-4 cursor-pointer"
       >

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://codecraftedlabs.co.in"),
 
   title: {
-    default: "Code Crafted Labs",
+    default: "Code Crafted Labs | Backend & Cloud Engineering",
     template: "%s | Code Crafted Labs",
   },
 
@@ -51,6 +51,20 @@ export const metadata: Metadata = {
     "DevOps Engineer",
     "Software Architect",
     "Scalable Systems",
+    "Code Crafted Labs",
+    "Ritik Singh Backend Engineer",
+    "Backend Development Services India",
+    "Golang Consultant",
+    "Node.js Backend Development",
+    "Microservices Architecture Consulting",
+    "AWS Cloud Architecture",
+    "Scalable API Development",
+    "SaaS Product Engineering",
+    "System Design Consulting",
+    "Backend Engineer Gurugram",
+    "ReliefLink",
+    "EmpSaaS",
+    "Flight Scanners",
   ],
 
   authors: [
@@ -131,7 +145,7 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
-        <Analytics />
+        {process.env.VERCEL === "1" && <Analytics />}
       </body>
     </html>
   );

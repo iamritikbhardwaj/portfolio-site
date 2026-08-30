@@ -6,16 +6,10 @@ import {
   Church,
   MapPin,
   GraduationCap,
-  BookOpen,
-  Briefcase,
-  MapPinned,
-  IndianRupee,
   User,
   Users,
   Phone,
   Mail,
-  Download,
-  Share2,
 } from "lucide-react";
 
 import BiodataActions from "./BiodataActions";
@@ -23,6 +17,13 @@ import BiodataActions from "./BiodataActions";
 export const metadata: Metadata = {
   title: "Marriage Biodata - Ritik Singh",
   description: "Marriage biodata of Ritik Singh",
+  robots: {
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
+  },
 };
 
 // Biodata Information - Edit this object to update your details
