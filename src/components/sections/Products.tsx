@@ -4,6 +4,7 @@ import {
   ContactRound,
   Heart,
   HeartHandshake,
+  ShoppingBag,
   type LucideIcon,
 } from "lucide-react";
 
@@ -22,6 +23,13 @@ const products: Product[] = [
     description: "Trusted errand support for parents in India",
     href: "/relieflink",
     icon: HeartHandshake,
+  },
+  {
+    name: "Casual Carry",
+    description: "E-commerce platform for handcrafted leather bags",
+    href: "https://www.casual-carry.com/",
+    external: true,
+    logo: "/images/casual-carry-logo.png",
   },
   {
     name: "EmpSaaS",
