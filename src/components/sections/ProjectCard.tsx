@@ -20,7 +20,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <span className="font-mono-label text-text-muted mb-4">
           {project.id}
         </span>
-        <h3 className="font-h1 text-text-primary text-[24px] mb-6 leading-tight">
+        <h3 className="font-h3 text-text-primary mb-6">
           {project.title}
         </h3>
 

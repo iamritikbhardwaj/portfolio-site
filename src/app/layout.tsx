@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Play, Poppins } from "next/font/google";
 
 import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/react";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+  preload: true,
+});
+
+const play = Play({
+  variable: "--font-play",
+  subsets: ["latin"],
+  weight: ["400", "700"],
   display: "swap",
   preload: true,
 });
@@ -139,7 +148,7 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
 
       <body
-        className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased font-body-md text-primary bg-primary-bg selection:bg-accent-lime selection:text-black overflow-x-hidden`}
+        className={`${poppins.variable} ${play.variable} ${jetbrainsMono.variable} antialiased font-body-md text-primary bg-primary-bg selection:bg-accent-lime selection:text-black overflow-x-hidden`}
       >
         <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-bg focus:text-accent-lime focus:outline focus:outline-2 focus:outline-accent-lime">
           Skip to content

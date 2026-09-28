@@ -40,7 +40,7 @@ export default function Experience() {
               <span className="font-mono-code text-accent-lime">{commit.message}</span>
               
               <div className="mt-4 bg-elevated border border-border-soft p-6 rounded-sm">
-                <h3 className="font-h1 text-[18px] text-text-primary mb-1 leading-tight">{commit.role}</h3>
+                <h3 className="font-h3 text-text-primary mb-1">{commit.role}</h3>
                 <p className="font-mono-label text-text-disabled mb-4">{commit.company}</p>
                 <ul className="list-none space-y-2 font-body-md text-text-secondary">
                   {commit.details.map((detail, didx) => (

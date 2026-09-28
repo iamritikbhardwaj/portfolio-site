@@ -15,7 +15,7 @@ const Footer = dynamic(() => import("@/components/sections/Footer"));
 
 export default function Page() {
   return (
-    <div className="min-h-[100dvh] selection:bg-accent-lime selection:text-black bg-primary-bg text-text-primary">
+    <div className="portfolio-type min-h-[100dvh] selection:bg-accent-lime selection:text-black bg-primary-bg text-text-primary">
       <PersonSchema />
       <div className="flex flex-col min-h-[100dvh] relative overflow-hidden">
         <main id="main-content" className="flex-grow">

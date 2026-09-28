@@ -21,7 +21,7 @@ Live site: [codecraftedlabs.co.in](https://codecraftedlabs.co.in)
 - React 19 and TypeScript
 - Tailwind CSS 4 for the portfolio design system
 - Scoped CSS Modules for ReliefLink
-- `next/font` for self-hosted, optimized fonts
+- `next/font` for optimized Poppins headings, Play body text, and JetBrains Mono code text
 - Resend for transactional form email
 - Vercel Analytics in Vercel production environments
 - Bun for package management and project commands

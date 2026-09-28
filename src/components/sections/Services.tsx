@@ -58,7 +58,7 @@ export default function Services() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service, idx) => (
           <div key={idx} className="bg-elevated border border-border-soft p-6 rounded-sm flex flex-col">
-            <h3 className="font-body-md font-bold text-text-primary mb-6">{service.title}</h3>
+            <h3 className="font-h3 text-text-primary mb-6">{service.title}</h3>
             
             <div className="mt-auto grid grid-cols-2 gap-4">
               {service.metrics.map((metric, midx) => (

@@ -37,7 +37,7 @@ export default function Pricing() {
         {models.map((model, idx) => (
           <div key={idx} className={`p-8 border flex flex-col ${model.highlight ? 'border-accent-lime bg-accent-lime-subtle' : 'border-border-standard bg-elevated'}`}>
             <span className="font-mono-label text-text-muted mb-8">{model.id}</span>
-            <h3 className="font-h1 text-[20px] text-text-primary mb-4 leading-tight">{model.title}</h3>
+            <h3 className="font-h3 text-text-primary mb-4">{model.title}</h3>
             <p className="font-body-md text-text-secondary mb-8 flex-grow">{model.desc}</p>
             
             <div className="pt-8 border-t border-border-soft mt-auto">

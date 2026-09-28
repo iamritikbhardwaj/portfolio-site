@@ -99,7 +99,7 @@ export default function Products() {
             <span className="mb-2 block font-mono-label text-accent-lime">
               SHIPPED_SYSTEMS
             </span>
-            <h2 id="products-heading" className="font-h1 text-[22px] text-text-primary">
+            <h2 id="products-heading" className="font-h1 text-text-primary">
               Products
             </h2>
           </div>

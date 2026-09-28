@@ -121,7 +121,7 @@ const profileSchema = {
 
 export default function CardPage() {
   return (
-    <div className="relative min-h-[100dvh] overflow-hidden bg-primary-bg text-text-primary">
+    <div className="portfolio-type relative min-h-[100dvh] overflow-hidden bg-primary-bg text-text-primary">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema) }}

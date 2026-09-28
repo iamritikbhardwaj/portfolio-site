@@ -17,7 +17,7 @@ const sectionClass = "space-y-3 border-t border-border-soft pt-8";
 
 export default function SmsTermsPage() {
   return (
-    <main id="main-content" className="mx-auto min-h-screen w-full max-w-[900px] px-6 py-16 md:px-8 md:py-24">
+    <main id="main-content" className="portfolio-type mx-auto min-h-screen w-full max-w-[900px] px-6 py-16 md:px-8 md:py-24">
       <Link href="/" className="font-mono-link text-accent-lime hover:text-text-primary">← RETURN_HOME</Link>
       <header className="mt-12 mb-14">
         <span className="font-mono-label text-accent-lime">MESSAGING_PROTOCOL</span>
