@@ -2,9 +2,9 @@ import Image from "next/image";
 import {
   ArrowUpRight,
   ContactRound,
+  Factory,
   Heart,
   HeartHandshake,
-  ShoppingBag,
   type LucideIcon,
 } from "lucide-react";
 
@@ -44,6 +44,13 @@ const products: Product[] = [
     href: "https://flightscanner.co.za",
     external: true,
     logo: "/images/flight-scanners-logo.webp",
+  },
+  {
+    name: "Hi-Tech Industries",
+    description: "Manufacturing, machinery and HSE consultancy",
+    href: "https://www.hitechkanpur.com/",
+    external: true,
+    icon: Factory,
   },
   {
     name: "Hope Foundation",

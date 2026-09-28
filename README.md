@@ -7,7 +7,7 @@ Live site: [codecraftedlabs.co.in](https://codecraftedlabs.co.in)
 ## What is included
 
 - Responsive engineering portfolio with About, Services, Projects, Experience, Pricing, Contact, and Products sections
-- Animated product rail for ReliefLink, EmpSaaS, Flight Scanners, Hope Foundation, and the digital card
+- Animated product rail for ReliefLink, Casual Carry, EmpSaaS, Flight Scanners, Hi-Tech Industries, Hope Foundation, and the digital card
 - Standalone digital visiting card with contact and profile actions
 - Isolated ReliefLink landing page with its own design system, metadata, inquiry form, and legal pages
 - Resend-powered project and ReliefLink inquiry forms
