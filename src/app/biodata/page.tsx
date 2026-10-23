@@ -53,8 +53,8 @@ const biodataInfo = {
   ],
   professional: {
     designation: "Technical Interviewer & Software Engineer",
-    company: "Patch Infotech",
-    location: "Sector 49, Gurgaon",
+    company: "Netweb Technologies",
+    location: "Faridabad, Haryana",
   },
   about:
     "I am a career-oriented individual with a blend of modern values and respect for traditions. Friends describe me as grounded, ambitious, and easy-going. I enjoy traveling, reading non-fiction, and staying fit. I am looking for a partner who is understanding, educated, and ready to share a journey of growth and happiness together.",
