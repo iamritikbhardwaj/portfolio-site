@@ -52,7 +52,7 @@ const biodataInfo = {
     },
   ],
   professional: {
-    designation: "Technical Interviewer & Software Engineer",
+    designation: "Software Engineer",
     company: "Netweb Technologies",
     location: "Faridabad, Haryana",
   },
